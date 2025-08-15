@@ -1,0 +1,37 @@
+class_name Settler extends Node2D
+
+#-Name 
+#-Short Description of the Settler and their role in the town
+#-current mood (Terrible, Bad, Fine, Good,Great)
+#-production stats (food, water, military, ingenuity)and what they contribute to the town
+#-Consumption (eg, food -2, water -1) , what they consume in a week
+
+#settler information
+#todo include assets used for settler like art here
+@export var settlerName = ""
+@export var settlerDesc = ""
+
+@onready var isDead = false
+
+#settler production stats
+@export var foodProduction = 0
+@export var waterProduction = 0
+@export var militaryProduction = 0
+@export var ingenuityProduction = 0
+
+#settler mood stats
+#later down the line will put stuff here related to mood but for now
+@export var settlerMood = settlerMoods.Great
+
+#settler drain stats
+@export var foodDrain = 1
+@export var waterDrain = 1
+
+
+enum settlerMoods {
+	Great,
+	Good,
+	Fine,
+	Bad,
+	Terrible
+}

@@ -1,12 +1,13 @@
-[gd_scene format=3 uid="uid://oxejdqiaq0wo"]
+[gd_scene load_steps=2 format=3 uid="uid://oxejdqiaq0wo"]
 
-[node name="SettlerCard" type="Node2D"]
+[ext_resource type="Script" uid="uid://c4hjh3ownshun" path="res://scenes/settler_card.gd" id="1_8gauv"]
 
-[node name="Panel" type="Panel" parent="."]
-offset_right = 102.0
-offset_bottom = 143.0
+[node name="SettlerCard" type="Panel"]
+clip_contents = true
+custom_minimum_size = Vector2(150, 200)
+script = ExtResource("1_8gauv")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Panel"]
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -15,8 +16,18 @@ grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Panel/HBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
 layout_mode = 2
 alignment = 1
 
-[node name="Sprite2D" type="Sprite2D" parent="Panel/HBoxContainer/VBoxContainer"]
+[node name="Sprite2D" type="Sprite2D" parent="HBoxContainer/VBoxContainer"]
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="."]
+custom_minimum_size = Vector2(75, 100)
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -100.0
+offset_right = 75.0
+grow_vertical = 0

@@ -11,6 +11,8 @@ class_name SettlerStats extends Resource
 @export var settlerName = ""
 @export var settlerDesc = ""
 
+@export var settlerPortrait = Texture2D
+
 @export var isDead = false
 
 #settler production stats

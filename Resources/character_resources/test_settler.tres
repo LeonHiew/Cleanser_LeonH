@@ -1,11 +1,13 @@
-[gd_resource type="Resource" script_class="SettlerStats" load_steps=2 format=3 uid="uid://by4ej3q8nhra5"]
+[gd_resource type="Resource" script_class="SettlerStats" load_steps=3 format=3 uid="uid://by4ej3q8nhra5"]
 
-[ext_resource type="Script" uid="uid://brgukr3brt6qv" path="res://scripts/settler_template.gd" id="1_xkwm6"]
+[ext_resource type="Script" uid="uid://brgukr3brt6qv" path="res://scripts/settler_Stats.gd" id="1_7xnli"]
+[ext_resource type="Texture2D" uid="uid://cked5c4eoxyuf" path="res://assets/icon.svg" id="2_xxv7q"]
 
 [resource]
-script = ExtResource("1_xkwm6")
+script = ExtResource("1_7xnli")
 settlerName = "john cleanser"
 settlerDesc = "egaehga"
+settlerPortrait = ExtResource("2_xxv7q")
 isDead = false
 foodProduction = 1
 waterProduction = 1

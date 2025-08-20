@@ -1,4 +1,4 @@
-class_name Settler extends Node2D
+class_name SettlerStats extends Resource
 
 #-Name 
 #-Short Description of the Settler and their role in the town
@@ -11,7 +11,7 @@ class_name Settler extends Node2D
 @export var settlerName = ""
 @export var settlerDesc = ""
 
-@onready var isDead = false
+@export var isDead = false
 
 #settler production stats
 @export var foodProduction = 0

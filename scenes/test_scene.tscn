@@ -1,3 +1,57 @@
-[gd_scene format=3 uid="uid://c23a1n6qbn56r"]
+[gd_scene load_steps=2 format=3 uid="uid://c23a1n6qbn56r"]
+
+[ext_resource type="Script" uid="uid://cikprjtsu6si5" path="res://scripts/test_scene.gd" id="1_g7g4h"]
 
 [node name="TestScene" type="Node2D"]
+script = ExtResource("1_g7g4h")
+metadata/_edit_use_anchors_ = true
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+color = Color(1, 0.855102, 0.75046, 1)
+polygon = PackedVector2Array(0, 0, 1152, 0, 1152, 648, 0, 648)
+metadata/_edit_lock_ = true
+
+[node name="desk" type="Node2D" parent="."]
+metadata/_edit_lock_ = true
+
+[node name="Polygon2D" type="Polygon2D" parent="desk"]
+position = Vector2(3.38813e-21, 473)
+scale = Vector2(576, 87.5)
+color = Color(0.673181, 0.355782, 9.62615e-08, 1)
+polygon = PackedVector2Array(0, 0, 1.00284, 0, 2, 0, 2, 1, 2, 2, 0, 2)
+
+[node name="Polygon2D2" type="Polygon2D" parent="desk"]
+position = Vector2(0, 389.149)
+scale = Vector2(1, 0.264368)
+color = Color(0.873814, 0.4672, 7.70092e-07, 1)
+polygon = PackedVector2Array(0, 442, 1152, 442, 1152, 529, 574.372, 529, 0, 529)
+
+[node name="Polygon2D3" type="Polygon2D" parent="desk"]
+position = Vector2(0, -63.2497)
+scale = Vector2(1, 1.125)
+color = Color(1, 0.673698, 0.424244, 1)
+polygon = PackedVector2Array(0, 506, 1152, 506, 1152, 458, 0, 458)
+
+[node name="weeklyLogButton" type="Button" parent="."]
+offset_left = 191.0
+offset_top = 419.0
+offset_right = 310.0
+offset_bottom = 487.0
+text = "Weekly Log"
+
+[node name="settlerLogButton" type="Button" parent="."]
+offset_left = 846.0
+offset_top = 448.0
+offset_right = 975.0
+offset_bottom = 514.0
+toggle_mode = true
+text = "Settler Log"
+
+[node name="settlerPanel" type="Panel" parent="."]
+custom_minimum_size = Vector2(300, 300)
+offset_left = 487.0
+offset_top = 8.0
+offset_right = 1141.0
+offset_bottom = 429.0
+
+[connection signal="toggled" from="settlerLogButton" to="." method="_on_settler_log_button_toggled"]

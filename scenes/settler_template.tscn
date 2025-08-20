@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://bwfdtjhiwa0xc"]
-
-[ext_resource type="Script" uid="uid://brgukr3brt6qv" path="res://scripts/settler_template.gd" id="1_6dmov"]
-
-[node name="SettlerTemplate" type="Node2D"]
-script = ExtResource("1_6dmov")

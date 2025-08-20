@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="SettlerStats" load_steps=2 format=3 uid="uid://by4ej3q8nhra5"]
+
+[ext_resource type="Script" uid="uid://brgukr3brt6qv" path="res://scripts/settler_template.gd" id="1_xkwm6"]
+
+[resource]
+script = ExtResource("1_xkwm6")
+settlerName = "john cleanser"
+settlerDesc = "egaehga"
+isDead = false
+foodProduction = 1
+waterProduction = 1
+militaryProduction = 0
+ingenuityProduction = 0
+settlerMood = 0
+foodDrain = 1
+waterDrain = 1
+metadata/_custom_type_script = "uid://brgukr3brt6qv"

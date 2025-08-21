@@ -1,5 +1,6 @@
 class_name SettlerStats extends Resource
 
+
 #-Name 
 #-Short Description of the Settler and their role in the town
 #-current mood (Terrible, Bad, Fine, Good,Great)
@@ -25,10 +26,6 @@ class_name SettlerStats extends Resource
 #later down the line will put stuff here related to mood but for now
 @export var settlerMood = settlerMoods.Great
 
-#settler drain stats
-@export var foodDrain = 1
-@export var waterDrain = 1
-
 
 enum settlerMoods {
 	Great,
@@ -37,3 +34,10 @@ enum settlerMoods {
 	Bad,
 	Terrible
 }
+
+#settler drain stats
+@export var foodDrain = 1
+@export var waterDrain = 1
+
+#sickness
+@export var sickness = SicknessInformation.sickness.notSick

@@ -4,9 +4,13 @@ extends Node2D
 
 @onready var settlerArray = [
 	"res://Resources/character_resources/test_settler.tres",
+	"res://Resources/character_resources/test_settler.tres",
 	]
 
 @export var settlerCard: PackedScene
+
+
+var sicknessInfo: SicknessInformation = null
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -16,9 +20,12 @@ func _ready() -> void:
 		$settlerPanel/HFlowContainer.add_child(settlerCardInstance)
 		
 		#loads character sheet based on resource in array
-		var stats := load(settler) as SettlerStats
-		settlerCardInstance.LoadStats(stats)
-		
+		var stats := load(settler)
+		settlerCardInstance.LoadStats(stats) as SettlerStats
+	
+	sicknessInfo = load("res://Resources/sicknessInfo.tres") as SicknessInformation
+	
+	print(sicknessInfo.GetSurvivalChance(SicknessInformation.sickness.radStage2))
 
 
 

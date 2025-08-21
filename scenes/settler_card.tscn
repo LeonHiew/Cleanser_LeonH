@@ -1,6 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://oxejdqiaq0wo"]
+[gd_scene load_steps=3 format=3 uid="uid://oxejdqiaq0wo"]
 
 [ext_resource type="Script" uid="uid://c4hjh3ownshun" path="res://scenes/settler_card.gd" id="1_8gauv"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_8gauv"]
+font_size = 12
 
 [node name="SettlerCard" type="Panel"]
 clip_contents = true
@@ -8,26 +11,23 @@ custom_minimum_size = Vector2(150, 200)
 script = ExtResource("1_8gauv")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
+custom_minimum_size = Vector2(0, 190)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = 2.0
 grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+custom_minimum_size = Vector2(140, 0)
 layout_mode = 2
 alignment = 1
 
-[node name="Sprite2D" type="Sprite2D" parent="HBoxContainer/VBoxContainer"]
-
-[node name="HBoxContainer2" type="HBoxContainer" parent="."]
-custom_minimum_size = Vector2(75, 100)
-layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_top = -100.0
-offset_right = 75.0
-grow_vertical = 0
+[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+label_settings = SubResource("LabelSettings_8gauv")
+autowrap_mode = 2

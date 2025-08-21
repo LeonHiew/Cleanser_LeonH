@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="SicknessInformation" load_steps=2 format=3 uid="uid://dqj0v0wrcoem5"]
+
+[ext_resource type="Script" uid="uid://cn73h525rnp4s" path="res://scripts/SicknessInformation.gd" id="1_0mgye"]
+
+[resource]
+script = ExtResource("1_0mgye")
+metadata/_custom_type_script = "uid://cn73h525rnp4s"

@@ -17,10 +17,10 @@ var sicknessArray = {
 		["radiation sickness(stage 1)", 69 , 1, 30, sickness.radStage2]
 	,
 	sickness.radStage2:
-		["radiation sickness(stage 1)", 30 , 30, 40, sickness.radStage3]
+		["radiation sickness(stage 2)", 30 , 30, 40, sickness.radStage3]
 	,
 	sickness.radStage3:
-		["radiation sickness(stage 1)", 1 , 99, 0, null]
+		["radiation sickness(stage 3)", 1 , 99, 0, null]
 }
 func GetNameString(sickness):
 	return sicknessArray[sickness][0]

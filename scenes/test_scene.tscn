@@ -49,6 +49,13 @@ offset_bottom = 514.0
 toggle_mode = true
 text = "Settler Log"
 
+[node name="ProgressButton" type="Button" parent="."]
+offset_left = 385.0
+offset_top = 486.0
+offset_right = 718.0
+offset_bottom = 554.0
+text = "Progress Week"
+
 [node name="settlerPanel" type="Panel" parent="."]
 custom_minimum_size = Vector2(300, 300)
 offset_left = 487.0
@@ -68,3 +75,4 @@ grow_vertical = 2
 position = Vector2(576, 324)
 
 [connection signal="toggled" from="settlerLogButton" to="." method="_on_settler_log_button_toggled"]
+[connection signal="pressed" from="ProgressButton" to="." method="_on_progress_button_pressed"]

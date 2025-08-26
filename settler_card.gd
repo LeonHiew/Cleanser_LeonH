@@ -37,7 +37,11 @@ func FillCard() -> void:
 	if stats.militaryProduction != 0:
 		fillText += "military: %d  \n" % [stats.militaryProduction]
 	
-	fillText += "Sickness: %s" % [sicknessInfo.GetNameString(stats.sickness)]
+	if stats.isDead == false:
+		fillText += "Sickness: %s" % [sicknessInfo.GetNameString(stats.sickness)]
+	else:
+		fillText += "Dead"
+		
 	
 	#displays text
 	$HBoxContainer/VBoxContainer/Label.text = fillText

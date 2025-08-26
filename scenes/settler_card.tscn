@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://oxejdqiaq0wo"]
+[gd_scene load_steps=4 format=3 uid="uid://oxejdqiaq0wo"]
 
 [ext_resource type="Script" uid="uid://c4hjh3ownshun" path="res://settler_card.gd" id="1_8gauv"]
+[ext_resource type="StyleBox" uid="uid://crnf801ntce87" path="res://assets/paper.tres" id="1_yereo"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_8gauv"]
 font_size = 12
@@ -8,6 +9,7 @@ font_size = 12
 [node name="SettlerCard" type="Panel"]
 clip_contents = true
 custom_minimum_size = Vector2(150, 200)
+theme_override_styles/panel = ExtResource("1_yereo")
 script = ExtResource("1_8gauv")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]

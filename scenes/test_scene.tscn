@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://c23a1n6qbn56r"]
+[gd_scene load_steps=4 format=3 uid="uid://c23a1n6qbn56r"]
 
 [ext_resource type="Script" uid="uid://cikprjtsu6si5" path="res://scripts/test_scene.gd" id="1_g7g4h"]
 [ext_resource type="PackedScene" uid="uid://oxejdqiaq0wo" path="res://scenes/settler_card.tscn" id="2_j8ivh"]
+[ext_resource type="StyleBox" uid="uid://f45iv48p5vt" path="res://assets/book.tres" id="3_nd71p"]
 
 [node name="TestScene" type="Node2D"]
 script = ExtResource("1_g7g4h")
@@ -34,14 +35,33 @@ scale = Vector2(1, 1.125)
 color = Color(1, 0.673698, 0.424244, 1)
 polygon = PackedVector2Array(0, 506, 1152, 506, 1152, 458, 0, 458)
 
-[node name="weeklyLogButton" type="Button" parent="."]
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(576, 324)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Panel" type="Panel" parent="CanvasLayer"]
+light_mask = 2
+offset_left = 316.0
+offset_top = 8.0
+offset_right = 665.0
+offset_bottom = 101.0
+
+[node name="resources" type="Label" parent="CanvasLayer/Panel"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Resources"
+
+[node name="weeklyLogButton" type="Button" parent="CanvasLayer"]
 offset_left = 191.0
 offset_top = 419.0
 offset_right = 310.0
 offset_bottom = 487.0
+toggle_mode = true
 text = "Weekly Log"
 
-[node name="settlerLogButton" type="Button" parent="."]
+[node name="settlerLogButton" type="Button" parent="CanvasLayer"]
 offset_left = 846.0
 offset_top = 448.0
 offset_right = 975.0
@@ -49,21 +69,22 @@ offset_bottom = 514.0
 toggle_mode = true
 text = "Settler Log"
 
-[node name="ProgressButton" type="Button" parent="."]
+[node name="ProgressButton" type="Button" parent="CanvasLayer"]
 offset_left = 385.0
 offset_top = 486.0
 offset_right = 718.0
 offset_bottom = 554.0
 text = "Progress Week"
 
-[node name="settlerPanel" type="Panel" parent="."]
+[node name="settlerPanel" type="Panel" parent="CanvasLayer"]
 custom_minimum_size = Vector2(300, 300)
 offset_left = 487.0
 offset_top = 8.0
 offset_right = 1141.0
 offset_bottom = 429.0
+theme_override_styles/panel = ExtResource("3_nd71p")
 
-[node name="HFlowContainer" type="HFlowContainer" parent="settlerPanel"]
+[node name="HFlowContainer" type="HFlowContainer" parent="CanvasLayer/settlerPanel"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -71,8 +92,22 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(576, 324)
+[node name="weeklyLogPanel" type="Panel" parent="CanvasLayer"]
+custom_minimum_size = Vector2(300, 300)
+offset_left = 60.0
+offset_top = 24.0
+offset_right = 407.0
+offset_bottom = 412.0
+theme_override_styles/panel = ExtResource("3_nd71p")
 
-[connection signal="toggled" from="settlerLogButton" to="." method="_on_settler_log_button_toggled"]
-[connection signal="pressed" from="ProgressButton" to="." method="_on_progress_button_pressed"]
+[node name="HFlowContainer" type="HFlowContainer" parent="CanvasLayer/weeklyLogPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[connection signal="toggled" from="CanvasLayer/weeklyLogButton" to="." method="_on_weekly_log_button_toggled"]
+[connection signal="toggled" from="CanvasLayer/settlerLogButton" to="." method="_on_settler_log_button_toggled"]
+[connection signal="pressed" from="CanvasLayer/ProgressButton" to="." method="_on_progress_button_pressed"]

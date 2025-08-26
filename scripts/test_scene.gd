@@ -1,6 +1,8 @@
 extends Node2D
 
-@onready var settlerPanel = $settlerPanel
+@onready var settlerPanel = $CanvasLayer/settlerPanel
+@onready var weeklyLogPanel = $CanvasLayer/weeklyLogPanel
+@onready var resourceLabel = $CanvasLayer/Panel/resources
 
 @onready var settlerArray = [
 	load("res://Resources/character_resources/test_settler.tres"),
@@ -13,29 +15,69 @@ extends Node2D
 
 var settlerCardArray = []
 
+#town resources
+var townFood = 10
+var townWater = 10
+var townMilitary = 0
+var townIngenuity = 0
+#base values because the values are calcualted differently
+var baseTownMiltary = 10
+var baseTownIngenuity = 0
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	settlerPanel.hide()
+	weeklyLogPanel.hide()
 	for settler in settlerArray:
 		var settlerCardInstance = settlerCard.instantiate()
-		$settlerPanel/HFlowContainer.add_child(settlerCardInstance)
+		$CanvasLayer/settlerPanel/HFlowContainer.add_child(settlerCardInstance)
 		
 		#loads character sheet based on resource in array
 		var stats = settler
 		settlerCardInstance.LoadStats(stats) as SettlerStats
 		
 		settlerCardArray.append(settlerCardInstance) 
+		
+		townMilitary = townMilitary + stats.militaryProduction
+		townIngenuity = townIngenuity + stats.ingenuityProduction
 	
+	townMilitary += baseTownMiltary
+	townIngenuity += baseTownIngenuity
+	_UpdateResourcesDisplay()
 	
-	print(sicknessInfo.GetSurvivalChance(SicknessInformation.sickness.radStage2))
+#updates resourcelabel display to current values
+func _UpdateResourcesDisplay():
+	var fillText = """Town Resources
+	Food: %s Water: %s Miltary: %s Ingenuity: %s
+	"""% [townFood, townWater, townMilitary, townIngenuity]
+	
+	resourceLabel.text = fillText
 
 
+#progresses the round
 func _ProgressWeek():
 	_RoleSicknesses()
+	_calculateResources()
 	for settlerCard in settlerCardArray:
 		settlerCard.FillCard()
 
+#gets all settlers and updates resouces based on each settlers resource 
+#production and drain
+func _calculateResources():
+	townMilitary = baseTownMiltary
+	townIngenuity = baseTownIngenuity
+	for settler in settlerArray:
+		var currentSettler = settler
+		if currentSettler.isDead == true:
+			continue
+		townFood = townFood + currentSettler.foodProduction - currentSettler.foodDrain
+		townWater = townWater + currentSettler.waterProduction - currentSettler.waterDrain
+		townMilitary = townMilitary + currentSettler.militaryProduction
+		townIngenuity = townIngenuity + currentSettler.ingenuityProduction
+	_UpdateResourcesDisplay()
 
+#checks all settlers for sicknesses
+#if sick rolls if they live, die or get worse and updates resource
 func _RoleSicknesses():
 	for settler in settlerArray:
 		var currentSettler = settler
@@ -54,7 +96,7 @@ func _RoleSicknesses():
 			var sicknessRoll = roll.randf_range(0, 100)
 			
 			if sicknessRoll <= survivalChance:
-				#currentSettler.sickness = SicknessInformation.sickness.notSick
+				currentSettler.sickness = SicknessInformation.sickness.notSick
 				print("survived")
 			elif sicknessRoll <= survivalChance + deathChance:
 				currentSettler.isDead = true
@@ -62,7 +104,7 @@ func _RoleSicknesses():
 			elif  sicknessRoll <= survivalChance + deathChance + worsenChance:
 				currentSettler.sickness = sicknessInfo.GetWorsenTarget(currentSettler.sickness)
 				print("worsen")
-				
+
 
 
 
@@ -82,3 +124,12 @@ func _on_settler_log_button_toggled(toggled_on: bool) -> void:
 
 func _on_progress_button_pressed() -> void:
 	_ProgressWeek()
+
+
+func _on_weekly_log_button_toggled(toggled_on: bool) -> void:
+	if toggled_on == true:
+		weeklyLogPanel.show()
+		print("show")
+	else:
+		weeklyLogPanel.hide()
+		print("hide")

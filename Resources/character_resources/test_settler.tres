@@ -16,5 +16,5 @@ ingenuityProduction = 1
 settlerMood = 0
 foodDrain = 1
 waterDrain = 1
-sickness = 1
+sickness = 0
 metadata/_custom_type_script = "uid://brgukr3brt6qv"

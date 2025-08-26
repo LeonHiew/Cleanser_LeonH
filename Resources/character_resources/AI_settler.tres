@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="SettlerStats" load_steps=3 format=3 uid="uid://feqw7wa846a"]
+
+[ext_resource type="Script" uid="uid://brgukr3brt6qv" path="res://scripts/settler_Stats.gd" id="1_2qvcj"]
+[ext_resource type="Texture2D" uid="uid://cked5c4eoxyuf" path="res://assets/icon.svg" id="2_3g0tg"]
+
+[resource]
+script = ExtResource("1_2qvcj")
+settlerName = "Baldroy"
+settlerDesc = "Smart and good at fighting"
+settlerPortrait = ExtResource("2_3g0tg")
+isDead = false
+foodProduction = 0
+waterProduction = 0
+militaryProduction = 5
+ingenuityProduction = 3
+settlerMood = 0
+foodDrain = 1
+waterDrain = 1
+sickness = 0
+metadata/_custom_type_script = "uid://brgukr3brt6qv"

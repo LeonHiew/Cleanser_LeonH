@@ -3,7 +3,14 @@ extends Node2D
 @onready var settlerPanel = $settlerPanel
 
 @onready var settlerArray = [
-	load("res://Resources/character_resources/test_settler.tres"),
+	load("res://Resources/character_resources/AI_settler.tres"),
+	load("res://Resources/character_resources/Baldroy_settler.tres"),
+	load("res://Resources/character_resources/Caelan_settler.tres"),
+	load("res://Resources/character_resources/Caitlyn_settler.tres"),
+	load("res://Resources/character_resources/Emily_settler.tres"),
+	load("res://Resources/character_resources/Jacob_settler.tres"),
+	load("res://Resources/character_resources/Jessie_settler.tres"),
+	load("res://Resources/character_resources/Johni_settler.tres")
 	]
 
 @export var settlerCard: PackedScene

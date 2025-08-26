@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="SettlerStats" load_steps=3 format=3 uid="uid://trvt3j2vho"]
+
+[ext_resource type="Script" uid="uid://brgukr3brt6qv" path="res://scripts/settler_Stats.gd" id="1_kf5vj"]
+[ext_resource type="Texture2D" uid="uid://cked5c4eoxyuf" path="res://assets/icon.svg" id="2_ih25s"]
+
+[resource]
+script = ExtResource("1_kf5vj")
+settlerName = "Thomas"
+settlerDesc = "Captain"
+settlerPortrait = ExtResource("2_ih25s")
+isDead = false
+foodProduction = 0
+waterProduction = 1
+militaryProduction = 3
+ingenuityProduction = 3
+settlerMood = 0
+foodDrain = 1
+waterDrain = 1
+sickness = 0
+metadata/_custom_type_script = "uid://brgukr3brt6qv"

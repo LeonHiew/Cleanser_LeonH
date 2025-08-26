@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="SettlerStats" load_steps=3 format=3 uid="uid://dtnek63rvdth4"]
+
+[ext_resource type="Script" uid="uid://brgukr3brt6qv" path="res://scripts/settler_Stats.gd" id="1_x3mnh"]
+[ext_resource type="Texture2D" uid="uid://cked5c4eoxyuf" path="res://assets/icon.svg" id="2_84107"]
+
+[resource]
+script = ExtResource("1_x3mnh")
+settlerName = "Jessie"
+settlerDesc = "Ninja"
+settlerPortrait = ExtResource("2_84107")
+isDead = false
+foodProduction = 2
+waterProduction = 1
+militaryProduction = 4
+ingenuityProduction = 0
+settlerMood = 0
+foodDrain = 1
+waterDrain = 1
+sickness = 0
+metadata/_custom_type_script = "uid://brgukr3brt6qv"

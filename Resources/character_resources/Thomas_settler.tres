@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="SettlerStats" load_steps=3 format=3 uid="uid://cgh0qko4uq03o"]
+
+[ext_resource type="Script" uid="uid://brgukr3brt6qv" path="res://scripts/settler_Stats.gd" id="1_rpqao"]
+[ext_resource type="Texture2D" uid="uid://cked5c4eoxyuf" path="res://assets/icon.svg" id="2_u6jyu"]
+
+[resource]
+script = ExtResource("1_rpqao")
+settlerName = "Caelan"
+settlerDesc = "Programmer"
+settlerPortrait = ExtResource("2_u6jyu")
+isDead = false
+foodProduction = 0
+waterProduction = 0
+militaryProduction = 2
+ingenuityProduction = 5
+settlerMood = 0
+foodDrain = 1
+waterDrain = 1
+sickness = 0
+metadata/_custom_type_script = "uid://brgukr3brt6qv"

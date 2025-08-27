@@ -3,6 +3,7 @@ extends Node2D
 @onready var settlerPanel = $CanvasLayer/settlerPanel
 @onready var weeklyLogPanel = $CanvasLayer/weeklyLogPanel
 @onready var resourceLabel = $CanvasLayer/Panel/resources
+@onready var weeklyLogLabel = $CanvasLayer/weeklyLogPanel/weeklyLogPaperPanel/weeklyLogLabel
 
 @onready var settlerArray = [
 	load("res://Resources/character_resources/AI_settler.tres"),
@@ -17,6 +18,7 @@ extends Node2D
 
 @export var settlerCard: PackedScene
 @onready var sicknessInfo = load("res://Resources/sicknessInfo.tres") as SicknessInformation
+@onready var eventInfo = load("res://Resources/eventInfo.tres") as EventInformation
 
 @onready var roll = RandomNumberGenerator.new()
 
@@ -65,8 +67,79 @@ func _UpdateResourcesDisplay():
 func _ProgressWeek():
 	_RoleSicknesses()
 	_calculateResources()
+	_rollEvents()
+	_UpdateResourcesDisplay()
 	for settlerCard in settlerCardArray:
 		settlerCard.FillCard()
+
+#logic behind the events system
+#calculates amount of events that occur, whether they are positive or negative
+#and deals with applying the changes the event creates
+func _rollEvents():
+	roll.randomize()
+	var amountOfEvents = roll.randi_range(1,3)
+	var positiveEventChance = pow(townIngenuity * 0.3, 2)
+	var bannedEvents = []
+	var fillText : String
+	for event in amountOfEvents:
+		roll.randomize()
+		var eventRoll = roll.randf_range(0,100)
+		var currentEvent : Array
+		var pickingEvent = true
+		if eventRoll <= positiveEventChance:
+			while pickingEvent == true:
+				currentEvent = eventInfo.positiveEventArray.pick_random()
+				if currentEvent[0] in bannedEvents:
+					continue
+				else:
+					bannedEvents.append(currentEvent[0])
+					for ban in currentEvent[3]:
+						bannedEvents.append(ban)
+					pickingEvent = false
+		else:
+			while pickingEvent == true:
+				currentEvent = eventInfo.negativeEventArray.pick_random()
+				if currentEvent[0] in bannedEvents:
+					continue
+				else:
+					bannedEvents.append(currentEvent[0])
+					for ban in currentEvent[3]:
+						bannedEvents.append(ban)
+					pickingEvent = false
+			
+		fillText += currentEvent[0] + "\n" + currentEvent[1] + "\n"
+		for key in currentEvent[2]:
+			match key:
+				"food":
+					townFood += currentEvent[2][key]
+				"water":
+					townWater += currentEvent[2][key]
+				"military":
+					baseTownMiltary += currentEvent[2][key]
+				"ingenuity":
+					baseTownIngenuity += currentEvent[2][key]
+				"settler":
+					var target = settlerArray.pick_random()
+					fillText = fillText.replace("settler.name",target.settlerName)
+				"radStage1":
+					roll.randomize()
+					var infectedAmount = roll.randi_range(
+						currentEvent[2][key][0], currentEvent[2][key][1])
+					for infected in infectedAmount:
+						var targetSettler : SettlerStats
+						while true:
+							targetSettler = settlerArray.pick_random()
+							if targetSettler.sickness != SicknessInformation.sickness.notSick:
+								continue
+							else:
+								targetSettler.sickness = SicknessInformation.sickness.radStage1
+								break
+						
+		fillText += "\n"
+	weeklyLogLabel.text = """ Weekly Log
+	""" + fillText
+
+
 
 #gets all settlers and updates resouces based on each settlers resource 
 #production and drain
@@ -75,20 +148,20 @@ func _calculateResources():
 	townIngenuity = baseTownIngenuity
 	for settler in settlerArray:
 		var currentSettler = settler
-		if currentSettler.isDead == true:
+		if currentSettler.bIsDead == true:
 			continue
 		townFood = townFood + currentSettler.foodProduction - currentSettler.foodDrain
 		townWater = townWater + currentSettler.waterProduction - currentSettler.waterDrain
 		townMilitary = townMilitary + currentSettler.militaryProduction
 		townIngenuity = townIngenuity + currentSettler.ingenuityProduction
-	_UpdateResourcesDisplay()
+
 
 #checks all settlers for sicknesses
 #if sick rolls if they live, die or get worse and updates resource
 func _RoleSicknesses():
 	for settler in settlerArray:
 		var currentSettler = settler
-		if currentSettler.isDead == true:
+		if currentSettler.bIsDead == true:
 			continue
 		if currentSettler.sickness != SicknessInformation.sickness.notSick:
 			var survivalChance =sicknessInfo.GetSurvivalChance(currentSettler.sickness)
@@ -106,7 +179,7 @@ func _RoleSicknesses():
 				currentSettler.sickness = SicknessInformation.sickness.notSick
 				print("survived")
 			elif sicknessRoll <= survivalChance + deathChance:
-				currentSettler.isDead = true
+				currentSettler.bIsDead = true
 				print("died")
 			elif  sicknessRoll <= survivalChance + deathChance + worsenChance:
 				currentSettler.sickness = sicknessInfo.GetWorsenTarget(currentSettler.sickness)

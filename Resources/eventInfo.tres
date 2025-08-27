@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="EventInformation" load_steps=2 format=3 uid="uid://bwdbedjg30xso"]
+
+[ext_resource type="Script" uid="uid://bibsgnu8jogjg" path="res://scripts/EventInformation.gd" id="1_u62bf"]
+
+[resource]
+script = ExtResource("1_u62bf")
+metadata/_custom_type_script = "uid://bibsgnu8jogjg"

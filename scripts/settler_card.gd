@@ -37,7 +37,7 @@ func FillCard() -> void:
 	if stats.militaryProduction != 0:
 		fillText += "military: %d  \n" % [stats.militaryProduction]
 	
-	if stats.isDead == false:
+	if stats.bIsDead == false:
 		fillText += "Sickness: %s" % [sicknessInfo.GetNameString(stats.sickness)]
 	else:
 		fillText += "Dead"

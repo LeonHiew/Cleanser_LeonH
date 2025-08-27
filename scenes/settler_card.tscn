@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://oxejdqiaq0wo"]
 
-[ext_resource type="Script" uid="uid://c4hjh3ownshun" path="res://settler_card.gd" id="1_8gauv"]
+[ext_resource type="Script" uid="uid://c4hjh3ownshun" path="res://scripts/settler_card.gd" id="1_8gauv"]
 [ext_resource type="StyleBox" uid="uid://crnf801ntce87" path="res://assets/paper.tres" id="1_yereo"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_8gauv"]

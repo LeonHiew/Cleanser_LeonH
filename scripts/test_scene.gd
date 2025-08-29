@@ -10,7 +10,7 @@ extends Node2D
 	load("res://Resources/character_resources/Baldroy_settler.tres"),
 	load("res://Resources/character_resources/Caelan_settler.tres"),
 	load("res://Resources/character_resources/Caitlyn_settler.tres"),
-	load("res://Resources/character_resources/Emily_settler.tres"),
+	load("res://Resources/character_resources/Luffy_settler.tres"),
 	load("res://Resources/character_resources/Jacob_settler.tres"),
 	load("res://Resources/character_resources/Jessie_settler.tres"),
 	load("res://Resources/character_resources/Johni_settler.tres")
@@ -33,6 +33,9 @@ var townIngenuity = 0
 var baseTownMiltary = 10
 var baseTownIngenuity = 0
 
+#number of heals player can do
+var healNumber = 1
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	settlerPanel.hide()
@@ -49,6 +52,9 @@ func _ready() -> void:
 		
 		townMilitary = townMilitary + stats.militaryProduction
 		townIngenuity = townIngenuity + stats.ingenuityProduction
+		
+		#heal signal
+		settlerCardInstance.heal_request.connect(_on_heal_request)
 	
 	townMilitary += baseTownMiltary
 	townIngenuity += baseTownIngenuity
@@ -71,6 +77,7 @@ func _ProgressWeek():
 	_UpdateResourcesDisplay()
 	for settlerCard in settlerCardArray:
 		settlerCard.FillCard()
+	healNumber = 1
 
 #logic behind the events system
 #calculates amount of events that occur, whether they are positive or negative
@@ -206,6 +213,7 @@ func _on_progress_button_pressed() -> void:
 	_ProgressWeek()
 
 
+
 func _on_weekly_log_button_toggled(toggled_on: bool) -> void:
 	if toggled_on == true:
 		weeklyLogPanel.show()
@@ -213,3 +221,24 @@ func _on_weekly_log_button_toggled(toggled_on: bool) -> void:
 	else:
 		weeklyLogPanel.hide()
 		print("hide")
+
+func _on_heal_request(stats: SettlerStats) -> void:
+	if healNumber <= 0:
+		print("No more heals left this week!")
+	elif stats.bIsDead:
+		print(stats.settlerName + " is dead and cannot be healed.")
+		return
+	elif stats.sickness == SicknessInformation.sickness.notSick:
+		print(stats.settlerName + " is not sick.")
+		return
+	else:
+		stats.sickness = SicknessInformation.sickness.notSick
+		healNumber -= 1 
+		print(stats.settlerName + " has been healed! Remaining heals: " + str(healNumber))
+		
+	#refresh cards 
+	for card in settlerCardArray:
+		card.FillCard()
+	
+
+	

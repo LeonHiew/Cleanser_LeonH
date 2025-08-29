@@ -5,14 +5,14 @@
 
 [resource]
 script = ExtResource("1_kf5vj")
-settlerName = "Thomas"
-settlerDesc = "Captain"
+settlerName = "Riley"
+settlerDesc = ""
 settlerPortrait = ExtResource("2_ih25s")
-isDead = false
+bIsDead = false
 foodProduction = 0
-waterProduction = 1
-militaryProduction = 3
-ingenuityProduction = 3
+waterProduction = 0
+militaryProduction = 0
+ingenuityProduction = 0
 settlerMood = 0
 foodDrain = 1
 waterDrain = 1

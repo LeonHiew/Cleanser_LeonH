@@ -1,7 +1,10 @@
 extends Panel
 
+signal heal_request(stats : SettlerStats)
+
 var sicknessInfo: SicknessInformation = null
 var stats: SettlerStats = null
+var healNumber = 1
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -42,7 +45,19 @@ func FillCard() -> void:
 	else:
 		fillText += "Dead"
 		
+		
+		
 	
 	#displays text
 	$HBoxContainer/VBoxContainer/Label.text = fillText
+	
+
+
+func _on_HealButton_pressed() -> void:
+	#if healNumber == 0:
+		#print ("Max number of heals used.")
+	#else:
+		#print ("Healing " + stats.settlerName)
+		#healNumber -= 1
+		emit_signal("heal_request", stats)
 	

@@ -5,7 +5,15 @@ class_name EventInformation extends Resource
 # {"key": int}
 #
 #
+#[
+	#"",
+	#"",
+	#{},
+	#[]
 #]
+
+
+
 
 #postive event array
 #format :eventName :eventDesc :{resource change} :[events banned]
@@ -31,15 +39,49 @@ var positiveEventArray = [
 	[
 		"Machine AI",
 		 "the town found a Great war Machine that houses an AI, it’s not that smart but its database of information will prove usefull",
-		{"ingenuity": 10},
+		{"ingenuity": 5},
 		[]
 	],
 	[
 		"Ancient Stockpile", 
 		"the town’s scouts found a great war stockpile filled with food and water",
-		{"food": 10, "water": 10},
+		{"food": 20, "water": 20},
+		[]
+	],
+	[
+		"Rainfall Harvest",
+		"After weeks of dry air, a strong rainfall filled the reservoirs",
+		{"water": 15},
+		[]
+	],
+	[
+		"Mutant Beast Hunt",
+		"Hunters slew a dangerous mutant beast. Its meat was edible and hide could be used",
+		{"food": 10, "military": 5},
+		[]
+	],
+	[
+		"Restored Generator",
+		"Settlers repaired an old generator and connected its wiring",
+		{"ingenuity": 5, "military": 2},
+		[]
+	],
+	[
+		"Forgotten Bunker",
+		"A sealed bunker was found intact. Supplies inside were preserved",
+		{"food": 5, "water": 8},
+		[]
+	],
+	[
+		"Inspiring Leader",
+		"settler.name inspired hope with a rousing speech, boosting morale",
+		{"military": 5, "ingeuity": 5, "settler": ""},
 		[]
 	]
+
+	
+	
+	
 ]
 
 var negativeEventArray = [
@@ -60,6 +102,36 @@ var negativeEventArray = [
 		"Glowing Rock",
 		"settler.name found a glowing rock and decided to take it home, unfortunately for everyone else it was radioative",
 		{"settler": "" ,"radStage1": [1,3]},
+		[]
+	],
+	[
+		"Tainted Water",
+		"the Town’s water source was contaminated with radioactive debris and had to be cleaned",
+		{"water": -10, "radStage1": [1,3]},
+		[]
+	],
+	[
+		"Radiation Storm",
+		"A sudden storm swept through, exposing the settlers",
+		{"radStage1": [1,4]},
+		[]
+	],
+	[
+		"Faulty seal",
+		"A small leak in the tank exposes the operator to ambient radiation",
+		{"radStage1": [1,1]},
+		[]
+	],
+	[
+		"Radioactive rain",
+		"Radioactive rain contaminated the drinking water",
+		{"radStage1": [1,3], "water": -5},
+		[]
+	],
+	[
+		"Abandoned Hospital",
+		"A scouting team explored an old hospital. The walls still leaked radiation",
+		{"ingenuity": 2, "radstage2": [1,3]},
 		[]
 	]
 ]

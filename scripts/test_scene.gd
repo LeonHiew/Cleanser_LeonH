@@ -94,7 +94,7 @@ func _rollEvents():
 		var currentEvent : Array
 		var pickingEvent = true
 		if eventRoll <= positiveEventChance:
-			while pickingEvent == true:
+			while true:
 				currentEvent = eventInfo.positiveEventArray.pick_random()
 				if currentEvent[0] in bannedEvents:
 					continue
@@ -102,9 +102,9 @@ func _rollEvents():
 					bannedEvents.append(currentEvent[0])
 					for ban in currentEvent[3]:
 						bannedEvents.append(ban)
-					pickingEvent = false
+					break
 		else:
-			while pickingEvent == true:
+			while true:
 				currentEvent = eventInfo.negativeEventArray.pick_random()
 				if currentEvent[0] in bannedEvents:
 					continue
@@ -112,11 +112,12 @@ func _rollEvents():
 					bannedEvents.append(currentEvent[0])
 					for ban in currentEvent[3]:
 						bannedEvents.append(ban)
-					pickingEvent = false
-			
+					break
+		
 		fillText += currentEvent[0] + "\n" + currentEvent[1] + "\n"
 		for key in currentEvent[2]:
 			match key:
+
 				"food":
 					townFood += currentEvent[2][key]
 				"water":
@@ -129,24 +130,53 @@ func _rollEvents():
 					var target = settlerArray.pick_random()
 					fillText = fillText.replace("settler.name",target.settlerName)
 				"radStage1":
-					roll.randomize()
-					var infectedAmount = roll.randi_range(
-						currentEvent[2][key][0], currentEvent[2][key][1])
-					for infected in infectedAmount:
-						var targetSettler : SettlerStats
-						while true:
-							targetSettler = settlerArray.pick_random()
-							if targetSettler.sickness != SicknessInformation.sickness.notSick:
-								continue
-							else:
-								targetSettler.sickness = SicknessInformation.sickness.radStage1
-								break
-						
+					
+					_rollSickness(SicknessInformation.sickness.radStage1,
+					currentEvent[2][key][0], currentEvent[2][key][1])
+					
+				"radstage2":
+					
+					_rollSickness(SicknessInformation.sickness.radStage2,
+					currentEvent[2][key][0], currentEvent[2][key][1])
+				#default, shouldn't be called
+				#if it does something misspelled in event information
+				_:
+					print("a key is wrong in:")
+					print(currentEvent)
+					
 		fillText += "\n"
 	weeklyLogLabel.text = """ Weekly Log
 	""" + fillText
 
+#called in _rollEvents
+#useds to roll which settlers get infected and how many
+func _rollSickness(sickness: SicknessInformation.sickness, minInfected: int, maxInfected: int):
+	roll.randomize()
+	var infectedAmount = roll.randi_range(minInfected,maxInfected)
 
+	
+	for infected in infectedAmount:
+		var targetSettler : SettlerStats
+		while true:		
+			if settlerArray.all(_isSick):
+				break
+			targetSettler = settlerArray.pick_random()
+			if targetSettler.sickness != SicknessInformation.sickness.notSick:
+				continue
+			else:
+				targetSettler.sickness = sickness
+				break
+			
+
+#used for _rollSickness all,
+#returns false of settler is not sick and true if dead or sick
+func _isSick(settler: SettlerStats):
+	if settler.bIsDead == true:
+		return true
+	elif settler.sickness == SicknessInformation.sickness.notSick:
+		return false
+	else:
+		return true
 
 #gets all settlers and updates resouces based on each settlers resource 
 #production and drain
@@ -184,13 +214,10 @@ func _RoleSicknesses():
 			
 			if sicknessRoll <= survivalChance:
 				currentSettler.sickness = SicknessInformation.sickness.notSick
-				print("survived")
 			elif sicknessRoll <= survivalChance + deathChance:
 				currentSettler.bIsDead = true
-				print("died")
 			elif  sicknessRoll <= survivalChance + deathChance + worsenChance:
 				currentSettler.sickness = sicknessInfo.GetWorsenTarget(currentSettler.sickness)
-				print("worsen")
 
 
 

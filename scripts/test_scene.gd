@@ -36,6 +36,9 @@ var baseTownIngenuity = 0
 #number of heals player can do
 var healNumber = 1
 
+#number of rounds progressed
+var roundNumber = 0
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	settlerPanel.hide()
@@ -78,6 +81,23 @@ func _ProgressWeek():
 	for settlerCard in settlerCardArray:
 		settlerCard.FillCard()
 	healNumber = 1
+	roundNumber += 1
+	
+	if roundNumber == 15:
+		get_tree().change_scene_to_file("res://scenes/win_scene.tscn")
+		
+	if townFood < 0 or townWater < 0:
+		get_tree().change_scene_to_file("res://scenes/lost_screen.tscn")
+		return
+		
+	var all_dead = true
+	for settler in settlerArray:
+		if settler.bIsDead == false:
+			all_dead = false
+			break
+	if all_dead:
+		get_tree().change_scene_to_file("res://scenes/lost_screen.tscn")
+		return
 
 #logic behind the events system
 #calculates amount of events that occur, whether they are positive or negative

@@ -25,8 +25,8 @@ extends Node2D
 var settlerCardArray = []
 
 #town resources
-var townFood = 10
-var townWater = 10
+var townFood = 15
+var townWater = 15
 var townMilitary = 0
 var townIngenuity = 0
 #base values because the values are calcualted differently
@@ -67,7 +67,9 @@ func _ready() -> void:
 func _UpdateResourcesDisplay():
 	var fillText = """Town Resources
 	Food: %s Water: %s Miltary: %s Ingenuity: %s
-	"""% [townFood, townWater, townMilitary, townIngenuity]
+	week %s/15
+	"""% [townFood, townWater, townMilitary, townIngenuity, roundNumber ]
+	
 	
 	resourceLabel.text = fillText
 
@@ -77,12 +79,13 @@ func _ProgressWeek():
 	_RoleSicknesses()
 	_calculateResources()
 	_rollEvents()
-	_UpdateResourcesDisplay()
+
 	for settlerCard in settlerCardArray:
 		settlerCard.FillCard()
 	healNumber = 1
 	roundNumber += 1
 	
+	_UpdateResourcesDisplay()
 	if roundNumber == 15:
 		get_tree().change_scene_to_file("res://scenes/win_scene.tscn")
 		
@@ -105,7 +108,7 @@ func _ProgressWeek():
 func _rollEvents():
 	roll.randomize()
 	var amountOfEvents = roll.randi_range(1,3)
-	var positiveEventChance = pow(townIngenuity * 0.3, 2)
+	var positiveEventChance = pow(townIngenuity * 0.25, 2)
 	var bannedEvents = []
 	var fillText : String
 	for event in amountOfEvents:

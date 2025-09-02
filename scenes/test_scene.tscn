@@ -78,6 +78,7 @@ offset_bottom = 554.0
 text = "Progress Week"
 
 [node name="settlerPanel" type="Panel" parent="CanvasLayer"]
+visible = false
 custom_minimum_size = Vector2(300, 300)
 offset_left = 487.0
 offset_top = 8.0
@@ -94,6 +95,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="weeklyLogPanel" type="Panel" parent="CanvasLayer"]
+visible = false
 custom_minimum_size = Vector2(300, 300)
 offset_left = 14.0
 offset_top = 24.0

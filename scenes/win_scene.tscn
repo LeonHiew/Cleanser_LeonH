@@ -1,0 +1,54 @@
+[gd_scene load_steps=2 format=3 uid="uid://6w00k1dyjhms"]
+
+[ext_resource type="Script" uid="uid://b8yn2rgo67gdx" path="res://scripts/win_scene.gd" id="1_p78a6"]
+
+[node name="WinScene" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_p78a6")
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch_mode = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="AspectRatioContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="AspectRatioContainer/HBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="ReturnButton" type="Button" parent="AspectRatioContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Main Menu"
+
+[node name="QuitButton" type="Button" parent="AspectRatioContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Quit"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -214.0
+offset_top = 114.0
+offset_right = 214.0
+offset_bottom = 252.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 101
+text = "You Win!"
+horizontal_alignment = 1
+
+[connection signal="pressed" from="AspectRatioContainer/HBoxContainer/VBoxContainer/ReturnButton" to="." method="_on_returnMenu_button_pressed"]
+[connection signal="pressed" from="AspectRatioContainer/HBoxContainer/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]

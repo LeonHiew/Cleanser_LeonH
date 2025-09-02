@@ -6,9 +6,9 @@
 [resource]
 script = ExtResource("1_pp7jc")
 settlerName = "Xiao"
-settlerDesc = "Gathers resources"
+settlerDesc = "genius"
 settlerPortrait = ExtResource("2_1o83i")
-isDead = false
+bIsDead = false
 foodProduction = 1
 waterProduction = 0
 militaryProduction = 2

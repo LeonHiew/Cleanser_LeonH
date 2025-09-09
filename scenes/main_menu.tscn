@@ -30,14 +30,17 @@ alignment = 1
 
 [node name="PlayTestButton" type="Button" parent="AspectRatioContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 30
 text = "Play test scene"
 
 [node name="PlayButton" type="Button" parent="AspectRatioContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 30
 text = "Play"
 
 [node name="QuitButton" type="Button" parent="AspectRatioContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 30
 text = "Quit"
 
 [connection signal="pressed" from="AspectRatioContainer/HBoxContainer/VBoxContainer/PlayTestButton" to="." method="_on_play_test_button_pressed"]

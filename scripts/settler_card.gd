@@ -49,7 +49,7 @@ func FillCard() -> void:
 		
 	
 	#displays text
-	$HBoxContainer/VBoxContainer/Label.text = fillText
+	$Label.text = fillText
 	
 
 

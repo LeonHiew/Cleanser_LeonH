@@ -1,9 +1,9 @@
 extends Node2D
 
-@onready var settlerPanel = $CanvasLayer/settlerPanel
-@onready var weeklyLogPanel = $CanvasLayer/weeklyLogPanel
-@onready var resourceLabel = $CanvasLayer/Panel/resources
-@onready var weeklyLogLabel = $CanvasLayer/weeklyLogPanel/weeklyLogPaperPanel/weeklyLogLabel
+@onready var settlerPanel = $CanvasLayer/Control/settlerPanel
+@onready var weeklyLogPanel = $CanvasLayer/Control/weeklyLogPanel
+@onready var resourceLabel = $CanvasLayer/Control/Panel/resources
+@onready var weeklyLogLabel = $CanvasLayer/Control/weeklyLogPanel/weeklyLogPaperPanel/weeklyLogLabel
 
 @onready var settlerArray = [
 	load("res://Resources/character_resources/AI_settler.tres"),
@@ -45,7 +45,7 @@ func _ready() -> void:
 	weeklyLogPanel.hide()
 	for settler in settlerArray:
 		var settlerCardInstance = settlerCard.instantiate()
-		$CanvasLayer/settlerPanel/HFlowContainer.add_child(settlerCardInstance)
+		$CanvasLayer/Control/settlerPanel/HFlowContainer.add_child(settlerCardInstance)
 		
 		#loads character sheet based on resource in array
 		var stats = settler

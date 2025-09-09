@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://c23a1n6qbn56r"]
+[gd_scene load_steps=6 format=3 uid="uid://c23a1n6qbn56r"]
 
 [ext_resource type="Script" uid="uid://cikprjtsu6si5" path="res://scripts/test_scene.gd" id="1_g7g4h"]
 [ext_resource type="PackedScene" uid="uid://oxejdqiaq0wo" path="res://scenes/settler_card.tscn" id="2_j8ivh"]
 [ext_resource type="StyleBox" uid="uid://f45iv48p5vt" path="res://assets/book.tres" id="3_nd71p"]
+[ext_resource type="LabelSettings" uid="uid://bu6v4hiigngu1" path="res://Resources/new_label_settings.tres" id="3_qjeyg"]
 [ext_resource type="StyleBox" uid="uid://crnf801ntce87" path="res://assets/paper.tres" id="4_7ddre"]
 
 [node name="TestScene" type="Node2D"]
@@ -11,12 +12,13 @@ settlerCard = ExtResource("2_j8ivh")
 metadata/_edit_use_anchors_ = true
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
+scale = Vector2(1.66895, 1.66895)
 color = Color(1, 0.855102, 0.75046, 1)
 polygon = PackedVector2Array(0, 0, 1152, 0, 1152, 648, 0, 648)
 metadata/_edit_lock_ = true
 
 [node name="desk" type="Node2D" parent="."]
-metadata/_edit_lock_ = true
+scale = Vector2(1.68012, 1.67443)
 
 [node name="Polygon2D" type="Polygon2D" parent="desk"]
 position = Vector2(3.38813e-21, 473)
@@ -36,91 +38,108 @@ scale = Vector2(1, 1.125)
 color = Color(1, 0.673698, 0.424244, 1)
 polygon = PackedVector2Array(0, 506, 1152, 506, 1152, 458, 0, 458)
 
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(576, 324)
-
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+follow_viewport_enabled = true
 
-[node name="Panel" type="Panel" parent="CanvasLayer"]
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="CanvasLayer/Control"]
 light_mask = 2
-offset_left = 316.0
-offset_top = 8.0
-offset_right = 665.0
-offset_bottom = 101.0
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 200.0
+grow_horizontal = 2
 
-[node name="resources" type="Label" parent="CanvasLayer/Panel"]
+[node name="resources" type="Label" parent="CanvasLayer/Control/Panel"]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
 text = "Resources"
+label_settings = ExtResource("3_qjeyg")
 
-[node name="weeklyLogButton" type="Button" parent="CanvasLayer"]
-offset_left = 140.0
-offset_top = 476.0
-offset_right = 259.0
-offset_bottom = 544.0
+[node name="weeklyLogButton" type="Button" parent="CanvasLayer/Control"]
+offset_left = 116.0
+offset_top = 801.0
+offset_right = 316.0
+offset_bottom = 901.0
+theme_override_font_sizes/font_size = 30
 toggle_mode = true
 text = "Weekly Log"
 
-[node name="settlerLogButton" type="Button" parent="CanvasLayer"]
-offset_left = 846.0
-offset_top = 448.0
-offset_right = 975.0
-offset_bottom = 514.0
+[node name="settlerLogButton" type="Button" parent="CanvasLayer/Control"]
+offset_left = 1558.0
+offset_top = 819.0
+offset_right = 1758.0
+offset_bottom = 919.0
+theme_override_font_sizes/font_size = 30
 toggle_mode = true
 text = "Settler Log"
 
-[node name="ProgressButton" type="Button" parent="CanvasLayer"]
-offset_left = 385.0
-offset_top = 486.0
-offset_right = 718.0
-offset_bottom = 554.0
+[node name="ProgressButton" type="Button" parent="CanvasLayer/Control"]
+offset_left = 689.0
+offset_top = 871.0
+offset_right = 1189.0
+offset_bottom = 971.0
+theme_override_font_sizes/font_size = 30
 text = "Progress Week"
 
-[node name="settlerPanel" type="Panel" parent="CanvasLayer"]
-visible = false
+[node name="settlerPanel" type="Panel" parent="CanvasLayer/Control"]
 custom_minimum_size = Vector2(300, 300)
-offset_left = 487.0
-offset_top = 8.0
-offset_right = 1141.0
-offset_bottom = 429.0
+offset_left = 883.0
+offset_top = 91.0
+offset_right = 1883.0
+offset_bottom = 791.0
 theme_override_styles/panel = ExtResource("3_nd71p")
 
-[node name="HFlowContainer" type="HFlowContainer" parent="CanvasLayer/settlerPanel"]
+[node name="HFlowContainer" type="HFlowContainer" parent="CanvasLayer/Control/settlerPanel"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = -10.0
+offset_bottom = -10.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="weeklyLogPanel" type="Panel" parent="CanvasLayer"]
-visible = false
+[node name="weeklyLogPanel" type="Panel" parent="CanvasLayer/Control"]
 custom_minimum_size = Vector2(300, 300)
-offset_left = 14.0
-offset_top = 24.0
-offset_right = 467.0
-offset_bottom = 467.0
+offset_left = 35.0
+offset_top = 86.0
+offset_right = 835.0
+offset_bottom = 786.0
 theme_override_styles/panel = ExtResource("3_nd71p")
 
-[node name="weeklyLogPaperPanel" type="Panel" parent="CanvasLayer/weeklyLogPanel"]
+[node name="weeklyLogPaperPanel" type="Panel" parent="CanvasLayer/Control/weeklyLogPanel"]
 custom_minimum_size = Vector2(300, 300)
 layout_mode = 2
 offset_left = 10.0
 offset_top = 12.0
-offset_right = 439.0
-offset_bottom = 429.0
+offset_right = 790.0
+offset_bottom = 692.0
 theme_override_styles/panel = ExtResource("4_7ddre")
 
-[node name="weeklyLogLabel" type="Label" parent="CanvasLayer/weeklyLogPanel/weeklyLogPaperPanel"]
+[node name="weeklyLogLabel" type="Label" parent="CanvasLayer/Control/weeklyLogPanel/weeklyLogPaperPanel"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+text = "Weekly Log
+the log is currently empty"
+label_settings = ExtResource("3_qjeyg")
 autowrap_mode = 2
+clip_text = true
 
-[connection signal="toggled" from="CanvasLayer/weeklyLogButton" to="." method="_on_weekly_log_button_toggled"]
-[connection signal="toggled" from="CanvasLayer/settlerLogButton" to="." method="_on_settler_log_button_toggled"]
-[connection signal="pressed" from="CanvasLayer/ProgressButton" to="." method="_on_progress_button_pressed"]
+[connection signal="toggled" from="CanvasLayer/Control/weeklyLogButton" to="." method="_on_weekly_log_button_toggled"]
+[connection signal="toggled" from="CanvasLayer/Control/settlerLogButton" to="." method="_on_settler_log_button_toggled"]
+[connection signal="pressed" from="CanvasLayer/Control/ProgressButton" to="." method="_on_progress_button_pressed"]

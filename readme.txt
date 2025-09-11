@@ -4,7 +4,7 @@ Working at [drive folder](https://drive.google.com/drive/folders/1BkrRELmQ1t2c_j
 Developed by
 Caelan Legg
 Thi Hoang Oanh Nguyen
------ <------- fill name
+Leon Hiew
 ----- <------- fill name
 ================================================
 
@@ -84,5 +84,24 @@ Godot uses a custom language called gdscript with the same syntax as Python
 - Game Story
 - Setting/ Home/ Expand/ List char/ Heal/ End Round/ 
 - Stat Summary on Round
+
+
+Current development progress:
+Coding and development:
+For the coding side of things, we are currently using Godot engine to develop our game. As our game is a resource management game, our core gameplay mechanic is relatively simple as the player only has to choose
+which settler they would like to heal for the round. The player also has other button options that will give them different vital information that the player will need to know and keep track of in order to play the 
+game. Currently, we have decided to do a very simple block-out of what we envision the game to feel like. We have a "Weekly Log" button that shows the events that have occurred in the week, a "Settler Log" button that 
+shows the cards of the settlers currently in the town with their current status and resources they produce, and a "Progress Week" button that allows the player to proceed to the next week(round) of the game. (Explain the 
+way calculations are made here). As mentioned above the resources the player will have to manage are food, water, military and ingenuity, however we are looking towards adding a new resource called "scraps" that could be 
+used by the player to make trades. We are also looking into more ways in which we could give the players more control over how they want to play the game, such as making the player choose which settler to starve as the camp
+does not have enough food resource to feed all the settlers. 
+
+Other things to talk about:
+Pause menu
+calculation logic 
+
+
+
+Art and design:
 
 

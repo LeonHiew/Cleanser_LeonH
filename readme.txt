@@ -1,10 +1,12 @@
-# Cleanser
-### Working at [drive folder](https://drive.google.com/drive/folders/1BkrRELmQ1t2c_jsFfaNaNqXFmQ7sx_RI) and update on GIT as much we have.
-## Developed by
+ 							Cleanser
+Working at [drive folder](https://drive.google.com/drive/folders/1BkrRELmQ1t2c_jsFfaNaNqXFmQ7sx_RI) and update on GIT as much we have.
+================================================
+Developed by
 Caelan Legg
 Thi Hoang Oanh Nguyen
 ----- <------- fill name
 ----- <------- fill name
+================================================
 
 ## IMPORTANT NOTES FOR TUTORS
 Godot has inbuilt functions that are marked with the prefix "_" 
@@ -18,6 +20,7 @@ Godot uses a custom language called gdscript with the same syntax as Python
 ### Story of the game:
 - The game is set in a post-apocalyptic world where the results of nuclear warfare still remain evident in even the air that the survivors breathe. Your role as a “Cleanser” is to lead an expedition team of settlers to test whether or not the new land you have found is suitable for the rest of the main group to move to. As the Cleanser, you must make choices that will prioritise the survival of the town by choosing the right settler to heal at the specific times. The settlers that you lead will generate the resources that the town will need to survive the period of time that the expedition team will need to hold out for until the main team arrives. There will be a random number of events that can happen every round which may help the town's survival or harm the town depending on the current stats of the town. 
 - The task is simple. Keep your town alive to live another day. 
+===============================================
 
 ### Rules: 
 - At the end of each round, players must choose a town civilian to heal.

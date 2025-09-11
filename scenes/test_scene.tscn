@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://c23a1n6qbn56r"]
+[gd_scene load_steps=7 format=3 uid="uid://c23a1n6qbn56r"]
 
 [ext_resource type="Script" uid="uid://cikprjtsu6si5" path="res://scripts/test_scene.gd" id="1_g7g4h"]
 [ext_resource type="PackedScene" uid="uid://oxejdqiaq0wo" path="res://scenes/settler_card.tscn" id="2_j8ivh"]
 [ext_resource type="StyleBox" uid="uid://f45iv48p5vt" path="res://assets/book.tres" id="3_nd71p"]
 [ext_resource type="LabelSettings" uid="uid://bu6v4hiigngu1" path="res://Resources/new_label_settings.tres" id="3_qjeyg"]
 [ext_resource type="StyleBox" uid="uid://crnf801ntce87" path="res://assets/paper.tres" id="4_7ddre"]
+[ext_resource type="PackedScene" uid="uid://d4jaa0dlvk3v4" path="res://scenes/pause_menu.tscn" id="6_3qnke"]
 
 [node name="TestScene" type="Node2D"]
 script = ExtResource("1_g7g4h")
@@ -65,6 +66,7 @@ text = "Resources"
 label_settings = ExtResource("3_qjeyg")
 
 [node name="weeklyLogButton" type="Button" parent="CanvasLayer/Control"]
+layout_mode = 0
 offset_left = 116.0
 offset_top = 801.0
 offset_right = 316.0
@@ -74,6 +76,7 @@ toggle_mode = true
 text = "Weekly Log"
 
 [node name="settlerLogButton" type="Button" parent="CanvasLayer/Control"]
+layout_mode = 0
 offset_left = 1558.0
 offset_top = 819.0
 offset_right = 1758.0
@@ -83,6 +86,7 @@ toggle_mode = true
 text = "Settler Log"
 
 [node name="ProgressButton" type="Button" parent="CanvasLayer/Control"]
+layout_mode = 0
 offset_left = 689.0
 offset_top = 871.0
 offset_right = 1189.0
@@ -92,6 +96,7 @@ text = "Progress Week"
 
 [node name="settlerPanel" type="Panel" parent="CanvasLayer/Control"]
 custom_minimum_size = Vector2(300, 300)
+layout_mode = 0
 offset_left = 883.0
 offset_top = 91.0
 offset_right = 1883.0
@@ -112,6 +117,7 @@ grow_vertical = 2
 
 [node name="weeklyLogPanel" type="Panel" parent="CanvasLayer/Control"]
 custom_minimum_size = Vector2(300, 300)
+layout_mode = 0
 offset_left = 35.0
 offset_top = 86.0
 offset_right = 835.0
@@ -139,6 +145,8 @@ the log is currently empty"
 label_settings = ExtResource("3_qjeyg")
 autowrap_mode = 2
 clip_text = true
+
+[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("6_3qnke")]
 
 [connection signal="toggled" from="CanvasLayer/Control/weeklyLogButton" to="." method="_on_weekly_log_button_toggled"]
 [connection signal="toggled" from="CanvasLayer/Control/settlerLogButton" to="." method="_on_settler_log_button_toggled"]

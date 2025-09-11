@@ -93,12 +93,12 @@ func _ProgressWeek():
 		get_tree().change_scene_to_file("res://scenes/lost_screen.tscn")
 		return
 		
-	var all_dead = true
+	var bIsAllDead = true
 	for settler in settlerArray:
 		if settler.bIsDead == false:
-			all_dead = false
+			bIsAllDead = false
 			break
-	if all_dead:
+	if bIsAllDead:
 		get_tree().change_scene_to_file("res://scenes/lost_screen.tscn")
 		return
 
@@ -115,9 +115,9 @@ func _rollEvents():
 		roll.randomize()
 		var eventRoll = roll.randf_range(0,100)
 		var currentEvent : Array
-		var pickingEvent = true
+		var isPickingEVent = true
 		if eventRoll <= positiveEventChance:
-			while true:
+			while isPickingEVent:
 				currentEvent = eventInfo.positiveEventArray.pick_random()
 				if currentEvent[0] in bannedEvents:
 					continue
@@ -125,9 +125,9 @@ func _rollEvents():
 					bannedEvents.append(currentEvent[0])
 					for ban in currentEvent[3]:
 						bannedEvents.append(ban)
-					break
+					isPickingEVent = false
 		else:
-			while true:
+			while isPickingEVent:
 				currentEvent = eventInfo.negativeEventArray.pick_random()
 				if currentEvent[0] in bannedEvents:
 					continue
@@ -135,7 +135,7 @@ func _rollEvents():
 					bannedEvents.append(currentEvent[0])
 					for ban in currentEvent[3]:
 						bannedEvents.append(ban)
-					break
+					isPickingEVent = false
 		
 		fillText += currentEvent[0] + "\n" + currentEvent[1] + "\n"
 		for key in currentEvent[2]:
@@ -179,16 +179,17 @@ func _rollSickness(sickness: SicknessInformation.sickness, minInfected: int, max
 
 	
 	for infected in infectedAmount:
+		var BIsApplyingSickness = true
 		var targetSettler : SettlerStats
-		while true:		
+		while BIsApplyingSickness:
 			if settlerArray.all(_isSick):
-				break
+				BIsApplyingSickness = false
 			targetSettler = settlerArray.pick_random()
 			if targetSettler.sickness != SicknessInformation.sickness.notSick:
 				continue
 			else:
 				targetSettler.sickness = sickness
-				break
+				BIsApplyingSickness = false
 			
 
 #used for _rollSickness all,

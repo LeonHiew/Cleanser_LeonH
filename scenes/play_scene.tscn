@@ -1,3 +1,137 @@
-[gd_scene format=3 uid="uid://brqq4ahdyu8nn"]
+[gd_scene load_steps=7 format=3 uid="uid://brqq4ahdyu8nn"]
+
+[ext_resource type="Texture2D" uid="uid://1g5426phbd32" path="res://assets/img/Không Có Tiêu Đề310_20250831142132.png" id="1_que2y"]
+[ext_resource type="Texture2D" uid="uid://dnloh5hajy7lv" path="res://assets/img/backside_of_card1-removebg-preview.png" id="2_kdvgv"]
+[ext_resource type="Texture2D" uid="uid://qbv8xayc0fvs" path="res://assets/img/Sam-Picsart-BackgroundRemover.png" id="3_ief5h"]
+
+[sub_resource type="Animation" id="Animation_da3qe"]
+resource_name = "card flip animation test1"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("card1/Card backside:z_index")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, -1]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("card1/card:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0.1, 1), Vector2(1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("card1/card:z_index")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [-1, 0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("card1/Card backside:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0.753632, 0.679636), Vector2(0.1, 0.68), Vector2(0.1, 0.68)]
+}
+
+[sub_resource type="Animation" id="Animation_btd5q"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("card1/Card backside:z_index")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("card1/card:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("card1/card:z_index")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [-1]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("card1/Card backside:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.753632, 0.679636)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7pyap"]
+_data = {
+&"RESET": SubResource("Animation_btd5q"),
+&"card flip animation test1": SubResource("Animation_da3qe")
+}
 
 [node name="PlayScene" type="Node2D"]
+
+[node name="TV screens" type="Sprite2D" parent="."]
+position = Vector2(2543, 1613)
+texture = ExtResource("1_que2y")
+
+[node name="card1" type="Node" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="card1"]
+root_node = NodePath("../..")
+libraries = {
+&"": SubResource("AnimationLibrary_7pyap")
+}
+
+[node name="Card backside" type="Sprite2D" parent="card1"]
+position = Vector2(463.375, 1561.75)
+scale = Vector2(0.753632, 0.679636)
+texture = ExtResource("2_kdvgv")
+
+[node name="card" type="Sprite2D" parent="card1"]
+z_index = -1
+position = Vector2(462, 1559)
+texture = ExtResource("3_ief5h")

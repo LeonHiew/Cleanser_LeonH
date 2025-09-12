@@ -125,5 +125,17 @@ we currently also have a basic pause screen to allow the player to quit the game
 
 
 Art and design:
-
+- We discuss and use the almost 2D art from design on Canva and Drawing by Ibis for GODOT game (export to use): character, character list, the TV (Main screen).
+- Still confused need to use 3D block out or not for the TV (Main screen), the feature (such as rule, expand, list....), book
+- Artstyle would be anime style (?) (such as the book sample that we show on the pitch (and on Godot folder)
+- The event will have 2 version, 1 is black-white for printing to use on paper- prototype and 1 more color than. Both style can realise the positive, negative, trade (and manything else in future development) through color and same art (for prototype).
+- The ideas of event is make it has the iconic and to be a card for play.
+- Still in discussion: On Godot event not be in card anymore
+- We get the ideas of characters list as the books after research, analysis their advantage/ (-) point and all team member decide option so all the ideas now near the last version.
+- Design characters's ideas: Based on the resources, story, and style of game, we decide choose the style a bit survival, not too much technical and real but still keep their own personalities. Difference job to difference resources they will be receive (for example- Luffy, a farmer, so design based on some symbol that a farmer should have then his resources will focus on provide the food and water).
+- Graphic (Main menu design): This is the totalling from experience play game and favorite of each team member such as from game (Wuthering Waves, Arknight, That's Not My Neighbor (Nightmare), Vocaloid fanmade, ...)
+- Story design:
+1. Game's story: Based on the first main -goal is specific: floatation, ''survival'' and make someone die (s) 
+2. Char's story: Based on the favorite, multiple style-job and the char's status such as: live, sickness, die...
+3. Event's story: based on the status of story game could be (for example: sickness, hunt...) and based on character (ex: the witch- Caitlyn)...
 

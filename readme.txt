@@ -138,11 +138,11 @@ Art and design:
 - We get the ideas of characters list as the books after research, analysis their advantage/ (-) point and all team member decide option so all the ideas now near the last version.
 - Design character's ideas: Based on the resources, story, and style of game, we decide choose the style a bit survival, not too much technical and real but still keep their own personalities. Difference job to difference resources they will be receive (for example- Luffy, a farmer, so design based on some symbol that a farmer should have then his resources will focus on provide the food and water).
 - Graphic (Main menu design): This is the totalling from experience play game and favorite of each team member such as from game (Wuthering Waves, Arknight, That's Not My Neighbor (Nightmare), Vocaloid fanmade, ...)
-- Animation: 
+- Animation notes: 
 1. Still deciding on exact datail, but we know some animations like cards flipping to reveal event will be animations that we want to see
 2. Some flickering/turning off the camera screens once a character dies
 3. Maybe some king of vignette for when a character is sick (depening on level of sickness the TV scrreen portrait has a stronger vignette)
-4. Hopefully be able to translate some of the animations from canva to the game
+4. Hopefully be able to translate some of the animations from canva to the game 
 - Story design:
 1. Game's story: Based on the first main -goal is specific: floatation, ''survival'' and cure diseases by putting them in a floatation tank 
 2. Char's story: Based on the favorite, multiple style-job and the char's status such as: Not sick, sickness level: , dead...

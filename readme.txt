@@ -143,6 +143,7 @@ Art and design:
 2. Some flickering/turning off the camera screens once a character dies
 3. Maybe some king of vignette for when a character is sick (depening on level of sickness the TV scrreen portrait has a stronger vignette)
 4. Hopefully be able to translate some of the animations from canva to the game 
+5. Currently there is an animation completed for the event card "flipping" in the play scene (make sure to select "cardflip ani test1" in the timeline next to the animation text)
 - Story design:
 1. Game's story: Based on the first main -goal is specific: floatation, ''survival'' and cure diseases by putting them in a floatation tank 
 2. Char's story: Based on the favorite, multiple style-job and the char's status such as: Not sick, sickness level: , dead...

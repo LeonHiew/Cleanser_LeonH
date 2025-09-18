@@ -5,6 +5,10 @@ extends Node2D
 @onready var resourceLabel = $CanvasLayer/Control/Panel/resources
 @onready var weeklyLogLabel = $CanvasLayer/Control/weeklyLogPanel/weeklyLogPaperPanel/weeklyLogLabel
 
+@onready var tradePanel = $CanvasLayer/Control/tradePanel
+@onready var tradeCardContainer = $CanvasLayer/Control/tradePanel/TradeCardContainer
+@export var tradeCardScene:PackedScene = preload("res://scenes/TradeCard.tscn")
+
 @onready var settlerArray = [
 	load("res://Resources/character_resources/AI_settler.tres"),
 	load("res://Resources/character_resources/Baldroy_settler.tres"),
@@ -29,6 +33,7 @@ var townFood = 15
 var townWater = 15
 var townMilitary = 0
 var townIngenuity = 0
+var townScraps = 5
 #base values because the values are calcualted differently
 var baseTownMiltary = 10
 var baseTownIngenuity = 0
@@ -86,6 +91,9 @@ func _ProgressWeek():
 	roundNumber += 1
 	
 	_UpdateResourcesDisplay()
+	
+	_ShowTradeEvent()
+	
 	if roundNumber == 15:
 		get_tree().change_scene_to_file("res://scenes/win_scene.tscn")
 		
@@ -292,4 +300,50 @@ func _on_heal_request(stats: SettlerStats) -> void:
 		card.FillCard()
 	
 
+func _ShowTradeEvent():
+	tradePanel.show()
+	#weeklyLogLabel.text += "\nA travelling merchant arrives this week offering trades!"
+	if weeklyLogLabel:
+		weeklyLogLabel.text += "\nA travelling merchant arrives this week offering trades!"
+	else:
+		push_error("weeklyLogLabel is null")
+	
+	#clear old trades from previous week
+	for child in tradeCardContainer.get_children():
+		child.queue_free()
+		
+	var tradeResources = ["food", "water", "military", "ingenuity"]
+	
+	#generate 2-4 trade cards 
+	var num_trades = roll.randi_range(2,4)
+	
+	for i in num_trades:
+		var scraps_cost = roll.randi_range(1,3)
+		var resource_amount = roll.randi_range(1,3)
+		var res_type = tradeResources.pick_random()
+		
+		var card = tradeCardScene.instantiate()
+		card.setup(scraps_cost, res_type, resource_amount)
+		card.trade_accepted.connect(_on_trade_accepted)
+		tradeCardContainer.add_child(card)
+		
+		
+func _on_trade_accepted(scraps:int, resource_type:String, resource_amount:int):
+	if townScraps < scraps:
+		print("Not enough scraps for trade!")
+		return
+		
+	townScraps -= scraps
+	match resource_type:
+		"food":
+			townFood += resource_amount
+		"water":
+			townWater += resource_amount
+		"military":
+			baseTownMiltary += resource_amount
+		"ingenuity":
+			baseTownIngenuity += resource_amount
+			
+	_UpdateResourcesDisplay()
+	print("Trade completed: %d scraps for %d %s." % [scraps, resource_amount, resource_type])
 	

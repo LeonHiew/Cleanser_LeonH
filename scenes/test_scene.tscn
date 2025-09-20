@@ -149,15 +149,24 @@ clip_text = true
 [node name="tradePanel" type="Panel" parent="CanvasLayer/Control"]
 show_behind_parent = true
 layout_mode = 0
-offset_right = 1916.0
-offset_bottom = 787.0
+offset_left = 4.0
+offset_top = 194.0
+offset_right = 637.0
+offset_bottom = 769.0
 
 [node name="TradeCardContainer" type="VBoxContainer" parent="CanvasLayer/Control/tradePanel"]
 layout_mode = 0
-offset_right = 1916.0
-offset_bottom = 791.0
+offset_left = 6.0
+offset_top = 8.0
+offset_right = 624.0
+offset_bottom = 577.0
 
 [node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("6_3qnke")]
+visible = false
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 4.0
+offset_bottom = 4.0
 
 [connection signal="toggled" from="CanvasLayer/Control/weeklyLogButton" to="." method="_on_weekly_log_button_toggled"]
 [connection signal="toggled" from="CanvasLayer/Control/settlerLogButton" to="." method="_on_settler_log_button_toggled"]

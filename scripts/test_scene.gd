@@ -44,6 +44,9 @@ var healNumber = 1
 #number of rounds progressed
 var roundNumber = 0
 
+#rarity of events Common, Uncommon, Rare
+var eventRarityChances = [60,30,10]
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	settlerPanel.hide()
@@ -126,7 +129,17 @@ func _rollEvents():
 		var isPickingEVent = true
 		if eventRoll <= positiveEventChance:
 			while isPickingEVent:
-				currentEvent = eventInfo.positiveEventArray.pick_random()
+				roll.randomize()
+				var eventRarity =  roll.randf_range(0,100)
+				var rarityKey 
+				if eventRarity <= eventRarityChances[0]:
+					rarityKey = "Common"
+				elif eventRarity <= eventRarityChances[1] + eventRarityChances[0]:
+					rarityKey = "Uncommon"
+				elif eventRarity <= eventRarityChances[2] + eventRarityChances[1] + eventRarityChances[0]:
+					rarityKey = "Rare"
+				
+				currentEvent = eventInfo.positiveEventArray[rarityKey].pick_random()
 				if currentEvent[0] in bannedEvents:
 					continue
 				else:
@@ -136,7 +149,17 @@ func _rollEvents():
 					isPickingEVent = false
 		else:
 			while isPickingEVent:
-				currentEvent = eventInfo.negativeEventArray.pick_random()
+				roll.randomize()
+				var eventRarity =  roll.randf_range(0,100)
+				var rarityKey 
+				if eventRarity <= eventRarityChances[0]:
+					rarityKey = "Common"
+				elif eventRarity <= eventRarityChances[1] + eventRarityChances[0]:
+					rarityKey = "Uncommon"
+				elif eventRarity <= eventRarityChances[2] + eventRarityChances[1] + eventRarityChances[0]:
+					rarityKey = "Rare"
+					
+				currentEvent = eventInfo.negativeEventArray[rarityKey].pick_random()
 				if currentEvent[0] in bannedEvents:
 					continue
 				else:

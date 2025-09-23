@@ -22,21 +22,20 @@ var sicknessArray = {
 	sickness.radStage3:
 		["radiation sickness(stage 3)", 1 , 99, 0, null]
 }
-func GetNameString(sickness):
-	return sicknessArray[sickness][0]
+func GetNameString(target: sickness):
+	return sicknessArray[target][0]
 
 #enter sickness, returns survive chance
-func GetSurvivalChance(sickness):
-	return sicknessArray[sickness][1]
+func GetSurvivalChance(target: sickness):
+	return sicknessArray[target][1]
 
-func GetDeathChance(sickness):
-	return sicknessArray[sickness][2]
+func GetDeathChance(target: sickness):
+	return sicknessArray[target][2]
 
-func GetWorsenChance(sickness):
-	return sicknessArray[sickness][3]
-
+func GetWorsenChance(target: sickness):
+	return sicknessArray[target][3]
 
 #enter sickness, returns worsen target
-func GetWorsenTarget(sickness):
-	var target = sicknessArray[sickness][4]
-	return target
+func GetWorsenTarget(target: sickness):
+	var returnValue = sicknessArray[target][4]
+	return returnValue

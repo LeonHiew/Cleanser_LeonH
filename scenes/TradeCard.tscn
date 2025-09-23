@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://dllg2nmdtqpow"]
 
-[ext_resource type="Script" uid="uid://uhft1b4mjva4" path="res://scenes/TradeCard.gd" id="1_pone0"]
+[ext_resource type="Script" uid="uid://uhft1b4mjva4" path="res://scripts/TradeCard.gd" id="1_pone0"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_pone0"]
 

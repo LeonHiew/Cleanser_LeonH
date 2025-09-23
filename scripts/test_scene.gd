@@ -74,9 +74,9 @@ func _ready() -> void:
 #updates resourcelabel display to current values
 func _UpdateResourcesDisplay():
 	var fillText = """Town Resources
-	Food: %s Water: %s Miltary: %s Ingenuity: %s
+	Food: %s Water: %s Miltary: %s Ingenuity: %s Scraps: %s
 	week %s/15
-	"""% [townFood, townWater, townMilitary, townIngenuity, roundNumber ]
+	"""% [townFood, townWater, townMilitary, townIngenuity, townScraps, roundNumber ]
 	
 	
 	resourceLabel.text = fillText
@@ -363,9 +363,9 @@ func _on_trade_accepted(scraps:int, resource_type:String, resource_amount:int):
 		"water":
 			townWater += resource_amount
 		"military":
-			baseTownMiltary += resource_amount
+			townMilitary += resource_amount
 		"ingenuity":
-			baseTownIngenuity += resource_amount
+			townIngenuity += resource_amount
 			
 	_UpdateResourcesDisplay()
 	print("Trade completed: %d scraps for %d %s." % [scraps, resource_amount, resource_type])

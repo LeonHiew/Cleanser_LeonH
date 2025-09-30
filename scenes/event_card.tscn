@@ -1,11 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://schvq4rxilf1"]
+[gd_scene load_steps=5 format=3 uid="uid://schvq4rxilf1"]
 
 [ext_resource type="StyleBox" uid="uid://884rg0bkaxp" path="res://assets/GoodEventBackground.tres" id="1_dj2if"]
 [ext_resource type="Script" uid="uid://cdk1ci56p4etc" path="res://scripts/event_card.gd" id="2_1xlr1"]
 [ext_resource type="StyleBox" uid="uid://bd64ssvtn7ne3" path="res://assets/EventForground.tres" id="3_uk0qc"]
 [ext_resource type="Texture2D" uid="uid://cked5c4eoxyuf" path="res://assets/icon.svg" id="4_uk0qc"]
-[ext_resource type="Texture2D" uid="uid://bopwjb23ttw2b" path="res://assets/img/Sam.png" id="5_rlxwl"]
-[ext_resource type="Texture2D" uid="uid://qbv8xayc0fvs" path="res://assets/img/Sam-Picsart-BackgroundRemover.png" id="6_i25cv"]
 
 [node name="EventCard" type="Panel"]
 custom_minimum_size = Vector2(320, 430)
@@ -173,13 +171,3 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "the Event Description, it should be kinda long be i don't know, just filling text"
 horizontal_alignment = 1
 autowrap_mode = 3
-
-[node name="Sam" type="Sprite2D" parent="."]
-texture_filter = 3
-position = Vector2(546, 375)
-texture = ExtResource("5_rlxwl")
-
-[node name="SamPicsartBackgroundRemover" type="Sprite2D" parent="."]
-texture_filter = 5
-position = Vector2(483, 322)
-texture = ExtResource("6_i25cv")

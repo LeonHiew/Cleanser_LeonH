@@ -1,0 +1,173 @@
+[gd_scene load_steps=5 format=3 uid="uid://schvq4rxilf1"]
+
+[ext_resource type="StyleBox" uid="uid://884rg0bkaxp" path="res://assets/GoodEventBackground.tres" id="1_dj2if"]
+[ext_resource type="Script" uid="uid://cdk1ci56p4etc" path="res://scripts/event_card.gd" id="2_1xlr1"]
+[ext_resource type="StyleBox" uid="uid://bd64ssvtn7ne3" path="res://assets/EventForground.tres" id="3_uk0qc"]
+[ext_resource type="Texture2D" uid="uid://cked5c4eoxyuf" path="res://assets/icon.svg" id="4_uk0qc"]
+
+[node name="EventCard" type="Panel"]
+custom_minimum_size = Vector2(320, 430)
+offset_right = 320.0
+offset_bottom = 430.0
+theme_override_styles/panel = ExtResource("1_dj2if")
+script = ExtResource("2_1xlr1")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="eventForground" type="Panel" parent="VBoxContainer"]
+custom_minimum_size = Vector2(280, 390)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = ExtResource("3_uk0qc")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/eventForground"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/eventForground/HBoxContainer"]
+layout_mode = 2
+
+[node name="TitleLabel" type="Label" parent="VBoxContainer/eventForground/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "TITLE OF EVENT"
+horizontal_alignment = 1
+
+[node name="Panel" type="Panel" parent="VBoxContainer/eventForground/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(100, 150)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/eventForground/HBoxContainer/VBoxContainer/Panel"]
+layout_mode = 0
+offset_left = 65.0
+offset_top = 55.0
+offset_right = 155.0
+offset_bottom = 78.0
+text = "fill in image"
+
+[node name="ResourceContainer" type="HBoxContainer" parent="VBoxContainer/eventForground/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Control" type="Control" parent="VBoxContainer/eventForground/HBoxContainer/VBoxContainer/ResourceContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+
+[node name="Icon" type="Sprite2D" parent="VBoxContainer/eventForground/HBoxContainer/VBoxContainer/ResourceContainer/Control"]
+position = Vector2(15, 15)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("4_uk0qc")
+
+[node name="Panel" type="Panel" parent="VBoxContainer/eventForground/HBoxContainer/VBoxContainer/ResourceContainer"]
+custom_minimum_size = Vector2(50, 30)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = ExtResource("1_dj2if")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/eventForground/HBoxContainer/VBoxContainer/ResourceContainer/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="VBoxContainer/eventForground/HBoxContainer/VBoxContainer/ResourceContainer/Panel/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "+10 Food"
+
+[node name="ResourceContainer2" type="HBoxContainer" parent="VBoxContainer/eventForground/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Control" type="Control" parent="VBoxContainer/eventForground/HBoxContainer/VBoxContainer/ResourceContainer2"]
+clip_contents = true
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+
+[node name="Icon" type="Sprite2D" parent="VBoxContainer/eventForground/HBoxContainer/VBoxContainer/ResourceContainer2/Control"]
+position = Vector2(15, 15)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("4_uk0qc")
+
+[node name="Panel" type="Panel" parent="VBoxContainer/eventForground/HBoxContainer/VBoxContainer/ResourceContainer2"]
+custom_minimum_size = Vector2(50, 30)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = ExtResource("1_dj2if")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/eventForground/HBoxContainer/VBoxContainer/ResourceContainer2/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="VBoxContainer/eventForground/HBoxContainer/VBoxContainer/ResourceContainer2/Panel/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "+10 Food"
+
+[node name="ResourceContainer3" type="HBoxContainer" parent="VBoxContainer/eventForground/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Control" type="Control" parent="VBoxContainer/eventForground/HBoxContainer/VBoxContainer/ResourceContainer3"]
+clip_contents = true
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+
+[node name="Icon" type="Sprite2D" parent="VBoxContainer/eventForground/HBoxContainer/VBoxContainer/ResourceContainer3/Control"]
+position = Vector2(15, 15)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("4_uk0qc")
+
+[node name="Panel" type="Panel" parent="VBoxContainer/eventForground/HBoxContainer/VBoxContainer/ResourceContainer3"]
+custom_minimum_size = Vector2(50, 30)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = ExtResource("1_dj2if")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/eventForground/HBoxContainer/VBoxContainer/ResourceContainer3/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="VBoxContainer/eventForground/HBoxContainer/VBoxContainer/ResourceContainer3/Panel/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "+10 Food"
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer/eventForground/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="DescriptionLabel" type="Label" parent="VBoxContainer/eventForground/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "the Event Description, it should be kinda long be i don't know, just filling text"
+horizontal_alignment = 1
+autowrap_mode = 3

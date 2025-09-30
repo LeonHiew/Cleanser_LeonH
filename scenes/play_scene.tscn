@@ -1,8 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://brqq4ahdyu8nn"]
+[gd_scene load_steps=10 format=3 uid="uid://brqq4ahdyu8nn"]
 
+[ext_resource type="Script" uid="uid://dqtnf3fpuxi30" path="res://scripts/play_scene.gd" id="1_ief5h"]
 [ext_resource type="Texture2D" uid="uid://1g5426phbd32" path="res://assets/img/Không Có Tiêu Đề310_20250831142132.png" id="1_que2y"]
 [ext_resource type="Texture2D" uid="uid://dnloh5hajy7lv" path="res://assets/img/backside_of_card1-removebg-preview.png" id="2_kdvgv"]
 [ext_resource type="Texture2D" uid="uid://qbv8xayc0fvs" path="res://assets/img/Sam-Picsart-BackgroundRemover.png" id="3_ief5h"]
+[ext_resource type="PackedScene" uid="uid://schvq4rxilf1" path="res://scenes/event_card.tscn" id="4_kdvgv"]
+[ext_resource type="PackedScene" uid="uid://d4jaa0dlvk3v4" path="res://scenes/pause_menu.tscn" id="6_da3qe"]
 
 [sub_resource type="Animation" id="Animation_btd5q"]
 length = 0.001
@@ -113,6 +116,7 @@ _data = {
 }
 
 [node name="PlayScene" type="Node2D"]
+script = ExtResource("1_ief5h")
 
 [node name="TV screens" type="Sprite2D" parent="."]
 position = Vector2(2329, 1619)
@@ -135,3 +139,24 @@ texture = ExtResource("2_kdvgv")
 z_index = -1
 position = Vector2(462, 1559)
 texture = ExtResource("3_ief5h")
+
+[node name="EventCard" parent="." instance=ExtResource("4_kdvgv")]
+offset_left = 723.0
+offset_top = 241.0
+offset_right = 1043.0
+offset_bottom = 671.0
+
+[node name="ProgressButton" type="Button" parent="."]
+offset_left = 689.0
+offset_top = 871.0
+offset_right = 1189.0
+offset_bottom = 971.0
+theme_override_font_sizes/font_size = 30
+text = "Progress Week"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("6_da3qe")]
+visible = false
+
+[connection signal="pressed" from="ProgressButton" to="." method="_on_progress_button_pressed"]

@@ -88,12 +88,13 @@ func _ProgressWeek():
 	_calculateResources()
 	_rollEvents()
 
-	for settlerCard in settlerCardArray:
-		settlerCard.FillCard()
+	for CurrentSettlerCard in settlerCardArray:
+		CurrentSettlerCard.FillCard()
 	healNumber = 1
 	roundNumber += 1
 	
 	_UpdateResourcesDisplay()
+	_calculateMood()
 	
 	_ShowTradeEvent()
 	
@@ -102,7 +103,7 @@ func _ProgressWeek():
 		
 	if townFood < 0 or townWater < 0:
 		get_tree().change_scene_to_file("res://scenes/lost_screen.tscn")
-		return
+		
 		
 	var bIsAllDead = true
 	for settler in settlerArray:
@@ -111,7 +112,7 @@ func _ProgressWeek():
 			break
 	if bIsAllDead:
 		get_tree().change_scene_to_file("res://scenes/lost_screen.tscn")
-		return
+		
 
 #logic behind the events system
 #calculates amount of events that occur, whether they are positive or negative
@@ -121,7 +122,7 @@ func _rollEvents():
 	var amountOfEvents = roll.randi_range(1,3)
 	var positiveEventChance = pow(townIngenuity * 0.25, 2)
 	var bannedEvents = []
-	var fillText : String
+	var fillText : String = ""
 	for event in amountOfEvents:
 		roll.randomize()
 		var eventRoll = roll.randf_range(0,100)
@@ -195,8 +196,7 @@ func _rollEvents():
 				#default, shouldn't be called
 				#if it does something misspelled in event information
 				_:
-					print("a key is wrong in:")
-					print(currentEvent)
+					push_error("a key is wrong in event array, the key is : " + key)
 					
 		fillText += "\n"
 	weeklyLogLabel.text = """ Weekly Log
@@ -220,11 +220,12 @@ func _rollSickness(sickness: SicknessInformation.sickness, minInfected: int, max
 				continue
 			else:
 				targetSettler.sickness = sickness
+				targetSettler.settlerMood += 1
 				BIsApplyingSickness = false
 			
 
 #used for _rollSickness all,
-#returns false of settler is not sick and true if dead or sick
+#returns false if settler is not sick and true if dead or sick
 func _isSick(settler: SettlerStats):
 	if settler.bIsDead == true:
 		return true
@@ -234,25 +235,36 @@ func _isSick(settler: SettlerStats):
 		return true
 
 #gets all settlers and updates resouces based on each settlers resource 
-#production and drain
+#production, drain and mood
 func _calculateResources():
+	#reset to base values as value isn't added each round for military 
+	#and ingenuity
 	townMilitary = baseTownMiltary
 	townIngenuity = baseTownIngenuity
+	
 	for settler in settlerArray:
-		var currentSettler = settler
-		if currentSettler.bIsDead == true:
+		if settler.bIsDead == true:
 			continue
-		townFood = townFood + currentSettler.foodProduction - currentSettler.foodDrain
-		townWater = townWater + currentSettler.waterProduction - currentSettler.waterDrain
-		townMilitary = townMilitary + currentSettler.militaryProduction
-		townIngenuity = townIngenuity + currentSettler.ingenuityProduction
+		var moodBonus = 0.0
+		match SettlerStats.settlerMoods.find_key(settler.settlerMood):
+			"Great": moodBonus = 2 
+			"Good": moodBonus = 1.5
+			"Fine": moodBonus = 1
+			"Bad": moodBonus = 0.7
+			"Terrible": moodBonus = 0.5
+		if moodBonus == 0.0:
+			push_error("incorrect SettlerMood can't apply mood bonus")
+		
+		townFood = townFood + round(settler.foodProduction * moodBonus) - settler.foodDrain
+		townWater = townWater + round(settler.waterProduction * moodBonus) - settler.waterDrain
+		townMilitary = townMilitary + round(settler.militaryProduction * moodBonus)
+		townIngenuity = townIngenuity + round(settler.ingenuityProduction * moodBonus)
 
 
 #checks all settlers for sicknesses
 #if sick rolls if they live, die or get worse and updates resource
 func _RoleSicknesses():
-	for settler in settlerArray:
-		var currentSettler = settler
+	for currentSettler in settlerArray:
 		if currentSettler.bIsDead == true:
 			continue
 		if currentSettler.sickness != SicknessInformation.sickness.notSick:
@@ -262,24 +274,41 @@ func _RoleSicknesses():
 			
 			#error check
 			if (survivalChance + deathChance + worsenChance != 100):
-				print(currentSettler.sickness + " hads odds that don't add up to 100")
+				push_error(currentSettler.sickness + " hads odds that don't add up to 100")
 			
-			roll.randomize()
+			roll.randomize()	
 			var sicknessRoll = roll.randf_range(0, 100)
-			
+			#survive
 			if sicknessRoll <= survivalChance:
 				currentSettler.sickness = SicknessInformation.sickness.notSick
+				if currentSettler.settlerMood != 0:
+					currentSettler.settlerMood -= 1
+			#die
 			elif sicknessRoll <= survivalChance + deathChance:
 				currentSettler.bIsDead = true
+				#you wouldn't feel great if you died
+				currentSettler.settlerMood = SettlerStats.settlerMoods.Terrible
+			#get worse
 			elif  sicknessRoll <= survivalChance + deathChance + worsenChance:
 				currentSettler.sickness = sicknessInfo.GetWorsenTarget(currentSettler.sickness)
+				currentSettler.settlerMood += 1
 
+#changes the mood of all settlers with the goal of bring them towards Fine
+func _calculateMood():
+	for currentSettler in settlerArray:
+		if currentSettler.bIsDead:
+			continue
+		roll.randomize()
+		var moodChangeChance = 30
+		var moodChangeRoll = roll.randi_range(0, 100)
+		if moodChangeRoll <= moodChangeChance:
+			match SettlerStats.settlerMoods.find_key(currentSettler.settlerMood):
+				"Great": currentSettler.settlerMood += 1
+				"Good": currentSettler.settlerMood += 1
+				"Fine": currentSettler.settlerMood += 0 # do nothing
+				"Bad": currentSettler.settlerMood -= 1
+				"Terrible": currentSettler.settlerMood -= 1 
 
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
 
 
 
@@ -315,6 +344,8 @@ func _on_heal_request(stats: SettlerStats) -> void:
 		return
 	else:
 		stats.sickness = SicknessInformation.sickness.notSick
+		if stats.settlerMood != 0:
+			stats.settlerMood = stats.settlerMoods.Great
 		healNumber -= 1 
 		print(stats.settlerName + " has been healed! Remaining heals: " + str(healNumber))
 		

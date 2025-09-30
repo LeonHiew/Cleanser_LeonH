@@ -26,7 +26,6 @@ class_name SettlerStats extends Resource
 #later down the line will put stuff here related to mood but for now
 @export var settlerMood = settlerMoods.Great
 
-
 enum settlerMoods {
 	Great,
 	Good,

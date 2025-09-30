@@ -40,6 +40,8 @@ func FillCard() -> void:
 	if stats.militaryProduction != 0:
 		fillText += "military: %d  \n" % [stats.militaryProduction]
 	
+	fillText += "Mood: %s  \n" % [stats.settlerMoods.find_key(stats.settlerMood)]
+	
 	if stats.bIsDead == false:
 		fillText += "Sickness: %s" % [sicknessInfo.GetNameString(stats.sickness)]
 	else:

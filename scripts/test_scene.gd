@@ -193,8 +193,18 @@ func _rollEvents():
 					
 					_rollSickness(SicknessInformation.sickness.radStage2,
 					currentEvent[2][key][0], currentEvent[2][key][1])
+				
+				"Mood":
+					for settler in settlerArray:
+						if settler.bIsDead != true:
+							#needs to be negative, negatives go towards great
+							settler.settlerMood = settler.settlerMood - currentEvent[2][key]
+						if settler.settlerMood < 0:
+							settler.settlerMood = 0
+						if settler.settlerMood > 4:
+							settler.settlerMood = 4
 				#default, shouldn't be called
-				#if it does something misspelled in event information
+				#if it does triggers something is misspelled in event information
 				_:
 					push_error("a key is wrong in event array, the key is : " + key)
 					
@@ -220,7 +230,8 @@ func _rollSickness(sickness: SicknessInformation.sickness, minInfected: int, max
 				continue
 			else:
 				targetSettler.sickness = sickness
-				targetSettler.settlerMood += 1
+				if targetSettler.settlerMood != 4:
+					targetSettler.settlerMood += 1
 				BIsApplyingSickness = false
 			
 
@@ -252,8 +263,7 @@ func _calculateResources():
 			"Fine": moodBonus = 1
 			"Bad": moodBonus = 0.7
 			"Terrible": moodBonus = 0.5
-		if moodBonus == 0.0:
-			push_error("incorrect SettlerMood can't apply mood bonus")
+			_: push_error("incorrect SettlerMood can't apply mood bonus %s" %[settler.settlerMood]) 
 		
 		townFood = townFood + round(settler.foodProduction * moodBonus) - settler.foodDrain
 		townWater = townWater + round(settler.waterProduction * moodBonus) - settler.waterDrain
@@ -291,7 +301,8 @@ func _RoleSicknesses():
 			#get worse
 			elif  sicknessRoll <= survivalChance + deathChance + worsenChance:
 				currentSettler.sickness = sicknessInfo.GetWorsenTarget(currentSettler.sickness)
-				currentSettler.settlerMood += 1
+				if currentSettler.settlerMood != 4:
+					currentSettler.settlerMood += 1
 
 #changes the mood of all settlers with the goal of bring them towards Fine
 func _calculateMood():

@@ -68,6 +68,7 @@ func loadStats(event: Array):
 				fillText = "%s to %s settlers have caught stage 2 radiation sickness" % [
 					event[2][key][0],event[2][key][1]
 				]
+				
 			#default, shouldn't be called
 			#if it does something misspelled in event information
 			_:

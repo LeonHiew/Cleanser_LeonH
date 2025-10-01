@@ -78,7 +78,13 @@ var positiveEventArray = {
 				"the town’s scouts found a great war stockpile filled with food and water",
 				{"food": 10, "water": 15},
 				[]
-			]
+			],
+						[
+				"Psychic sooth",
+				"you hear a voice, calm and relaxing, maybing living here isn't such a bad idea after all",
+				{"Mood": 1},
+				["Psychic drone"]
+			],
 		],
 	"Rare":
 		[
@@ -142,6 +148,12 @@ var negativeEventArray = {
 				"Radioactive rain contaminated the drinking water",
 				{"radStage1": [1,3], "water": -5},
 				[]
+			],
+			[
+				"Psychic drone",
+				"you hear a voice, scratching at the back of your mind, you don't like what it's saying",
+				{"Mood": -1},
+				["Psychic sooth"]
 			],
 		],
 	"Rare":

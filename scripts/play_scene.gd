@@ -4,7 +4,12 @@ extends Node2D
 
 @onready var roll = RandomNumberGenerator.new()
 
-@onready var eventCard = $EventCard
+@onready var eventCards = [
+	$EventCard,
+	$EventCard2,
+	$EventCard3
+]
+
 
 #rarity of events Common, Uncommon, Rare
 var eventRarityChances = [60,30,10]
@@ -26,10 +31,11 @@ func _ProgressWeek():
 #and deals with applying the changes the event creates
 func _rollEvents():
 	roll.randomize()
-	var amountOfEvents = 1
+	var amountOfEvents = 3
 	var positiveEventChance = pow(townIngenuity * 0.25, 2)
 	var bannedEvents = []
 	var fillText : String = ""
+	var currentEventCard = 0
 	for event in amountOfEvents:
 		roll.randomize()
 		var eventRoll = roll.randf_range(0,100)
@@ -112,8 +118,8 @@ func _rollEvents():
 					
 		fillText += "\n"
 		print("fillcard")
-		eventCard.loadStats(currentEvent)
-		
+		eventCards[currentEventCard].loadStats(currentEvent)
+		currentEventCard += 1
 	#weeklyLogLabel.text = """ Weekly Log
 	#""" + fillText
 

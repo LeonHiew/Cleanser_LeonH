@@ -38,15 +38,18 @@ grow_vertical = 2
 alignment = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/eventForground/HBoxContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(250, 0)
 layout_mode = 2
 
 [node name="TitleLabel" type="Label" parent="VBoxContainer/eventForground/HBoxContainer/VBoxContainer"]
-custom_minimum_size = Vector2(120, 0)
+custom_minimum_size = Vector2(250, 0)
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 30
-text = "TITLE OF EVENT"
+theme_override_font_sizes/font_size = 25
+text = "Title of Event"
 horizontal_alignment = 1
+autowrap_mode = 2
 
 [node name="Panel" type="Panel" parent="VBoxContainer/eventForground/HBoxContainer/VBoxContainer"]
 custom_minimum_size = Vector2(100, 150)
@@ -61,113 +64,119 @@ offset_bottom = 78.0
 text = "fill in image"
 
 [node name="ResourceContainer" type="HBoxContainer" parent="VBoxContainer/eventForground/HBoxContainer/VBoxContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(250, 0)
 layout_mode = 2
+alignment = 1
 
 [node name="Control" type="Control" parent="VBoxContainer/eventForground/HBoxContainer/VBoxContainer/ResourceContainer"]
 clip_contents = true
 custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
+size_flags_vertical = 4
 
 [node name="Icon" type="Sprite2D" parent="VBoxContainer/eventForground/HBoxContainer/VBoxContainer/ResourceContainer/Control"]
 position = Vector2(15, 15)
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("4_uk0qc")
 
-[node name="Panel" type="Panel" parent="VBoxContainer/eventForground/HBoxContainer/VBoxContainer/ResourceContainer"]
+[node name="Panel" type="PanelContainer" parent="VBoxContainer/eventForground/HBoxContainer/VBoxContainer/ResourceContainer"]
 custom_minimum_size = Vector2(50, 30)
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_styles/panel = ExtResource("1_dj2if")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/eventForground/HBoxContainer/VBoxContainer/ResourceContainer/Panel"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-alignment = 1
-
-[node name="Label" type="Label" parent="VBoxContainer/eventForground/HBoxContainer/VBoxContainer/ResourceContainer/Panel/HBoxContainer"]
+[node name="Label" type="Label" parent="VBoxContainer/eventForground/HBoxContainer/VBoxContainer/ResourceContainer/Panel"]
+custom_minimum_size = Vector2(210, 0)
 layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "+10 Food"
+text = "+10 Food "
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
 
 [node name="ResourceContainer2" type="HBoxContainer" parent="VBoxContainer/eventForground/HBoxContainer/VBoxContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(250, 0)
 layout_mode = 2
+alignment = 1
 
 [node name="Control" type="Control" parent="VBoxContainer/eventForground/HBoxContainer/VBoxContainer/ResourceContainer2"]
 clip_contents = true
 custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
+size_flags_vertical = 4
 
 [node name="Icon" type="Sprite2D" parent="VBoxContainer/eventForground/HBoxContainer/VBoxContainer/ResourceContainer2/Control"]
 position = Vector2(15, 15)
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("4_uk0qc")
 
-[node name="Panel" type="Panel" parent="VBoxContainer/eventForground/HBoxContainer/VBoxContainer/ResourceContainer2"]
+[node name="Panel" type="PanelContainer" parent="VBoxContainer/eventForground/HBoxContainer/VBoxContainer/ResourceContainer2"]
 custom_minimum_size = Vector2(50, 30)
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_styles/panel = ExtResource("1_dj2if")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/eventForground/HBoxContainer/VBoxContainer/ResourceContainer2/Panel"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-alignment = 1
-
-[node name="Label" type="Label" parent="VBoxContainer/eventForground/HBoxContainer/VBoxContainer/ResourceContainer2/Panel/HBoxContainer"]
+[node name="Label" type="Label" parent="VBoxContainer/eventForground/HBoxContainer/VBoxContainer/ResourceContainer2/Panel"]
+custom_minimum_size = Vector2(210, 0)
 layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "+10 Food"
+text = "+10 Food "
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
 
 [node name="ResourceContainer3" type="HBoxContainer" parent="VBoxContainer/eventForground/HBoxContainer/VBoxContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(250, 0)
 layout_mode = 2
+alignment = 1
 
 [node name="Control" type="Control" parent="VBoxContainer/eventForground/HBoxContainer/VBoxContainer/ResourceContainer3"]
 clip_contents = true
 custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
+size_flags_vertical = 4
 
 [node name="Icon" type="Sprite2D" parent="VBoxContainer/eventForground/HBoxContainer/VBoxContainer/ResourceContainer3/Control"]
 position = Vector2(15, 15)
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("4_uk0qc")
 
-[node name="Panel" type="Panel" parent="VBoxContainer/eventForground/HBoxContainer/VBoxContainer/ResourceContainer3"]
+[node name="Panel" type="PanelContainer" parent="VBoxContainer/eventForground/HBoxContainer/VBoxContainer/ResourceContainer3"]
 custom_minimum_size = Vector2(50, 30)
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_styles/panel = ExtResource("1_dj2if")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/eventForground/HBoxContainer/VBoxContainer/ResourceContainer3/Panel"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-alignment = 1
-
-[node name="Label" type="Label" parent="VBoxContainer/eventForground/HBoxContainer/VBoxContainer/ResourceContainer3/Panel/HBoxContainer"]
+[node name="Label" type="Label" parent="VBoxContainer/eventForground/HBoxContainer/VBoxContainer/ResourceContainer3/Panel"]
+custom_minimum_size = Vector2(210, 0)
 layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "+10 Food"
+text = "+10 Food "
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
 
 [node name="HSeparator" type="HSeparator" parent="VBoxContainer/eventForground/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 10
 
 [node name="DescriptionLabel" type="Label" parent="VBoxContainer/eventForground/HBoxContainer/VBoxContainer"]
-custom_minimum_size = Vector2(100, 0)
+clip_contents = true
+custom_minimum_size = Vector2(250, 0)
 layout_mode = 2
-size_flags_vertical = 6
+size_flags_horizontal = 4
+size_flags_vertical = 3
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 16
 text = "the Event Description, it should be kinda long be i don't know, just filling text"
 horizontal_alignment = 1
-autowrap_mode = 3
+autowrap_mode = 2

@@ -26,32 +26,51 @@ func loadStats(event: Array):
 	var i = 0
 	for key in event[2]:
 		var resourceTarget = resourceDisplayArray[i]
+		var label = resourceTarget.get_node("Panel/Label")
 		resourceTarget.show()
+		var fillText = "Empty fillText"
 		match key:
 			"food":
-				var label = resourceTarget.get_node("Panel/HBoxContainer/Label")
-				label.text ="added food"
+				fillText = "food "
+				if event[2][key] > 0:
+					fillText += "+%s" %[event[2][key]]
+				else:
+					fillText += "%s" %[event[2][key]]
 			"water":
-				var label = resourceTarget.get_node("Panel/HBoxContainer/Label")
-				label.text ="added water"
+				fillText = "water "
+				if event[2][key] > 0:
+					fillText += "+%s" %[event[2][key]]
+				else:
+					fillText += "%s" %[event[2][key]]
 			"military":
-				var label = resourceTarget.get_node("Panel/HBoxContainer/Label")
-				label.text ="added military"
+				fillText = "military "
+				if event[2][key] > 0:
+					fillText += "+%s" %[event[2][key]]
+				else:
+					fillText += "%s" %[event[2][key]]
 			"ingenuity":
-				var label = resourceTarget.get_node("Panel/HBoxContainer/Label")
-				label.text ="added ingenuity"
+				fillText = "ingenuity "
+				if event[2][key] > 0:
+					fillText += "+%s" %[event[2][key]]
+				else:
+					fillText += "%s" %[event[2][key]]
 			"settler":
-				pass
+				#make sure to skip as this isn't supposed
+				#to be displayed to player
+				continue
 				#should change the desciption to use a random settler name
 				#set in actual scene for later use, pass here
 			"radStage1":
-				var label = resourceTarget.get_node("Panel/HBoxContainer/Label")
-				label.text ="added radStage1"
+				fillText = "%s to %s settlers have caught stage 1 radiation sickness" % [
+					event[2][key][0],event[2][key][1]
+				]
 			"radstage2":
-				var label = resourceTarget.get_node("Panel/HBoxContainer/Label")
-				label.text ="added radStage2"
+				fillText = "%s to %s settlers have caught stage 2 radiation sickness" % [
+					event[2][key][0],event[2][key][1]
+				]
 			#default, shouldn't be called
 			#if it does something misspelled in event information
 			_:
 				push_error("an event key wasn't called in event_card: " + key)
+		label.text = fillText
 		i += 1

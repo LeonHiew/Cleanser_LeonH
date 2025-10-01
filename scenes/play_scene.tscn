@@ -140,12 +140,6 @@ z_index = -1
 position = Vector2(462, 1559)
 texture = ExtResource("3_ief5h")
 
-[node name="EventCard" parent="." instance=ExtResource("4_kdvgv")]
-offset_left = 723.0
-offset_top = 241.0
-offset_right = 1043.0
-offset_bottom = 671.0
-
 [node name="ProgressButton" type="Button" parent="."]
 offset_left = 689.0
 offset_top = 871.0
@@ -158,5 +152,23 @@ text = "Progress Week"
 
 [node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("6_da3qe")]
 visible = false
+
+[node name="EventCard" parent="." instance=ExtResource("4_kdvgv")]
+offset_left = 312.0
+offset_top = 264.0
+offset_right = 632.0
+offset_bottom = 694.0
+
+[node name="EventCard2" parent="." instance=ExtResource("4_kdvgv")]
+offset_left = 769.0
+offset_top = 241.0
+offset_right = 1089.0
+offset_bottom = 671.0
+
+[node name="EventCard3" parent="." instance=ExtResource("4_kdvgv")]
+offset_left = 1281.0
+offset_top = 262.0
+offset_right = 1601.0
+offset_bottom = 692.0
 
 [connection signal="pressed" from="ProgressButton" to="." method="_on_progress_button_pressed"]

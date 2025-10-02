@@ -49,6 +49,11 @@ var eventRarityChances = [60,30,10]
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	# If tradeCardScene is still null, try loading it directly
+	if tradeCardScene == null:
+		tradeCardScene = preload("res://scenes/TradeCard.tscn")
+		if tradeCardScene == null:
+			push_error("Failed to load TradeCard scene!")
 	settlerPanel.hide()
 	weeklyLogPanel.hide()
 	for settler in settlerArray:
@@ -392,6 +397,15 @@ func _ShowTradeEvent():
 		card.trade_accepted.connect(_on_trade_accepted)
 		tradeCardContainer.add_child(card)
 		
+	#generate sell trade cards
+	for res_type in tradeResources:
+		var resource_cost = roll.randi_range(1,3)
+		var scraps_amount = 1 
+		var card = tradeCardScene.instantiate()
+		card.setup_sell_trade(res_type, resource_cost, scraps_amount)
+		card.sell_trade_accepted.connect(_on_sell_trade_accepted)
+		tradeCardContainer.add_child(card)
+		
 		
 func _on_trade_accepted(scraps:int, resource_type:String, resource_amount:int):
 	if townScraps < scraps:
@@ -409,6 +423,52 @@ func _on_trade_accepted(scraps:int, resource_type:String, resource_amount:int):
 		"ingenuity":
 			townIngenuity += resource_amount
 			
+	#find card that was traded successfully and mark it as complete 
+	for card in tradeCardContainer.get_children():
+		if card.scraps_cost == scraps and card.resource_type == resource_type and card.resource_amount == resource_amount:
+			card.mark_trade_completed()
+			break
+			
 	_UpdateResourcesDisplay()
 	print("Trade completed: %d scraps for %d %s." % [scraps, resource_amount, resource_type])
 	
+func _on_sell_trade_accepted(resource_type:String, resource_cost:int, scraps_amount:int):
+	#check if player has enough resource to trade 
+	var has_enough = false 
+	match resource_type:
+		"food":
+			has_enough = townFood >= resource_cost
+		"water":
+			has_enough = townWater >= resource_cost
+		"military":
+			has_enough = townMilitary >= resource_cost
+		"ingenuity":
+			has_enough = townIngenuity >= resource_cost
+			
+	if not has_enough:
+		print("Not enough %s to sell!" % resource_type)
+		return
+		
+	
+	#execute sell trade 
+	match resource_type:
+		"food":
+			townFood -= resource_cost
+		"water":
+			townWater -= resource_cost
+		"military":
+			townMilitary -= resource_cost
+		"ingenuity":
+			townIngenuity -= resource_cost
+			
+	townScraps += scraps_amount
+	
+	#find card that was traded successfully and mark it as complete 
+	#for card in tradeCardContainer.get_children():
+		#if card.is_sell_trade and card.resource_type == resource_type and card.resource_cost == resource_cost and card.scraps_amount == scraps_amount:
+			#card.mark_trade_completed()
+			#break
+		
+	_UpdateResourcesDisplay()
+	print("Sell trade completed: %d %s for %d scraps." % [resource_cost, resource_type, scraps_amount])
+		

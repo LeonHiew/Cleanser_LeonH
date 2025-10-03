@@ -94,6 +94,15 @@ offset_bottom = 971.0
 theme_override_font_sizes/font_size = 30
 text = "Progress Week"
 
+[node name="TradeButton" type="Button" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 118.0
+offset_top = 919.0
+offset_right = 316.0
+offset_bottom = 1018.0
+theme_override_font_sizes/font_size = 30
+text = "Trade"
+
 [node name="settlerPanel" type="Panel" parent="CanvasLayer/Control"]
 custom_minimum_size = Vector2(300, 300)
 layout_mode = 0
@@ -171,3 +180,4 @@ offset_bottom = 4.0
 [connection signal="toggled" from="CanvasLayer/Control/weeklyLogButton" to="." method="_on_weekly_log_button_toggled"]
 [connection signal="toggled" from="CanvasLayer/Control/settlerLogButton" to="." method="_on_settler_log_button_toggled"]
 [connection signal="pressed" from="CanvasLayer/Control/ProgressButton" to="." method="_on_progress_button_pressed"]
+[connection signal="toggled" from="CanvasLayer/Control/TradeButton" to="." method="_on_trade_button_toggled"]

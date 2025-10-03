@@ -56,6 +56,9 @@ func _ready() -> void:
 			push_error("Failed to load TradeCard scene!")
 	settlerPanel.hide()
 	weeklyLogPanel.hide()
+	tradePanel.hide()
+	
+	
 	for settler in settlerArray:
 		var settlerCardInstance = settlerCard.instantiate()
 		$CanvasLayer/Control/settlerPanel/HFlowContainer.add_child(settlerCardInstance)
@@ -348,6 +351,12 @@ func _on_weekly_log_button_toggled(toggled_on: bool) -> void:
 	else:
 		weeklyLogPanel.hide()
 		print("hide")
+
+func _on_trade_button_toggled(toggled_on: bool) -> void:
+	if toggled_on == true:
+		tradePanel.show()
+	else:
+		tradePanel.hide()
 
 func _on_heal_request(stats: SettlerStats) -> void:
 	if healNumber <= 0:

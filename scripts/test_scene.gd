@@ -47,6 +47,12 @@ var roundNumber = 0
 #rarity of events Common, Uncommon, Rare
 var eventRarityChances = [60,30,10]
 
+#trade event chances 
+var tradeEventChance = 30
+var baseTradeEventChance = 30
+var currentWeekHasTrade = false
+var tradeChanceIncrease = 15
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	# If tradeCardScene is still null, try loading it directly
@@ -104,7 +110,8 @@ func _ProgressWeek():
 	_UpdateResourcesDisplay()
 	_calculateMood()
 	
-	_ShowTradeEvent()
+	#_ShowTradeEvent()
+	_CheckForTradeEvent()
 	
 	if roundNumber == 15:
 		get_tree().change_scene_to_file("res://scenes/win_scene.tscn")
@@ -354,7 +361,10 @@ func _on_weekly_log_button_toggled(toggled_on: bool) -> void:
 
 func _on_trade_button_toggled(toggled_on: bool) -> void:
 	if toggled_on == true:
-		tradePanel.show()
+		if currentWeekHasTrade:
+			tradePanel.show()
+		else:
+			print("no merchant this week")
 	else:
 		tradePanel.hide()
 
@@ -378,42 +388,61 @@ func _on_heal_request(stats: SettlerStats) -> void:
 	for card in settlerCardArray:
 		card.FillCard()
 	
+func _CheckForTradeEvent():
+	roll.randomize()
+	var tradeRoll = roll.randi_range(1, 100)
+	currentWeekHasTrade = false
+	print("Trade event check - Chance: " + str(tradeEventChance) + "%, Roll: " + str(tradeRoll))
+	
+	if tradeRoll <= tradeEventChance:
+		currentWeekHasTrade = true
+		_ShowTradeEvent()
+		tradeEventChance = baseTradeEventChance
+		print("Trade event occurred this week!")
+	else:
+		tradeEventChance = min(tradeEventChance + tradeChanceIncrease, 90)
+		print("No trade event this week!")
+		tradePanel.hide()
+
+
+
 
 func _ShowTradeEvent():
-	tradePanel.show()
-	#weeklyLogLabel.text += "\nA travelling merchant arrives this week offering trades!"
-	if weeklyLogLabel:
-		weeklyLogLabel.text += "\nA travelling merchant arrives this week offering trades!"
-	else:
-		push_error("weeklyLogLabel is null")
-	
-	#clear old trades from previous week
-	for child in tradeCardContainer.get_children():
-		child.queue_free()
+	if currentWeekHasTrade:
+		tradePanel.show()
+		#weeklyLogLabel.text += "\nA travelling merchant arrives this week offering trades!"
+		if weeklyLogLabel:
+			weeklyLogLabel.text += "\nA travelling merchant arrives this week offering trades!"
+		else:
+			push_error("weeklyLogLabel is null")
 		
-	var tradeResources = ["food", "water", "military", "ingenuity"]
-	
-	#generate 2-4 trade cards 
-	var num_trades = roll.randi_range(2,4)
-	
-	for i in num_trades:
-		var scraps_cost = roll.randi_range(1,3)
-		var resource_amount = roll.randi_range(1,3)
-		var res_type = tradeResources.pick_random()
+		#clear old trades from previous week
+		for child in tradeCardContainer.get_children():
+			child.queue_free()
+			
+		var tradeResources = ["food", "water", "military", "ingenuity"]
 		
-		var card = tradeCardScene.instantiate()
-		card.setup(scraps_cost, res_type, resource_amount)
-		card.trade_accepted.connect(_on_trade_accepted)
-		tradeCardContainer.add_child(card)
+		#generate 2-4 trade cards 
+		var num_trades = roll.randi_range(2,4)
 		
-	#generate sell trade cards
-	for res_type in tradeResources:
-		var resource_cost = roll.randi_range(1,3)
-		var scraps_amount = 1 
-		var card = tradeCardScene.instantiate()
-		card.setup_sell_trade(res_type, resource_cost, scraps_amount)
-		card.sell_trade_accepted.connect(_on_sell_trade_accepted)
-		tradeCardContainer.add_child(card)
+		for i in num_trades:
+			var scraps_cost = roll.randi_range(1,3)
+			var resource_amount = roll.randi_range(1,3)
+			var res_type = tradeResources.pick_random()
+			
+			var card = tradeCardScene.instantiate()
+			card.setup(scraps_cost, res_type, resource_amount)
+			card.trade_accepted.connect(_on_trade_accepted)
+			tradeCardContainer.add_child(card)
+			
+		#generate sell trade cards
+		for res_type in tradeResources:
+			var resource_cost = roll.randi_range(1,3)
+			var scraps_amount = 1 
+			var card = tradeCardScene.instantiate()
+			card.setup_sell_trade(res_type, resource_cost, scraps_amount)
+			card.sell_trade_accepted.connect(_on_sell_trade_accepted)
+			tradeCardContainer.add_child(card)
 		
 		
 func _on_trade_accepted(scraps:int, resource_type:String, resource_amount:int):

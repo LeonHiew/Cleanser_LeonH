@@ -53,6 +53,16 @@ var baseTradeEventChance = 30
 var currentWeekHasTrade = false
 var tradeChanceIncrease = 15
 
+#raid event variables 
+var raidWeeks = [2, 5, 10, 15]
+var raidMilitaryRequirements = {
+	#week : min military needed
+	2: 15,
+	5: 25,
+	10: 40,
+	15: 60
+}
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	# If tradeCardScene is still null, try loading it directly
@@ -110,10 +120,11 @@ func _ProgressWeek():
 	_UpdateResourcesDisplay()
 	_calculateMood()
 	
-	#_ShowTradeEvent()
 	_CheckForTradeEvent()
 	
-	if roundNumber == 15:
+	_CheckForRaidEvent()
+	
+	if roundNumber == 16:
 		get_tree().change_scene_to_file("res://scenes/win_scene.tscn")
 		
 	if townFood < 0 or townWater < 0:
@@ -426,8 +437,8 @@ func _ShowTradeEvent():
 		var num_trades = roll.randi_range(2,4)
 		
 		for i in num_trades:
-			var scraps_cost = roll.randi_range(1,3)
-			var resource_amount = roll.randi_range(1,3)
+			var scraps_cost = roll.randi_range(2,4)
+			var resource_amount = roll.randi_range(1,5)
 			var res_type = tradeResources.pick_random()
 			
 			var card = tradeCardScene.instantiate()
@@ -500,13 +511,72 @@ func _on_sell_trade_accepted(resource_type:String, resource_cost:int, scraps_amo
 			townIngenuity -= resource_cost
 			
 	townScraps += scraps_amount
-	
-	#find card that was traded successfully and mark it as complete 
-	#for card in tradeCardContainer.get_children():
-		#if card.is_sell_trade and card.resource_type == resource_type and card.resource_cost == resource_cost and card.scraps_amount == scraps_amount:
-			#card.mark_trade_completed()
-			#break
 		
 	_UpdateResourcesDisplay()
 	print("Sell trade completed: %d %s for %d scraps." % [resource_cost, resource_type, scraps_amount])
 		
+
+func _CheckForRaidEvent():
+	if roundNumber in raidWeeks:
+		_HandleRaidEvent()
+
+func _HandleRaidEvent():
+	var requiredMilitary = raidMilitaryRequirements[roundNumber]
+	var raidSuccess = townMilitary >= requiredMilitary
+	
+	var raidText = "\nRAID EVENT! Week " + str(roundNumber) + "!\n"
+	raidText += "Raiders attack with strength: " + str(requiredMilitary) + "\n"
+	raidText += "Your military strength: " + str(townMilitary) + "\n"
+	
+	if raidSuccess:
+		raidText += "SUCCESS! You managed to defend against the raiders!\n"
+		
+		#reward for defending 
+		var spoils = 2 * round(requiredMilitary * 0.2)
+		townFood += spoils
+		townWater += spoils
+		townScraps += round(spoils / 2)
+		raidText += "You salvaged " + str(spoils) + " food, water and " + str(round(spoils / 2)) + " scraps from the defeated raiders!\n"
+		
+	else:
+		raidText += "FAILURE! The raiders overwhelemed your defenses!\n"
+		
+		#resources lost, 30% of water and food, 20% of scraps 
+		var foodLost = round(townFood * 0.3)
+		var waterLost = round(townWater * 0.3)
+		var scrapsLost = round(townScraps * 0.2)
+		
+		townFood -= foodLost
+		townWater -= waterLost
+		townScraps -= scrapsLost
+		
+		raidText += "The raiders plundered: " + str(foodLost) + " food, " + str(waterLost) + " water, and " + str(scrapsLost) + " scraps.\n"
+		
+		#roll for character death, only 1 person dies but chances of dying are high 
+		roll.randomize()
+		var deathChance = 75
+		var deathRoll = roll.randf_range(1, 100)
+		
+		if deathRoll <= deathChance:
+			var livingSettlers = []
+			for settler in settlerArray:
+				if not settler.bIsDead:
+					livingSettlers.append(settler)
+					
+			if livingSettlers.size() > 0:
+				var victim = livingSettlers.pick_random()
+				victim.bIsDead = true
+				raidText += "Tragically, " + victim.settlerName + " was killed in the raid.\n"
+			else:
+				raidText += "All settlers are dead :("
+				
+		else:
+			raidText += "Fortunately, no settlers were killed in the raid.\n"
+			
+	# Add raid text to log book
+	if weeklyLogLabel:
+		weeklyLogLabel.text += raidText
+	print("Raid Event - Week " + str(roundNumber) + ": " + ("Success" if raidSuccess else "Failure"))
+	_UpdateResourcesDisplay()
+	for card in settlerCardArray:
+		card.FillCard()

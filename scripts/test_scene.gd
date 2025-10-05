@@ -3,7 +3,8 @@ extends Node2D
 @onready var settlerPanel = $CanvasLayer/Control/settlerPanel
 @onready var weeklyLogPanel = $CanvasLayer/Control/weeklyLogPanel
 @onready var resourceLabel = $CanvasLayer/Control/Panel/resources
-@onready var weeklyLogLabel = $CanvasLayer/Control/weeklyLogPanel/weeklyLogPaperPanel/weeklyLogLabel
+@onready var roundLabel = $CanvasLayer/Control/Panel/RoundDisplay
+@onready var weeklyLogLabel = $CanvasLayer/Control/weeklyLogPanel/weeklyLogPaperPanel/ScrollContainer/weeklyLogLabel
 
 @onready var tradePanel = $CanvasLayer/Control/tradePanel
 @onready var tradeCardContainer = $CanvasLayer/Control/tradePanel/TradeCardContainer
@@ -97,13 +98,25 @@ func _ready() -> void:
 	
 #updates resourcelabel display to current values
 func _UpdateResourcesDisplay():
-	var fillText = """Town Resources
-	Food: %s Water: %s Miltary: %s Ingenuity: %s Scraps: %s
-	week %s/15
-	"""% [townFood, townWater, townMilitary, townIngenuity, townScraps, roundNumber ]
+	var resourceFillText = "Town Resources \n"
+	resourceFillText += "Food: %s Water: %s 
+		Miltary: %s + %s Ingenuity: %s + %s
+		Scraps: %s
+		" %[townFood, townWater, townMilitary, baseTownMiltary, 
+		townIngenuity, baseTownIngenuity,  townScraps]
+	resourceLabel.text = resourceFillText
 	
+	var nextRaidRound 
+	for raidRound in raidWeeks:
+		if raidRound <= roundNumber:
+			continue
+		if raidRound > roundNumber:
+			nextRaidRound = raidRound - roundNumber
+			break
 	
-	resourceLabel.text = fillText
+	var roundFillText = "Round %s/15 \n
+	Next Raid in %s Rounds" %[ roundNumber, nextRaidRound]
+	roundLabel.text = roundFillText
 
 
 #progresses the round
@@ -145,7 +158,7 @@ func _ProgressWeek():
 #and deals with applying the changes the event creates
 func _rollEvents():
 	roll.randomize()
-	var amountOfEvents = roll.randi_range(1,3)
+	var amountOfEvents = 3
 	var positiveEventChance = pow(townIngenuity * 0.25, 2)
 	var bannedEvents = []
 	var fillText : String = ""
@@ -284,8 +297,8 @@ func _calculateResources():
 			continue
 		var moodBonus = 0.0
 		match SettlerStats.settlerMoods.find_key(settler.settlerMood):
-			"Great": moodBonus = 2 
-			"Good": moodBonus = 1.5
+			"Great": moodBonus = 1.5 
+			"Good": moodBonus = 1.3
 			"Fine": moodBonus = 1
 			"Bad": moodBonus = 0.7
 			"Terrible": moodBonus = 0.5
@@ -468,8 +481,11 @@ func _on_trade_accepted(scraps:int, resource_type:String, resource_amount:int):
 		"water":
 			townWater += resource_amount
 		"military":
+			#give to both, since townMilitary is baseTown + settlers
+			baseTownMiltary += resource_amount
 			townMilitary += resource_amount
 		"ingenuity":
+			baseTownIngenuity += resource_amount
 			townIngenuity += resource_amount
 			
 	#find card that was traded successfully and mark it as complete 
@@ -490,9 +506,9 @@ func _on_sell_trade_accepted(resource_type:String, resource_cost:int, scraps_amo
 		"water":
 			has_enough = townWater >= resource_cost
 		"military":
-			has_enough = townMilitary >= resource_cost
+			has_enough = baseTownMiltary >= resource_cost
 		"ingenuity":
-			has_enough = townIngenuity >= resource_cost
+			has_enough = baseTownIngenuity >= resource_cost
 			
 	if not has_enough:
 		print("Not enough %s to sell!" % resource_type)
@@ -506,8 +522,11 @@ func _on_sell_trade_accepted(resource_type:String, resource_cost:int, scraps_amo
 		"water":
 			townWater -= resource_cost
 		"military":
+			#take from both, since townMilitary is baseTown + settlers
+			baseTownMiltary -= resource_cost
 			townMilitary -= resource_cost
 		"ingenuity":
+			baseTownIngenuity -= resource_cost
 			townIngenuity -= resource_cost
 			
 	townScraps += scraps_amount

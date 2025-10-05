@@ -65,6 +65,16 @@ offset_bottom = 23.0
 text = "Resources"
 label_settings = ExtResource("3_qjeyg")
 
+[node name="RoundDisplay" type="Label" parent="CanvasLayer/Control/Panel"]
+layout_mode = 0
+offset_left = 1403.0
+offset_top = 2.0
+offset_right = 1923.0
+offset_bottom = 197.0
+text = "round 1/15
+Rounds till next raid: 10"
+label_settings = ExtResource("3_qjeyg")
+
 [node name="weeklyLogButton" type="Button" parent="CanvasLayer/Control"]
 layout_mode = 0
 offset_left = 116.0
@@ -143,18 +153,25 @@ offset_right = 790.0
 offset_bottom = 692.0
 theme_override_styles/panel = ExtResource("4_7ddre")
 
-[node name="weeklyLogLabel" type="Label" parent="CanvasLayer/Control/weeklyLogPanel/weeklyLogPaperPanel"]
+[node name="ScrollContainer" type="ScrollContainer" parent="CanvasLayer/Control/weeklyLogPanel/weeklyLogPaperPanel"]
+custom_minimum_size = Vector2(300, 300)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="weeklyLogLabel" type="Label" parent="CanvasLayer/Control/weeklyLogPanel/weeklyLogPaperPanel/ScrollContainer"]
+custom_minimum_size = Vector2(300, 300)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 theme_override_font_sizes/font_size = 25
 text = "Weekly Log
 the log is currently empty"
+label_settings = ExtResource("3_qjeyg")
 autowrap_mode = 2
-clip_text = true
 
 [node name="tradePanel" type="Panel" parent="CanvasLayer/Control"]
 show_behind_parent = true

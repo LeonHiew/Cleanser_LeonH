@@ -19,10 +19,10 @@ func LoadStats(settlerStats: SettlerStats) -> void:
 
 #fills the  cards label with the stats from its currently loaded resource
 func FillCard() -> void:
-	var fillText = """ %s 
+	var fillText ="%s 
 	%s 
 	Stats 
-	"""% [
+	"% [
 		stats.settlerName,
 		stats.settlerDesc
 		]

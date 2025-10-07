@@ -11,4 +11,5 @@ settlerPortrait = ExtResource("2_3g0tg")
 foodProduction = 3
 waterProduction = 3
 militaryProduction = 3
+settlerMood = 1
 metadata/_custom_type_script = "uid://brgukr3brt6qv"

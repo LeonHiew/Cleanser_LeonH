@@ -10,4 +10,5 @@ settlerDesc = "Smart and good at fighting"
 settlerPortrait = ExtResource("2_1nrlp")
 militaryProduction = 5
 ingenuityProduction = 3
+settlerMood = 1
 metadata/_custom_type_script = "uid://brgukr3brt6qv"

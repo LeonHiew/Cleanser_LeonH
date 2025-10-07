@@ -60,8 +60,8 @@ grow_horizontal = 2
 
 [node name="resources" type="Label" parent="CanvasLayer/Control/Panel"]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
+offset_right = 549.0
+offset_bottom = 205.0
 text = "Resources"
 label_settings = ExtResource("3_qjeyg")
 
@@ -115,6 +115,7 @@ toggle_mode = true
 text = "Trade"
 
 [node name="settlerPanel" type="Panel" parent="CanvasLayer/Control"]
+visible = false
 custom_minimum_size = Vector2(300, 300)
 layout_mode = 0
 offset_left = 883.0
@@ -136,6 +137,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="weeklyLogPanel" type="Panel" parent="CanvasLayer/Control"]
+visible = false
 custom_minimum_size = Vector2(300, 300)
 layout_mode = 0
 offset_left = 35.0
@@ -174,6 +176,7 @@ label_settings = ExtResource("3_qjeyg")
 autowrap_mode = 2
 
 [node name="tradePanel" type="Panel" parent="CanvasLayer/Control"]
+visible = false
 show_behind_parent = true
 layout_mode = 0
 offset_left = 4.0

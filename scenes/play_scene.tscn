@@ -1,10 +1,10 @@
 [gd_scene load_steps=10 format=3 uid="uid://brqq4ahdyu8nn"]
 
 [ext_resource type="Script" uid="uid://dqtnf3fpuxi30" path="res://scripts/play_scene.gd" id="1_ief5h"]
-[ext_resource type="Texture2D" uid="uid://1g5426phbd32" path="res://assets/img/Không Có Tiêu Đề310_20250831142132.png" id="1_que2y"]
 [ext_resource type="Texture2D" uid="uid://dnloh5hajy7lv" path="res://assets/img/backside_of_card1-removebg-preview.png" id="2_kdvgv"]
 [ext_resource type="Texture2D" uid="uid://qbv8xayc0fvs" path="res://assets/img/Sam-Picsart-BackgroundRemover.png" id="3_ief5h"]
 [ext_resource type="PackedScene" uid="uid://schvq4rxilf1" path="res://scenes/event_card.tscn" id="4_kdvgv"]
+[ext_resource type="Texture2D" uid="uid://qbv2puh0g72m" path="res://assets/img/Screen/Dangerous, shadow.png" id="6_btd5q"]
 [ext_resource type="PackedScene" uid="uid://d4jaa0dlvk3v4" path="res://scenes/pause_menu.tscn" id="6_da3qe"]
 
 [sub_resource type="Animation" id="Animation_btd5q"]
@@ -118,10 +118,6 @@ _data = {
 [node name="PlayScene" type="Node2D"]
 script = ExtResource("1_ief5h")
 
-[node name="TV screens" type="Sprite2D" parent="."]
-position = Vector2(2329, 1619)
-texture = ExtResource("1_que2y")
-
 [node name="card1" type="Node" parent="."]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="card1"]
@@ -137,7 +133,7 @@ texture = ExtResource("2_kdvgv")
 
 [node name="card" type="Sprite2D" parent="card1"]
 z_index = -1
-position = Vector2(462, 1559)
+position = Vector2(440, 1553)
 texture = ExtResource("3_ief5h")
 
 [node name="ProgressButton" type="Button" parent="."]
@@ -170,5 +166,17 @@ offset_left = 1281.0
 offset_top = 262.0
 offset_right = 1601.0
 offset_bottom = 692.0
+
+[node name="Dangerous,Shadow" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(1241.5, 693)
+scale = Vector2(0.72760415, 0.6962963)
+texture = ExtResource("6_btd5q")
+
+[node name="Dangerous,Shadow" type="Sprite2D" parent="Dangerous,Shadow"]
+position = Vector2(-243.95139, -1058.4575)
+rotation = 3.134096
+scale = Vector2(1.2527831, 0.76981634)
+texture = ExtResource("6_btd5q")
 
 [connection signal="pressed" from="ProgressButton" to="." method="_on_progress_button_pressed"]

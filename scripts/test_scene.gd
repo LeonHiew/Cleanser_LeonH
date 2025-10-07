@@ -125,8 +125,7 @@ func _ProgressWeek():
 	_calculateResources()
 	_rollEvents()
 
-	for CurrentSettlerCard in settlerCardArray:
-		CurrentSettlerCard.FillCard()
+	
 	healNumber = 1
 	roundNumber += 1
 	
@@ -143,7 +142,7 @@ func _ProgressWeek():
 	if townFood < 0 or townWater < 0:
 		get_tree().change_scene_to_file("res://scenes/lost_screen.tscn")
 		
-		
+	
 	var bIsAllDead = true
 	for settler in settlerArray:
 		if settler.bIsDead == false:
@@ -151,7 +150,10 @@ func _ProgressWeek():
 			break
 	if bIsAllDead:
 		get_tree().change_scene_to_file("res://scenes/lost_screen.tscn")
-		
+	
+	#refresh cards after all calculations are done
+	for CurrentSettlerCard in settlerCardArray:
+			CurrentSettlerCard.FillCard()
 
 #logic behind the events system
 #calculates amount of events that occur, whether they are positive or negative
@@ -403,7 +405,7 @@ func _on_heal_request(stats: SettlerStats) -> void:
 		return
 	else:
 		stats.sickness = SicknessInformation.sickness.notSick
-		if stats.settlerMood != 0:
+		if stats.settlerMood != stats.settlerMoods.Great:
 			stats.settlerMood = stats.settlerMoods.Great
 		healNumber -= 1 
 		print(stats.settlerName + " has been healed! Remaining heals: " + str(healNumber))

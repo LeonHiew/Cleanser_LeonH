@@ -1,9 +1,10 @@
 class_name EventInformation extends Resource
 
 ###Event template###
-#["title", "long description of the event",
-# {"key": int}
-#
+#["title", 
+#"long description of the event",
+# {"key": int} #key = resource affected, int = value, doesn't have to be int
+# [banned event title], used to stop similar events from triggering in a round
 #
 #[
 	#"",
@@ -79,12 +80,7 @@ var positiveEventArray = {
 				{"food": 10, "water": 15},
 				[]
 			],
-						[
-				"Psychic sooth",
-				"you hear a voice, calm and relaxing, maybing living here isn't such a bad idea after all",
-				{"Mood": 1},
-				["Psychic drone"]
-			],
+
 		],
 	"Rare":
 		[
@@ -93,7 +89,13 @@ var positiveEventArray = {
 				 "the town found a Great war Machine that houses an AI, it’s not that smart but its database of information will prove usefull",
 				{"ingenuity": 5},
 				[]
-			]
+			],
+			[
+				"Psychic sooth",
+				"you hear a voice, calm and relaxing, maybing living here isn't such a bad idea after all",
+				{"Mood": 1},
+				["Psychic drone"]
+			],
 		]
 }
 
@@ -130,7 +132,7 @@ var negativeEventArray = {
 				"Radiation Storm",
 				"A sudden storm swept through, exposing the settlers to radiation",
 				{"radStage1": [1,4]},
-				[]
+				["Radioactive rain"]
 			],
 			[
 				"Faulty seal",
@@ -147,14 +149,9 @@ var negativeEventArray = {
 				"Radioactive rain",
 				"Radioactive rain contaminated the drinking water",
 				{"radStage1": [1,3], "water": -5},
-				[]
+				["Radiation Storm"]
 			],
-			[
-				"Psychic drone",
-				"you hear a voice, scratching at the back of your mind, you don't like what it's saying",
-				{"Mood": -1},
-				["Psychic sooth"]
-			],
+
 		],
 	"Rare":
 		[
@@ -163,6 +160,12 @@ var negativeEventArray = {
 				"A scouting team explored an old hospital. The walls still leaked radiation",
 				{"ingenuity": 2, "radstage2": [1,3]},
 				[]
-			]
+			],
+			[
+				"Psychic drone",
+				"you hear a voice, scratching at the back of your mind, you don't like what it's saying",
+				{"Mood": -1},
+				["Psychic sooth"]
+			],
 		]
 	}

@@ -1,0 +1,106 @@
+[gd_scene load_steps=6 format=3 uid="uid://c0o1xj4btokud"]
+
+[ext_resource type="Script" uid="uid://b4f177l37b4pe" path="res://scenes/settler_book.gd" id="1_21h2r"]
+[ext_resource type="Texture2D" uid="uid://bv1crnym0kqh3" path="res://assets/img/Screen/No char no shadow.png" id="1_qfqgo"]
+[ext_resource type="Texture2D" uid="uid://dmgntjg35gx1v" path="res://assets/img/list_char bg/Không Có Tiêu Đề336_20251006162850.png" id="3_21h2r"]
+[ext_resource type="Texture2D" uid="uid://cked5c4eoxyuf" path="res://assets/icon.svg" id="4_2xj3i"]
+[ext_resource type="Texture2D" uid="uid://bmdu47pma30g3" path="res://assets/img/char use for book/Không Có Tiêu Đề334_20251007041021.png" id="4_21h2r"]
+
+[node name="SettlerBook" type="Node2D"]
+script = ExtResource("1_21h2r")
+metadata/_edit_group_ = true
+
+[node name="BookSprite" type="Sprite2D" parent="."]
+scale = Vector2(0.8435185, 0.8435185)
+texture = ExtResource("1_qfqgo")
+
+[node name="SmallSprite" type="Sprite2D" parent="BookSprite"]
+show_behind_parent = true
+position = Vector2(542, -66.00001)
+scale = Vector2(1.1455224, 1.1313993)
+texture = ExtResource("3_21h2r")
+metadata/_edit_lock_ = true
+
+[node name="BigSprite" type="Sprite2D" parent="BookSprite"]
+show_behind_parent = true
+position = Vector2(-338, -3.9999995)
+scale = Vector2(1.1035553, 1.1035552)
+texture = ExtResource("4_21h2r")
+metadata/_edit_lock_ = true
+
+[node name="NameLabel" type="Label" parent="BookSprite"]
+offset_left = 31.0
+offset_top = -362.0
+offset_right = 639.0
+offset_bottom = -299.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 45
+text = "John Settler"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DescLabel" type="Label" parent="BookSprite"]
+offset_left = 97.0
+offset_top = -268.0
+offset_right = 414.0
+offset_bottom = -75.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+text = "this is the description of the settler, it should be somewhat long, probally around this long or even longer"
+autowrap_mode = 2
+
+[node name="SettlerStats" type="Label" parent="BookSprite"]
+offset_left = 70.0
+offset_top = 85.0
+offset_right = 375.0
+offset_bottom = 323.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 25
+text = "food + 10
+water + 10
+militray + 10
+ingenuity + 10"
+vertical_alignment = 1
+
+[node name="SettlerMood&Sickness" type="Label" parent="BookSprite"]
+offset_left = 298.0
+offset_top = 167.0
+offset_right = 615.0
+offset_bottom = 416.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 25
+text = "Current Mood: Great
+Current Sickness: Not Sick"
+autowrap_mode = 2
+
+[node name="CloseButton" type="Button" parent="BookSprite"]
+offset_left = 634.0
+offset_top = -533.0
+offset_right = 770.0
+offset_bottom = -397.0
+icon = ExtResource("4_2xj3i")
+flat = true
+
+[node name="DeadLabel" type="Label" parent="BookSprite"]
+visible = false
+offset_left = -614.09436
+offset_top = -137.51927
+offset_right = -77.09436
+offset_bottom = 135.48073
+rotation = -0.23128283
+theme_override_colors/font_color = Color(0.92629945, 2.5027991e-06, 1.540184e-06, 1)
+theme_override_font_sizes/font_size = 200
+text = "DEAD"
+
+[node name="DeadLabel" type="Label" parent="BookSprite/DeadLabel"]
+layout_mode = 0
+offset_left = 735.98755
+offset_top = 303.6425
+offset_right = 1272.9875
+offset_bottom = 576.64246
+rotation = 0.75953966
+theme_override_colors/font_color = Color(0.92629945, 2.5027991e-06, 1.540184e-06, 1)
+theme_override_font_sizes/font_size = 200
+text = "DEAD"
+
+[connection signal="pressed" from="BookSprite/CloseButton" to="." method="_on_close_button_pressed"]

@@ -34,7 +34,6 @@ func _rollEvents():
 	var amountOfEvents = 3
 	var positiveEventChance = pow(townIngenuity * 0.25, 2)
 	var bannedEvents = []
-	var fillText : String = ""
 	var currentEventCard = 0
 	for event in amountOfEvents:
 		roll.randomize()
@@ -81,8 +80,7 @@ func _rollEvents():
 					for ban in currentEvent[3]:
 						bannedEvents.append(ban)
 					isPickingEVent = false
-		
-		fillText += currentEvent[0] + "\n" + currentEvent[1] + "\n"
+
 		for key in currentEvent[2]:
 			match key:
 
@@ -116,8 +114,6 @@ func _rollEvents():
 				_:
 					push_error("a key is wrong in event array, the key is : " + key)
 					
-		fillText += "\n"
-		print("fillcard")
 		eventCards[currentEventCard].loadStats(currentEvent)
 		currentEventCard += 1
 	#weeklyLogLabel.text = """ Weekly Log

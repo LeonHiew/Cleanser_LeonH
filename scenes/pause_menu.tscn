@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://d4jaa0dlvk3v4"]
+[gd_scene load_steps=4 format=3 uid="uid://d4jaa0dlvk3v4"]
 
 [ext_resource type="Script" uid="uid://be76ge8beckbx" path="res://scripts/pause_menu.gd" id="1_n87rw"]
+[ext_resource type="StyleBox" uid="uid://do1sh8a45ap5p" path="res://assets/button_black.tres" id="2_kukqi"]
+[ext_resource type="StyleBox" uid="uid://dmro22atc702p" path="res://assets/button_lighter_black.tres" id="3_5d2l8"]
 
 [node name="PauseMenu" type="Control"]
 process_mode = 3
@@ -62,6 +64,8 @@ custom_minimum_size = Vector2(350, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = ExtResource("2_kukqi")
+theme_override_styles/hover = ExtResource("3_5d2l8")
 text = "Continue..."
 
 [node name="VSeparator2" type="VSeparator" parent="AspectRatioContainer/HBoxContainer/VBoxContainer/PanelContainer/HBoxContainer/VBoxContainer"]
@@ -73,6 +77,8 @@ custom_minimum_size = Vector2(350, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = ExtResource("2_kukqi")
+theme_override_styles/hover = ExtResource("3_5d2l8")
 text = "Quit to Main Menu
 "
 
@@ -85,6 +91,8 @@ custom_minimum_size = Vector2(350, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = ExtResource("2_kukqi")
+theme_override_styles/hover = ExtResource("3_5d2l8")
 text = "Quit to Desktop"
 
 [connection signal="pressed" from="AspectRatioContainer/HBoxContainer/VBoxContainer/PanelContainer/HBoxContainer/VBoxContainer/ContinueButton" to="." method="_on_continue_button_pressed"]

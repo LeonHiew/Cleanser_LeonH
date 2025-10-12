@@ -1,13 +1,19 @@
-[gd_resource type="Resource" script_class="SettlerStats" load_steps=3 format=3 uid="uid://feqw7wa846a"]
+[gd_resource type="Resource" script_class="SettlerStats" load_steps=2 format=3 uid="uid://feqw7wa846a"]
 
 [ext_resource type="Script" uid="uid://brgukr3brt6qv" path="res://scripts/settler_Stats.gd" id="1_2qvcj"]
-[ext_resource type="Texture2D" uid="uid://cked5c4eoxyuf" path="res://assets/icon.svg" id="2_3g0tg"]
+<<<<<<< Updated upstream
+[ext_resource type="Texture2D" uid="uid://bv3ebxf288rjl" path="res://assets/img/list_char bg/AI_Chibi_portrait.png" id="2_2qvcj"]
+=======
+>>>>>>> Stashed changes
 
 [resource]
 script = ExtResource("1_2qvcj")
 settlerName = "AI"
 settlerDesc = "robot"
-settlerPortrait = ExtResource("2_3g0tg")
+<<<<<<< Updated upstream
+settlerChibiPortrait = ExtResource("2_2qvcj")
+=======
+>>>>>>> Stashed changes
 foodProduction = 3
 waterProduction = 3
 militaryProduction = 3

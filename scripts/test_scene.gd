@@ -98,7 +98,7 @@ func _ready() -> void:
 	
 #updates resourcelabel display to current values
 func _UpdateResourcesDisplay():
-	var resourceFillText = "Town Resources \n"
+	var resourceFillText = "Town Resources  \n"
 	resourceFillText += "Food: %s Water: %s 
 		Miltary: %s + %s Ingenuity: %s + %s
 		Scraps: %s

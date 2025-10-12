@@ -5,9 +5,9 @@ extends Node2D
 @onready var roll = RandomNumberGenerator.new()
 
 @onready var eventCards = [
-	$EventCard,
-	$EventCard2,
-	$EventCard3
+	$CanvasLayer/VBoxContainer/HBoxContainer/EventCard,
+	$CanvasLayer/VBoxContainer/HBoxContainer/EventCard2,
+	$CanvasLayer/VBoxContainer/HBoxContainer/EventCard3
 ]
 
 

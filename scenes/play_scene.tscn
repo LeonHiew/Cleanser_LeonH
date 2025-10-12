@@ -211,8 +211,67 @@ rotation = 3.134096
 scale = Vector2(1.2527831, 0.76981634)
 texture = ExtResource("6_btd5q")
 
-[node name="SamPicsartBackgroundRemover" type="Sprite2D" parent="Dangerous,Shadow"]
-position = Vector2(-1539.9858, 366.22345)
-texture = ExtResource("3_ief5h")
+[node name="Normal,Shadow" type="Sprite2D" parent="."]
+show_behind_parent = true
+position = Vector2(1028.0005, 615.99994)
+scale = Vector2(0.85403657, 0.794676)
+texture = ExtResource("7_qhxom")
 
-[connection signal="pressed" from="CanvasLayer/ProgressButton" to="." method="_on_progress_button_pressed"]
+[node name="KhôngCóTiêuĐề33620251006162926" type="Sprite2D" parent="Normal,Shadow"]
+show_behind_parent = true
+position = Vector2(510.51678, -221.4739)
+scale = Vector2(1.189639, 1.3403934)
+texture = ExtResource("8_dta8y")
+
+[node name="Area2D" type="Area2D" parent="Normal,Shadow/KhôngCóTiêuĐề33620251006162926"]
+position = Vector2(-12.795593, -61.961365)
+scale = Vector2(0.98425674, 0.9388098)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Normal,Shadow/KhôngCóTiêuĐề33620251006162926/Area2D"]
+position = Vector2(13, 41.49997)
+shape = SubResource("RectangleShape2D_5kjkg")
+metadata/_edit_lock_ = true
+
+[node name="KhôngCóTiêuĐề33620251006162942" type="Sprite2D" parent="Normal,Shadow"]
+show_behind_parent = true
+position = Vector2(529.2514, 67.95221)
+scale = Vector2(0.98939335, 1.0859944)
+texture = ExtResource("9_bx6jv")
+
+[node name="KhôngCóTiêuĐề33620251006162954" type="Sprite2D" parent="Normal,Shadow"]
+show_behind_parent = true
+position = Vector2(202.56729, -220.21552)
+scale = Vector2(1.1140949, 1.1732371)
+texture = ExtResource("10_ixvqh")
+
+[node name="KhôngCóTiêuĐề33620251006163006" type="Sprite2D" parent="Normal,Shadow"]
+show_behind_parent = true
+position = Vector2(183.8328, 300.75146)
+scale = Vector2(1.1315517, 1.173237)
+texture = ExtResource("11_hjngv")
+
+[node name="KhôngCóTiêuĐề33620251006163020" type="Sprite2D" parent="Normal,Shadow"]
+show_behind_parent = true
+position = Vector2(-92.50204, 7.5502224)
+scale = Vector2(0.96051276, 0.9615773)
+texture = ExtResource("12_4uj4s")
+
+[node name="KhôngCóTiêuĐề33620251006163033" type="Sprite2D" parent="Normal,Shadow"]
+show_behind_parent = true
+position = Vector2(-309.12036, 308.30182)
+scale = Vector2(0.9082082, 0.94631827)
+texture = ExtResource("13_bnnba")
+
+[node name="KhôngCóTiêuĐề33620251006163048" type="Sprite2D" parent="Normal,Shadow"]
+show_behind_parent = true
+position = Vector2(-345.4185, -154.78017)
+scale = Vector2(0.88845366, 0.91651607)
+texture = ExtResource("14_6sm6u")
+
+[node name="KhôngCóTiêuĐề33620251006163100" type="Sprite2D" parent="Normal,Shadow"]
+show_behind_parent = true
+position = Vector2(-469.5348, 55.368507)
+scale = Vector2(0.92659587, 0.8443058)
+texture = ExtResource("15_053dl")
+
+[connection signal="pressed" from="ProgressButton" to="." method="_on_progress_button_pressed"]

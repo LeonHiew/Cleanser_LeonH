@@ -1,11 +1,13 @@
-[gd_scene load_steps=10 format=3 uid="uid://brqq4ahdyu8nn"]
+[gd_scene load_steps=13 format=3 uid="uid://brqq4ahdyu8nn"]
 
 [ext_resource type="Script" uid="uid://dqtnf3fpuxi30" path="res://scripts/play_scene.gd" id="1_ief5h"]
 [ext_resource type="Texture2D" uid="uid://dnloh5hajy7lv" path="res://assets/img/backside_of_card1-removebg-preview.png" id="2_kdvgv"]
 [ext_resource type="Texture2D" uid="uid://qbv8xayc0fvs" path="res://assets/img/Sam-Picsart-BackgroundRemover.png" id="3_ief5h"]
 [ext_resource type="PackedScene" uid="uid://schvq4rxilf1" path="res://scenes/event_card.tscn" id="4_kdvgv"]
+[ext_resource type="StyleBox" uid="uid://do1sh8a45ap5p" path="res://assets/button_black.tres" id="5_7pyap"]
 [ext_resource type="Texture2D" uid="uid://qbv2puh0g72m" path="res://assets/img/Screen/Dangerous, shadow.png" id="6_btd5q"]
 [ext_resource type="PackedScene" uid="uid://d4jaa0dlvk3v4" path="res://scenes/pause_menu.tscn" id="6_da3qe"]
+[ext_resource type="StyleBox" uid="uid://dmro22atc702p" path="res://assets/button_lighter_black.tres" id="6_uyxvy"]
 
 [sub_resource type="Animation" id="Animation_btd5q"]
 length = 0.001
@@ -115,6 +117,11 @@ _data = {
 &"card flip animation test1": SubResource("Animation_da3qe")
 }
 
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_da3qe"]
+grow_begin = 0.0
+grow_end = 0.0
+thickness = 0
+
 [node name="PlayScene" type="Node2D"]
 script = ExtResource("1_ief5h")
 
@@ -136,36 +143,60 @@ z_index = -1
 position = Vector2(440, 1553)
 texture = ExtResource("3_ief5h")
 
-[node name="ProgressButton" type="Button" parent="."]
-offset_left = 689.0
-offset_top = 871.0
-offset_right = 1189.0
-offset_bottom = 971.0
-theme_override_font_sizes/font_size = 30
-text = "Progress Week"
-
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="EventCard" parent="CanvasLayer/VBoxContainer/HBoxContainer" instance=ExtResource("4_kdvgv")]
+layout_mode = 2
+
+[node name="VSeparator" type="VSeparator" parent="CanvasLayer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxLine_da3qe")
+
+[node name="EventCard2" parent="CanvasLayer/VBoxContainer/HBoxContainer" instance=ExtResource("4_kdvgv")]
+layout_mode = 2
+
+[node name="VSeparator2" type="VSeparator" parent="CanvasLayer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxLine_da3qe")
+
+[node name="EventCard3" parent="CanvasLayer/VBoxContainer/HBoxContainer" instance=ExtResource("4_kdvgv")]
+layout_mode = 2
+
+[node name="ProgressButton" type="Button" parent="CanvasLayer"]
+visible = false
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -201.0
+offset_top = -237.0
+offset_right = 168.0
+offset_bottom = -195.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = ExtResource("5_7pyap")
+theme_override_styles/hover = ExtResource("6_uyxvy")
+text = "Progress Week"
 
 [node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("6_da3qe")]
 visible = false
-
-[node name="EventCard" parent="." instance=ExtResource("4_kdvgv")]
-offset_left = 312.0
-offset_top = 264.0
-offset_right = 632.0
-offset_bottom = 694.0
-
-[node name="EventCard2" parent="." instance=ExtResource("4_kdvgv")]
-offset_left = 769.0
-offset_top = 241.0
-offset_right = 1089.0
-offset_bottom = 671.0
-
-[node name="EventCard3" parent="." instance=ExtResource("4_kdvgv")]
-offset_left = 1281.0
-offset_top = 262.0
-offset_right = 1601.0
-offset_bottom = 692.0
 
 [node name="Dangerous,Shadow" type="Sprite2D" parent="."]
 visible = false
@@ -174,9 +205,14 @@ scale = Vector2(0.72760415, 0.6962963)
 texture = ExtResource("6_btd5q")
 
 [node name="Dangerous,Shadow" type="Sprite2D" parent="Dangerous,Shadow"]
+visible = false
 position = Vector2(-243.95139, -1058.4575)
 rotation = 3.134096
 scale = Vector2(1.2527831, 0.76981634)
 texture = ExtResource("6_btd5q")
 
-[connection signal="pressed" from="ProgressButton" to="." method="_on_progress_button_pressed"]
+[node name="SamPicsartBackgroundRemover" type="Sprite2D" parent="Dangerous,Shadow"]
+position = Vector2(-1539.9858, 366.22345)
+texture = ExtResource("3_ief5h")
+
+[connection signal="pressed" from="CanvasLayer/ProgressButton" to="." method="_on_progress_button_pressed"]

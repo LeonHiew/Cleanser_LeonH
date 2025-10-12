@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dndvvlec46pwi"
-path="res://.godot/imported/Không Có Tiêu Đề336_20251006162803.png-f1ae107013c596b33475915d649ab63f.ctex"
+uid="uid://ctt73w4bwo1p3"
+path="res://.godot/imported/Jacob_Chibi_portrait.png-20bfe33fda02fbac6affcb04f92bfc4c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/img/list_char bg/Không Có Tiêu Đề336_20251006162803.png"
-dest_files=["res://.godot/imported/Không Có Tiêu Đề336_20251006162803.png-f1ae107013c596b33475915d649ab63f.ctex"]
+source_file="res://assets/img/list_char bg/Jacob_Chibi_portrait.png"
+dest_files=["res://.godot/imported/Jacob_Chibi_portrait.png-20bfe33fda02fbac6affcb04f92bfc4c.ctex"]
 
 [params]
 

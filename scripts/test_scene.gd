@@ -21,7 +21,7 @@ extends Node2D
 	load("res://Resources/character_resources/Johni_settler.tres")
 	]
 
-@export var settlerCard: PackedScene
+@export var settlerCard: PackedScene = preload("res://scenes/settler_card.tscn")
 @onready var sicknessInfo = load("res://Resources/sicknessInfo.tres") as SicknessInformation
 @onready var eventInfo = load("res://Resources/eventInfo.tres") as EventInformation
 

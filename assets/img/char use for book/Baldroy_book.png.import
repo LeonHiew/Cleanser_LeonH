@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://os6tikr3jc1e"
-path="res://.godot/imported/Không Có Tiêu Đề336_20251006162926.png-8450516f4e1e0f2827b733e0176c7a00.ctex"
+uid="uid://bi7r63b5m6w8d"
+path="res://.godot/imported/Baldroy_book.png-b601e5332fc899958cb0d3b11e26c6f6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/img/list_char no bg/Không Có Tiêu Đề336_20251006162926.png"
-dest_files=["res://.godot/imported/Không Có Tiêu Đề336_20251006162926.png-8450516f4e1e0f2827b733e0176c7a00.ctex"]
+source_file="res://assets/img/char use for book/Baldroy_book.png"
+dest_files=["res://.godot/imported/Baldroy_book.png-b601e5332fc899958cb0d3b11e26c6f6.ctex"]
 
 [params]
 

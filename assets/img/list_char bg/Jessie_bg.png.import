@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dhpvvcnpsdwl6"
-path="res://.godot/imported/Không Có Tiêu Đề331.png-9dcc7b4218e0ac3b9e38d6170295c2e2.ctex"
+uid="uid://dndvvlec46pwi"
+path="res://.godot/imported/Jessie_bg.png-c4daf4c99a3d1735106e1c94c99bd284.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/img/char use for book/Không Có Tiêu Đề331.png"
-dest_files=["res://.godot/imported/Không Có Tiêu Đề331.png-9dcc7b4218e0ac3b9e38d6170295c2e2.ctex"]
+source_file="res://assets/img/list_char bg/Jessie_bg.png"
+dest_files=["res://.godot/imported/Jessie_bg.png-c4daf4c99a3d1735106e1c94c99bd284.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://df1wt5gbx8dxh"
-path="res://.godot/imported/Baldroy.png-b182f8aaaf77cb2ab178e3a98a515d00.ctex"
+uid="uid://bmdu47pma30g3"
+path="res://.godot/imported/Caelan_book.png-9fbe7089baa2eded2544738ab679fc91.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/img/tank_char/Baldroy.png"
-dest_files=["res://.godot/imported/Baldroy.png-b182f8aaaf77cb2ab178e3a98a515d00.ctex"]
+source_file="res://assets/img/char use for book/Caelan_book.png"
+dest_files=["res://.godot/imported/Caelan_book.png-9fbe7089baa2eded2544738ab679fc91.ctex"]
 
 [params]
 

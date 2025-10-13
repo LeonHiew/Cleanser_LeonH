@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://0onvtiub2xs5"
-path="res://.godot/imported/Không Có Tiêu Đề333.png-9855981a110d0929a22828c66180d411.ctex"
+uid="uid://t31m8dew1vuq"
+path="res://.godot/imported/__.png-87b395514d58860e33b675bb424bd957.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/img/char use for book/Không Có Tiêu Đề333.png"
-dest_files=["res://.godot/imported/Không Có Tiêu Đề333.png-9855981a110d0929a22828c66180d411.ctex"]
+source_file="res://assets/img/tank_char/__.png"
+dest_files=["res://.godot/imported/__.png-87b395514d58860e33b675bb424bd957.ctex"]
 
 [params]
 

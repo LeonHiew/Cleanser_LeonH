@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://brqq4ahdyu8nn"]
+[gd_scene load_steps=40 format=3 uid="uid://brqq4ahdyu8nn"]
 
 [ext_resource type="Script" uid="uid://dqtnf3fpuxi30" path="res://scripts/play_scene.gd" id="1_ief5h"]
 [ext_resource type="Texture2D" uid="uid://dnloh5hajy7lv" path="res://assets/img/backside_of_card1-removebg-preview.png" id="2_kdvgv"]
@@ -6,16 +6,19 @@
 [ext_resource type="PackedScene" uid="uid://schvq4rxilf1" path="res://scenes/event_card.tscn" id="4_kdvgv"]
 [ext_resource type="PackedScene" uid="uid://d4jaa0dlvk3v4" path="res://scenes/pause_menu.tscn" id="6_da3qe"]
 [ext_resource type="Texture2D" uid="uid://cmtxvcrhxxirr" path="res://assets/img/Screen/Normal, shadow.png" id="7_qhxom"]
-[ext_resource type="Texture2D" uid="uid://os6tikr3jc1e" path="res://assets/img/list_char no bg/Không Có Tiêu Đề336_20251006162926.png" id="8_dta8y"]
+[ext_resource type="Texture2D" uid="uid://os6tikr3jc1e" path="res://assets/img/list_char no bg/Baldroy.png" id="8_dta8y"]
 [ext_resource type="Texture2D" uid="uid://bs1rkqiq82spr" path="res://assets/img/list_char no bg/Không Có Tiêu Đề336_20251006162942.png" id="9_bx6jv"]
 [ext_resource type="Texture2D" uid="uid://dkv7pxmmjmc1a" path="res://assets/img/list_char no bg/Không Có Tiêu Đề336_20251006162954.png" id="10_ixvqh"]
-[ext_resource type="Texture2D" uid="uid://dvvsoiifx4fus" path="res://assets/img/list_char no bg/Không Có Tiêu Đề336_20251006163006.png" id="11_hjngv"]
-[ext_resource type="Texture2D" uid="uid://dwcipj1yb6kby" path="res://assets/img/list_char no bg/Không Có Tiêu Đề336_20251006163020.png" id="12_4uj4s"]
-[ext_resource type="Texture2D" uid="uid://bfptl63321n8x" path="res://assets/img/list_char no bg/Không Có Tiêu Đề336_20251006163033.png" id="13_bnnba"]
-[ext_resource type="Texture2D" uid="uid://bdman74vwd5h8" path="res://assets/img/list_char no bg/Không Có Tiêu Đề336_20251006163048.png" id="14_6sm6u"]
-[ext_resource type="Texture2D" uid="uid://ct4jd0pyvauyh" path="res://assets/img/list_char no bg/Không Có Tiêu Đề336_20251006163100.png" id="15_053dl"]
+[ext_resource type="Texture2D" uid="uid://dvvsoiifx4fus" path="res://assets/img/list_char no bg/AI.png" id="11_hjngv"]
+[ext_resource type="Texture2D" uid="uid://dwcipj1yb6kby" path="res://assets/img/list_char no bg/Luffy.png" id="12_4uj4s"]
+[ext_resource type="Texture2D" uid="uid://bfptl63321n8x" path="res://assets/img/list_char no bg/Caelan.png" id="13_bnnba"]
+[ext_resource type="Texture2D" uid="uid://bdman74vwd5h8" path="res://assets/img/list_char no bg/Caitlyn.png" id="14_6sm6u"]
+[ext_resource type="Texture2D" uid="uid://ct4jd0pyvauyh" path="res://assets/img/list_char no bg/Jessie.png" id="15_053dl"]
 [ext_resource type="Texture2D" uid="uid://c86el6vu7emne" path="res://assets/img/backgroundTVs.png" id="16_bx6jv"]
 [ext_resource type="PackedScene" uid="uid://c0o1xj4btokud" path="res://scenes/settler_book.tscn" id="16_dta8y"]
+[ext_resource type="StyleBox" uid="uid://f45iv48p5vt" path="res://assets/book.tres" id="17_hjngv"]
+[ext_resource type="StyleBox" uid="uid://crnf801ntce87" path="res://assets/paper.tres" id="18_4uj4s"]
+[ext_resource type="LabelSettings" uid="uid://bu6v4hiigngu1" path="res://Resources/new_label_settings.tres" id="19_bnnba"]
 
 [sub_resource type="Animation" id="Animation_btd5q"]
 length = 0.001
@@ -245,7 +248,6 @@ shape = SubResource("RectangleShape2D_5kjkg")
 metadata/_edit_lock_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="SettlerTVs/KhôngCóTiêuĐề33620251006162926"]
-modulate = Color(0.8601158, 0.34746325, 0.257933, 1)
 show_behind_parent = true
 position = Vector2(3.0190012, -20.184414)
 scale = Vector2(195.66884, 177.43504)
@@ -501,4 +503,122 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
 
+[node name="weeklyLogButton" type="Button" parent="."]
+offset_left = 48.0
+offset_top = 838.0
+offset_right = 248.0
+offset_bottom = 938.0
+theme_override_font_sizes/font_size = 30
+toggle_mode = true
+text = "Weekly Log"
+
+[node name="settlerLogButton" type="Button" parent="."]
+offset_left = 51.0
+offset_top = 964.0
+offset_right = 251.0
+offset_bottom = 1064.0
+theme_override_font_sizes/font_size = 30
+toggle_mode = true
+text = "Settler Log"
+
+[node name="ProgressButton2" type="Button" parent="."]
+top_level = true
+offset_left = 791.0
+offset_top = 967.0
+offset_right = 1291.0
+offset_bottom = 1067.0
+theme_override_font_sizes/font_size = 30
+text = "Progress Week"
+
+[node name="TradeButton" type="Button" parent="."]
+top_level = true
+offset_left = 395.0
+offset_top = 972.0
+offset_right = 593.0
+offset_bottom = 1071.0
+theme_override_font_sizes/font_size = 30
+toggle_mode = true
+text = "Trade"
+
+[node name="settlerPanel" type="Panel" parent="."]
+visible = false
+top_level = true
+custom_minimum_size = Vector2(300, 300)
+offset_left = 883.0
+offset_top = 91.0
+offset_right = 1883.0
+offset_bottom = 791.0
+theme_override_styles/panel = ExtResource("17_hjngv")
+
+[node name="HFlowContainer" type="HFlowContainer" parent="settlerPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = -10.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="weeklyLogPanel" type="Panel" parent="."]
+visible = false
+top_level = true
+custom_minimum_size = Vector2(300, 300)
+offset_left = 35.0
+offset_top = 86.0
+offset_right = 835.0
+offset_bottom = 786.0
+theme_override_styles/panel = ExtResource("17_hjngv")
+
+[node name="weeklyLogPaperPanel" type="Panel" parent="weeklyLogPanel"]
+custom_minimum_size = Vector2(300, 300)
+layout_mode = 0
+offset_left = 10.0
+offset_top = 12.0
+offset_right = 790.0
+offset_bottom = 692.0
+theme_override_styles/panel = ExtResource("18_4uj4s")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="weeklyLogPanel/weeklyLogPaperPanel"]
+custom_minimum_size = Vector2(300, 300)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="weeklyLogLabel" type="Label" parent="weeklyLogPanel/weeklyLogPaperPanel/ScrollContainer"]
+custom_minimum_size = Vector2(300, 300)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 25
+text = "Weekly Log
+the log is currently empty"
+label_settings = ExtResource("19_bnnba")
+autowrap_mode = 2
+
+[node name="tradePanel" type="Panel" parent="."]
+visible = false
+show_behind_parent = true
+top_level = true
+offset_left = 4.0
+offset_top = 194.0
+offset_right = 637.0
+offset_bottom = 769.0
+
+[node name="TradeCardContainer" type="VBoxContainer" parent="tradePanel"]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 8.0
+offset_right = 624.0
+offset_bottom = 577.0
+
 [connection signal="pressed" from="ProgressButton" to="." method="_on_progress_button_pressed"]
+[connection signal="toggled" from="weeklyLogButton" to="." method="_on_weekly_log_button_toggled"]
+[connection signal="toggled" from="settlerLogButton" to="." method="_on_settler_log_button_toggled"]
+[connection signal="pressed" from="ProgressButton2" to="." method="_on_progress_button_pressed"]
+[connection signal="toggled" from="TradeButton" to="." method="_on_trade_button_toggled"]

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bri8egs2sxyam"
-path="res://.godot/imported/Jacob.png-1ac99c80e0817c767eb151e963bee857.ctex"
+uid="uid://dls38hfoe77nt"
+path="res://.godot/imported/Caitlyn_bg.png-2a34c047f6e522809e681a0783ad7acd.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/img/tank_char/Jacob.png"
-dest_files=["res://.godot/imported/Jacob.png-1ac99c80e0817c767eb151e963bee857.ctex"]
+source_file="res://assets/img/list_char bg/Caitlyn_bg.png"
+dest_files=["res://.godot/imported/Caitlyn_bg.png-2a34c047f6e522809e681a0783ad7acd.ctex"]
 
 [params]
 

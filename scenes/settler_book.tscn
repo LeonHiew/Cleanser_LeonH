@@ -2,9 +2,10 @@
 
 [ext_resource type="Script" uid="uid://b4f177l37b4pe" path="res://scenes/settler_book.gd" id="1_21h2r"]
 [ext_resource type="Texture2D" uid="uid://bv1crnym0kqh3" path="res://assets/img/Screen/No char no shadow.png" id="1_qfqgo"]
-[ext_resource type="Texture2D" uid="uid://dmgntjg35gx1v" path="res://assets/img/list_char bg/Không Có Tiêu Đề336_20251006162850.png" id="3_21h2r"]
+[ext_resource type="Texture2D" uid="uid://dmgntjg35gx1v" path="res://assets/img/list_char bg/Caelan_bg.png" id="3_21h2r"]
 [ext_resource type="Texture2D" uid="uid://cked5c4eoxyuf" path="res://assets/icon.svg" id="4_2xj3i"]
-[ext_resource type="Texture2D" uid="uid://bmdu47pma30g3" path="res://assets/img/char use for book/Không Có Tiêu Đề334_20251007041021.png" id="4_21h2r"]
+[ext_resource type="Texture2D" uid="uid://bmdu47pma30g3" path="res://assets/img/char use for book/Caelan_book.png" id="4_21h2r"]
+
 
 [node name="SettlerBook" type="Node2D"]
 script = ExtResource("1_21h2r")

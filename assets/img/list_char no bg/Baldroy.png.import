@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://t31m8dew1vuq"
-path="res://.godot/imported/Johni.png-0311ddf373a794b52379b60d8900c3aa.ctex"
+uid="uid://os6tikr3jc1e"
+path="res://.godot/imported/Baldroy.png-d0d32537af5ca1f2b0270fb0a77255e8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/img/tank_char/Johni.png"
-dest_files=["res://.godot/imported/Johni.png-0311ddf373a794b52379b60d8900c3aa.ctex"]
+source_file="res://assets/img/list_char no bg/Baldroy.png"
+dest_files=["res://.godot/imported/Baldroy.png-d0d32537af5ca1f2b0270fb0a77255e8.ctex"]
 
 [params]
 

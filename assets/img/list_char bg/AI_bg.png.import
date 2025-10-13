@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ct4jd0pyvauyh"
-path="res://.godot/imported/Không Có Tiêu Đề336_20251006163100.png-bebfa10bfd43bca2aab0c50cbd345341.ctex"
+uid="uid://bv3ebxf288rjl"
+path="res://.godot/imported/AI_bg.png-61a3c538af0794199777f54a284bbb13.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/img/list_char no bg/Không Có Tiêu Đề336_20251006163100.png"
-dest_files=["res://.godot/imported/Không Có Tiêu Đề336_20251006163100.png-bebfa10bfd43bca2aab0c50cbd345341.ctex"]
+source_file="res://assets/img/list_char bg/AI_bg.png"
+dest_files=["res://.godot/imported/AI_bg.png-61a3c538af0794199777f54a284bbb13.ctex"]
 
 [params]
 

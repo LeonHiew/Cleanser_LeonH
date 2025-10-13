@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dmgntjg35gx1v"
-path="res://.godot/imported/Không Có Tiêu Đề336_20251006162850.png-cc8a92ec942f62eec5744572d23fd7dc.ctex"
+uid="uid://bcq2paviv6y45"
+path="res://.godot/imported/Luffy_bg.png-fa0bf18985f479ddd821c3b840685950.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/img/list_char bg/Không Có Tiêu Đề336_20251006162850.png"
-dest_files=["res://.godot/imported/Không Có Tiêu Đề336_20251006162850.png-cc8a92ec942f62eec5744572d23fd7dc.ctex"]
+source_file="res://assets/img/list_char bg/Luffy_bg.png"
+dest_files=["res://.godot/imported/Luffy_bg.png-fa0bf18985f479ddd821c3b840685950.ctex"]
 
 [params]
 

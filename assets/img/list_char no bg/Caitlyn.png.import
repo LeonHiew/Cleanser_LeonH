@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://diqxliutykhbm"
-path="res://.godot/imported/Không Có Tiêu Đề341_20251007032030.png-7664a9a1b2d1af0d390b65b12432021f.ctex"
+uid="uid://bdman74vwd5h8"
+path="res://.godot/imported/Caitlyn.png-9616563b1e94712a5a20604d3f4119c8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/img/char use for book/Không Có Tiêu Đề341_20251007032030.png"
-dest_files=["res://.godot/imported/Không Có Tiêu Đề341_20251007032030.png-7664a9a1b2d1af0d390b65b12432021f.ctex"]
+source_file="res://assets/img/list_char no bg/Caitlyn.png"
+dest_files=["res://.godot/imported/Caitlyn.png-9616563b1e94712a5a20604d3f4119c8.ctex"]
 
 [params]
 

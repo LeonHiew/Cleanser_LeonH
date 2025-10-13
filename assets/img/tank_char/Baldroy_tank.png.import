@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bcq2paviv6y45"
-path="res://.godot/imported/Không Có Tiêu Đề336_20251006162833.png-ec8f277c008119f9437fea09aaf92286.ctex"
+uid="uid://bri8egs2sxyam"
+path="res://.godot/imported/Baldroy_tank.png-0c36c989dfc4af3bfaf7f579b9450125.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/img/list_char bg/Không Có Tiêu Đề336_20251006162833.png"
-dest_files=["res://.godot/imported/Không Có Tiêu Đề336_20251006162833.png-ec8f277c008119f9437fea09aaf92286.ctex"]
+source_file="res://assets/img/tank_char/Baldroy_tank.png"
+dest_files=["res://.godot/imported/Baldroy_tank.png-0c36c989dfc4af3bfaf7f579b9450125.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cg82lfplvfe1a"
-path="res://.godot/imported/Không Có Tiêu Đề335.png-fd91112e35e53cd15eb6a67706a220f7.ctex"
+uid="uid://bfptl63321n8x"
+path="res://.godot/imported/Caelan.png-c60add78f367138eba6c894bae5ff4b9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/img/char use for book/Không Có Tiêu Đề335.png"
-dest_files=["res://.godot/imported/Không Có Tiêu Đề335.png-fd91112e35e53cd15eb6a67706a220f7.ctex"]
+source_file="res://assets/img/list_char no bg/Caelan.png"
+dest_files=["res://.godot/imported/Caelan.png-c60add78f367138eba6c894bae5ff4b9.ctex"]
 
 [params]
 

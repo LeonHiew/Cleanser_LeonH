@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dwcipj1yb6kby"
-path="res://.godot/imported/Không Có Tiêu Đề336_20251006163020.png-da7319dbb5d55e9ce7e2072c07f2f8a2.ctex"
+uid="uid://dmgntjg35gx1v"
+path="res://.godot/imported/Caelan_bg.png-5db87e87c6199b94367f270d666826ac.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/img/list_char no bg/Không Có Tiêu Đề336_20251006163020.png"
-dest_files=["res://.godot/imported/Không Có Tiêu Đề336_20251006163020.png-da7319dbb5d55e9ce7e2072c07f2f8a2.ctex"]
+source_file="res://assets/img/list_char bg/Caelan_bg.png"
+dest_files=["res://.godot/imported/Caelan_bg.png-5db87e87c6199b94367f270d666826ac.ctex"]
 
 [params]
 

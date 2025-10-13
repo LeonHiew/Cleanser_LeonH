@@ -5,21 +5,26 @@ extends Node2D
 @onready var roll = RandomNumberGenerator.new()
 
 @onready var eventCards = [
-	$EventCard,
-	$EventCard2,
-	$EventCard3
+$Cards/VBoxContainer/HBoxContainer/EventCard,
+$Cards/VBoxContainer/HBoxContainer/EventCard2,
+$Cards/VBoxContainer/HBoxContainer/EventCard3
 ]
+@onready var cards = $Cards
 
-
-#@onready var settlerPanel = $CanvasLayer/Control/settlerPanel 
-@onready var settlerPanel = $settlerPanel
 @onready var weeklyLogPanel = $weeklyLogPanel
 #@onready var resourceLabel = $CanvasLayer/Control/Panel/resources
-@onready var resourceLabel = $BackgroundTVs/Label
-#@onready var roundLabel = $CanvasLayer/Control/Panel/RoundDisplay
-@onready var roundLabel = $BackgroundTVs/Label4
-@onready var weeklyLogLabel = $weeklyLogPanel/weeklyLogPaperPanel/ScrollContainer/weeklyLogLabel
+@onready var townSuppliesLabel = $BackgroundTVs/TownSuppliesTitleLabel/TownSuppliesLabel
 
+@onready var miltaryLabel = $BackgroundTVs/TownPowerTitleLabel/MilitaryLabel
+@onready var miltaryDetailsLabel = $BackgroundTVs/TownPowerTitleLabel/MilitaryLabel/MilitaryDetailsLabel
+@onready var ingenuityLabel = $BackgroundTVs/TownPowerTitleLabel/IngenuityLabel
+@onready var ingenuityDetailsLabel = $BackgroundTVs/TownPowerTitleLabel/IngenuityLabel/IngenuityDetailsLabel
+
+#@onready var roundLabel = $CanvasLayer/Control/Panel/RoundDisplay
+@onready var roundLabel = $BackgroundTVs/RoundLabel
+@onready var raidLabel = $BackgroundTVs/RaidLabel
+@onready var raidMessageLabel = $weeklyLogPanel/weeklyLogPaperPanel/ScrollContainer/weeklyLogLabel
+@onready var raidMessagePanel = $weeklyLogPanel
 @onready var tradePanel = $tradePanel
 @onready var tradeCardContainer = $tradePanel/TradeCardContainer
 @export var tradeCardScene:PackedScene = preload("res://scenes/TradeCard.tscn")
@@ -35,11 +40,20 @@ extends Node2D
 	load("res://Resources/character_resources/Johni_settler.tres")
 	]
 
-@export var settlerCard: PackedScene = preload("res://scenes/settler_card.tscn")
+@onready var screenArray = [
+	$SettlerTVs/Jacob,
+	$SettlerTVs/Johni,
+	$SettlerTVs/Baldroy,
+	$SettlerTVs/AI,
+	$SettlerTVs/Luffy,
+	$SettlerTVs/Caelan,
+	$SettlerTVs/Caitlyn,
+	$SettlerTVs/Jessie
+]
+
 @onready var sicknessInfo = load("res://Resources/sicknessInfo.tres") as SicknessInformation
+@onready var settlerBook = $SettlerBook
 
-
-var settlerCardArray = []
 
 #town resources
 var townFood = 15
@@ -83,40 +97,39 @@ func _ready() -> void:
 		tradeCardScene = preload("res://scenes/TradeCard.tscn")
 		if tradeCardScene == null:
 			push_error("Failed to load TradeCard scene!")
-	settlerPanel.hide()
 	weeklyLogPanel.hide()
 	tradePanel.hide()
-	
+	cards.hide()
 	
 	for settler in settlerArray:
-		var settlerCardInstance = settlerCard.instantiate()
-		$settlerPanel/HFlowContainer.add_child(settlerCardInstance)
-		
 		#loads character sheet based on resource in array
 		var stats = settler
-		settlerCardInstance.LoadStats(stats) as SettlerStats
-		
-		settlerCardArray.append(settlerCardInstance) 
 		
 		townMilitary = townMilitary + stats.militaryProduction
 		townIngenuity = townIngenuity + stats.ingenuityProduction
 		
-		#heal signal
-		settlerCardInstance.heal_request.connect(_on_heal_request)
-	
+	#heal signal
+	settlerBook.heal_request.connect(_on_heal_request)
 	townMilitary += baseTownMiltary
 	townIngenuity += baseTownIngenuity
 	_UpdateResourcesDisplay()
 	
 #updates resourcelabel display to current values
 func _UpdateResourcesDisplay():
-	var resourceFillText = "Town Resources \n"
-	resourceFillText += "Food: %s Water: %s 
-		Miltary: %s + %s Ingenuity: %s + %s
-		Scraps: %s
-		" %[townFood, townWater, townMilitary, baseTownMiltary, 
-		townIngenuity, baseTownIngenuity,  townScraps]
-	resourceLabel.text = resourceFillText
+	var resourceFillText = ""
+	resourceFillText += "Food: %s \nWater: %s \nScraps: %s" %[
+		townFood, townWater, townScraps]
+	townSuppliesLabel.text = resourceFillText
+	
+
+	miltaryLabel.text = "Miltary Power: %s "% [townMilitary]
+	miltaryDetailsLabel.text = "Base Military: %s
+	Settler Military: %s" % [baseTownMiltary, townMilitary - baseTownMiltary]
+	
+	ingenuityLabel.text = "Miltary Power: %s "% [townIngenuity]
+	ingenuityDetailsLabel.text = "Base Ingenuity: %s
+	Settler Ingenuity: %s" % [baseTownIngenuity, townIngenuity - baseTownIngenuity]
+	
 	
 	var nextRaidRound 
 	for raidRound in raidWeeks:
@@ -133,6 +146,7 @@ func _UpdateResourcesDisplay():
 
 #progresses the round
 func _ProgressWeek():
+	raidLabel.text = ""
 	_RoleSicknesses()
 	_calculateResources()
 	_rollEvents()
@@ -164,8 +178,8 @@ func _ProgressWeek():
 		get_tree().change_scene_to_file("res://scenes/lost_screen.tscn")
 	
 	#refresh cards after all calculations are done
-	for CurrentSettlerCard in settlerCardArray:
-			CurrentSettlerCard.FillCard()
+	for CurrentSettlerScreen in screenArray:
+			CurrentSettlerScreen.update()
 
 #logic behind the events system
 #calculates amount of events that occur, whether they are positive or negative
@@ -175,8 +189,8 @@ func _rollEvents():
 	var amountOfEvents = 3
 	var positiveEventChance = pow(townIngenuity * 0.25, 2)
 	var bannedEvents = []
-	var fillText : String = ""
 	for event in amountOfEvents:
+		var settler_target = ""
 		roll.randomize()
 		var eventRoll = roll.randf_range(0,100)
 		var currentEvent : Array
@@ -222,7 +236,6 @@ func _rollEvents():
 						bannedEvents.append(ban)
 					isPickingEVent = false
 		
-		fillText += currentEvent[0] + "\n" + currentEvent[1] + "\n"
 		for key in currentEvent[2]:
 			match key:
 
@@ -235,8 +248,8 @@ func _rollEvents():
 				"ingenuity":
 					baseTownIngenuity += currentEvent[2][key]
 				"settler":
-					var target = settlerArray.pick_random()
-					fillText = fillText.replace("settler.name",target.settlerName)
+					var target =  settlerArray.pick_random()
+					settler_target =  target.settlerName
 				"radStage1":
 					
 					_rollSickness(SicknessInformation.sickness.radStage1,
@@ -261,9 +274,8 @@ func _rollEvents():
 				_:
 					push_error("a key is wrong in event array, the key is : " + key)
 					
-		fillText += "\n"
-	weeklyLogLabel.text = """ Weekly Log
-	""" + fillText
+		eventCards[event].loadStats(currentEvent, settler_target)
+		cards.show()
 
 #called in _rollEvents
 #useds to roll which settlers get infected and how many
@@ -377,11 +389,6 @@ func _calculateMood():
 
 
 
-func _on_settler_log_button_toggled(toggled_on: bool) -> void:
-	if toggled_on == true:
-		settlerPanel.show()
-	else:
-		settlerPanel.hide()
 
 
 func _on_progress_button_pressed() -> void:
@@ -423,8 +430,8 @@ func _on_heal_request(stats: SettlerStats) -> void:
 		print(stats.settlerName + " has been healed! Remaining heals: " + str(healNumber))
 		
 	#refresh cards 
-	for card in settlerCardArray:
-		card.FillCard()
+	for screen in screenArray:
+		screen.update()
 	
 func _CheckForTradeEvent():
 	roll.randomize()
@@ -449,10 +456,10 @@ func _ShowTradeEvent():
 	if currentWeekHasTrade:
 		tradePanel.show()
 		#weeklyLogLabel.text += "\nA travelling merchant arrives this week offering trades!"
-		if weeklyLogLabel:
-			weeklyLogLabel.text += "\nA travelling merchant arrives this week offering trades!"
+		if raidLabel:
+			raidLabel.text = "A travelling merchant arrives this week offering trades!"
 		else:
-			push_error("weeklyLogLabel is null")
+			push_error("raidLabel is null")
 		
 		#clear old trades from previous week
 		for child in tradeCardContainer.get_children():
@@ -607,9 +614,22 @@ func _HandleRaidEvent():
 			raidText += "Fortunately, no settlers were killed in the raid.\n"
 			
 	# Add raid text to log book
-	if weeklyLogLabel:
-		weeklyLogLabel.text += raidText
+	if raidMessageLabel:
+		raidMessageLabel.text = raidText
+		raidMessagePanel.show()
 	print("Raid Event - Week " + str(roundNumber) + ": " + ("Success" if raidSuccess else "Failure"))
 	_UpdateResourcesDisplay()
-	for card in settlerCardArray:
-		card.FillCard()
+	for screen in screenArray:
+		screen.update()
+
+
+func _on_close_cards_button_pressed() -> void:
+	cards.hide()
+
+
+func _on_raid_label_button_pressed() -> void:
+	raidMessagePanel.hide()
+
+
+func _on_show_event_cards_pressed() -> void:
+	cards.show()

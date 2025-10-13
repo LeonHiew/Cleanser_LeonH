@@ -16,7 +16,7 @@ func _ready() -> void:
 	eventInfo = load("res://Resources/eventInfo.tres") as EventInformation
 
 #loads an event into the card
-func loadStats(event: Array):
+func loadStats(event: Array, settlerTarget: String):
 	print(event)
 	eventTitle.text = event[0]
 	eventDesc.text = event[1]
@@ -55,20 +55,23 @@ func loadStats(event: Array):
 				else:
 					fillText += "%s" %[event[2][key]]
 			"settler":
-				#make sure to skip as this isn't supposed
-				#to be displayed to player
+				eventDesc.text = eventDesc.text.replace("settler.name", settlerTarget)
 				continue
 				#should change the desciption to use a random settler name
 				#set in actual scene for later use, pass here
 			"radStage1":
-				fillText = "%s to %s settlers have caught stage 1 radiation sickness" % [
+				fillText = "%s to %s settlers have caught stage moderate radiation sickness" % [
 					event[2][key][0],event[2][key][1]
 				]
 			"radstage2":
-				fillText = "%s to %s settlers have caught stage 2 radiation sickness" % [
+				fillText = "%s to %s settlers have caught stage severe radiation sickness" % [
 					event[2][key][0],event[2][key][1]
 				]
-				
+			"Mood":
+				if event[2][key] < 0:
+					fillText = "all settlers have a worse mood"
+				if event[2][key] < 0:
+					fillText = "all settlers have a better mood"
 			#default, shouldn't be called
 			#if it does something misspelled in event information
 			_:

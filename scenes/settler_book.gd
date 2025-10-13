@@ -6,6 +6,13 @@ var sicknessInfo: SicknessInformation = null
 var stats: SettlerStats = null
 var healNumber = 1
 
+@onready var nameLabel = $BookSprite/NameLabel
+@onready var descLabel = $BookSprite/DescLabel
+@onready var settlerStats = $BookSprite/SettlerStats
+@onready var settlerMoodAndSickness = $"BookSprite/SettlerMood&Sickness"
+@onready var deadLabel = $BookSprite/DeadLabel
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	$".".hide()
@@ -16,11 +23,11 @@ func _ready() -> void:
 #card represents
 func LoadStats(settlerStats: SettlerStats) -> void:
 	stats = settlerStats
-	FillCard()
+	_FillCard()
 
-func FillCard():
-	$BookSprite/NameLabelstats.text = stats.settlerName
-	$BookSprite/DescLabel.text = stats.settlerDesc
+func _FillCard():
+	nameLabel.text = stats.settlerName
+	descLabel.text = stats.settlerDesc
 	
 	var settlerStatText = ""
 	
@@ -32,23 +39,29 @@ func FillCard():
 		settlerStatText += "ingenuity: %d  \n" % [stats.ingenuityProduction]
 	if stats.militaryProduction != 0:
 		settlerStatText += "military: %d  \n" % [stats.militaryProduction]
-	$"BookSprite/SettlerStats".text = settlerStatText
+	settlerStats.text = settlerStatText
 	
 	var settlerMoodSicknessText = ""
 	
-	settlerMoodSicknessText += "Current Mood: %s" %[stats.settlerMood]
+	settlerMoodSicknessText += "Current Mood: %s \n" % [
+		stats.settlerMoods.find_key(stats.settlerMood)]
 	if stats.bIsDead == false:
 		settlerMoodSicknessText += "Sickness: %s" % [sicknessInfo.GetNameString(stats.sickness)]
 	
-	$"BookSprite/SettlerMood&Sickness".text = settlerMoodSicknessText
+	settlerMoodAndSickness.text = settlerMoodSicknessText
 	
 	
 	#show dead label if dead
 	if stats.bIsDead == false:
-		$BookSprite/DeadLabel.hide()
+		deadLabel.hide()
 	else:
-		$BookSprite/DeadLabel.show()
+		deadLabel.show()
 	
 
 func _on_close_button_pressed() -> void:
+	$".".hide()
+
+
+func _on_button_pressed() -> void:
+	emit_signal("heal_request", stats)
 	$".".hide()

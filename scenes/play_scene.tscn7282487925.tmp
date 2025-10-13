@@ -1,0 +1,651 @@
+[gd_scene load_steps=41 format=3 uid="uid://brqq4ahdyu8nn"]
+
+[ext_resource type="Script" uid="uid://dqtnf3fpuxi30" path="res://scripts/play_scene.gd" id="1_ief5h"]
+[ext_resource type="Texture2D" uid="uid://dnloh5hajy7lv" path="res://assets/img/backside_of_card1-removebg-preview.png" id="2_kdvgv"]
+[ext_resource type="Texture2D" uid="uid://qbv8xayc0fvs" path="res://assets/img/Sam-Picsart-BackgroundRemover.png" id="3_ief5h"]
+[ext_resource type="PackedScene" uid="uid://schvq4rxilf1" path="res://scenes/event_card.tscn" id="4_kdvgv"]
+[ext_resource type="PackedScene" uid="uid://d4jaa0dlvk3v4" path="res://scenes/pause_menu.tscn" id="6_da3qe"]
+[ext_resource type="Texture2D" uid="uid://cmtxvcrhxxirr" path="res://assets/img/Screen/Normal, shadow.png" id="7_qhxom"]
+[ext_resource type="Script" uid="uid://0v488kqb6i6i" path="res://scripts/settlerTV.gd" id="8_4uj4s"]
+[ext_resource type="Texture2D" uid="uid://os6tikr3jc1e" path="res://assets/img/list_char no bg/Jacob.png" id="8_dta8y"]
+[ext_resource type="Texture2D" uid="uid://bs1rkqiq82spr" path="res://assets/img/list_char no bg/Johni.png" id="9_bx6jv"]
+[ext_resource type="Resource" uid="uid://cmpobxdem0c5" path="res://Resources/character_resources/Jacob_settler.tres" id="9_q08at"]
+[ext_resource type="Texture2D" uid="uid://dkv7pxmmjmc1a" path="res://assets/img/list_char no bg/Baldroy.png" id="10_ixvqh"]
+[ext_resource type="Resource" uid="uid://opvrbpybems4" path="res://Resources/character_resources/Johni_settler.tres" id="11_h65fk"]
+[ext_resource type="Texture2D" uid="uid://dvvsoiifx4fus" path="res://assets/img/list_char no bg/AI.png" id="11_hjngv"]
+[ext_resource type="Texture2D" uid="uid://dwcipj1yb6kby" path="res://assets/img/list_char no bg/Luffy.png" id="12_4uj4s"]
+[ext_resource type="Resource" uid="uid://bkuxabenpqnup" path="res://Resources/character_resources/Baldroy_settler.tres" id="13_5mqgq"]
+[ext_resource type="Texture2D" uid="uid://bfptl63321n8x" path="res://assets/img/list_char no bg/Caelan.png" id="13_bnnba"]
+[ext_resource type="Texture2D" uid="uid://bdman74vwd5h8" path="res://assets/img/list_char no bg/Caitlyn.png" id="14_6sm6u"]
+[ext_resource type="Texture2D" uid="uid://ct4jd0pyvauyh" path="res://assets/img/list_char no bg/Jessie.png" id="15_053dl"]
+[ext_resource type="Resource" uid="uid://feqw7wa846a" path="res://Resources/character_resources/AI_settler.tres" id="15_jko1l"]
+[ext_resource type="Texture2D" uid="uid://c86el6vu7emne" path="res://assets/img/backgroundTVs.png" id="16_bx6jv"]
+[ext_resource type="PackedScene" uid="uid://c0o1xj4btokud" path="res://scenes/settler_book.tscn" id="16_dta8y"]
+[ext_resource type="Resource" uid="uid://bgmb4vv42iwpb" path="res://Resources/character_resources/Luffy_settler.tres" id="17_7ytk0"]
+[ext_resource type="StyleBox" uid="uid://f45iv48p5vt" path="res://assets/book.tres" id="17_hjngv"]
+[ext_resource type="StyleBox" uid="uid://crnf801ntce87" path="res://assets/paper.tres" id="18_4uj4s"]
+[ext_resource type="LabelSettings" uid="uid://bu6v4hiigngu1" path="res://Resources/new_label_settings.tres" id="19_bnnba"]
+[ext_resource type="Resource" uid="uid://c8aly84c5fy20" path="res://Resources/character_resources/Caelan_settler.tres" id="19_kg8u5"]
+[ext_resource type="Resource" uid="uid://dji70q6oo433u" path="res://Resources/character_resources/Caitlyn_settler.tres" id="21_1ci3g"]
+[ext_resource type="Resource" uid="uid://dtnek63rvdth4" path="res://Resources/character_resources/Jessie_settler.tres" id="23_6xl5y"]
+
+[sub_resource type="Animation" id="Animation_btd5q"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("card1/Card backside:z_index")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("card1/card:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("card1/card:z_index")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [-1]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("card1/Card backside:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.753632, 0.679636)]
+}
+
+[sub_resource type="Animation" id="Animation_da3qe"]
+resource_name = "card flip animation test1"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("card1/Card backside:z_index")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, -1]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("card1/card:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0.1, 1), Vector2(1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("card1/card:z_index")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [-1, 0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("card1/Card backside:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0.753632, 0.679636), Vector2(0.1, 0.68), Vector2(0.1, 0.68)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7pyap"]
+_data = {
+&"RESET": SubResource("Animation_btd5q"),
+&"card flip animation test1": SubResource("Animation_da3qe")
+}
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_qhxom"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_bx6jv"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_hjngv"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_bnnba"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_053dl"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_nu7cg"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_q08at"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_5mqgq"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_dta8y"]
+
+[node name="PlayScene" type="Node2D"]
+script = ExtResource("1_ief5h")
+
+[node name="card1" type="Node" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="card1"]
+root_node = NodePath("../..")
+libraries = {
+&"": SubResource("AnimationLibrary_7pyap")
+}
+
+[node name="Card backside" type="Sprite2D" parent="card1"]
+position = Vector2(463.375, 1561.75)
+scale = Vector2(0.753632, 0.679636)
+texture = ExtResource("2_kdvgv")
+
+[node name="card" type="Sprite2D" parent="card1"]
+z_index = -1
+position = Vector2(440, 1553)
+texture = ExtResource("3_ief5h")
+
+[node name="ProgressButton" type="Button" parent="."]
+visible = false
+offset_left = 689.0
+offset_top = 871.0
+offset_right = 1189.0
+offset_bottom = 971.0
+theme_override_font_sizes/font_size = 30
+text = "Progress Week"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("6_da3qe")]
+visible = false
+
+[node name="EventCard" parent="." instance=ExtResource("4_kdvgv")]
+visible = false
+offset_left = 312.0
+offset_top = 264.0
+offset_right = 632.0
+offset_bottom = 694.0
+
+[node name="EventCard2" parent="." instance=ExtResource("4_kdvgv")]
+visible = false
+offset_left = 769.0
+offset_top = 241.0
+offset_right = 1089.0
+offset_bottom = 671.0
+
+[node name="EventCard3" parent="." instance=ExtResource("4_kdvgv")]
+visible = false
+offset_left = 1281.0
+offset_top = 262.0
+offset_right = 1601.0
+offset_bottom = 692.0
+
+[node name="SettlerTVs" type="Sprite2D" parent="."]
+top_level = true
+position = Vector2(1105.0001, 650)
+scale = Vector2(0.85403657, 0.794676)
+texture = ExtResource("7_qhxom")
+
+[node name="Jacob" type="Sprite2D" parent="SettlerTVs"]
+show_behind_parent = true
+position = Vector2(510.51678, -221.4739)
+scale = Vector2(1.189639, 1.3403934)
+texture = ExtResource("8_dta8y")
+script = ExtResource("8_4uj4s")
+stats = ExtResource("9_q08at")
+
+[node name="Sprite2D" type="Sprite2D" parent="SettlerTVs/Jacob"]
+show_behind_parent = true
+position = Vector2(3.0190012, -20.184414)
+scale = Vector2(195.66884, 177.43504)
+skew = -0.13962634
+texture = SubResource("CanvasTexture_qhxom")
+
+[node name="TextureButton" type="TextureButton" parent="SettlerTVs/Jacob"]
+anchors_preset = -1
+anchor_left = -0.049000002
+anchor_top = 0.046000004
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -88.08681
+offset_top = -135.86407
+offset_right = -106.668976
+offset_bottom = -218.03854
+
+[node name="Johni" type="Sprite2D" parent="SettlerTVs"]
+show_behind_parent = true
+position = Vector2(529.2514, 67.95221)
+scale = Vector2(0.98939335, 1.0859944)
+texture = ExtResource("9_bx6jv")
+script = ExtResource("8_4uj4s")
+stats = ExtResource("11_h65fk")
+
+[node name="Sprite2D" type="Sprite2D" parent="SettlerTVs/Johni"]
+show_behind_parent = true
+position = Vector2(-7.6920547, -35.341267)
+scale = Vector2(282.848, 191.19048)
+texture = SubResource("CanvasTexture_bx6jv")
+
+[node name="TextureButton" type="TextureButton" parent="SettlerTVs/Johni"]
+anchors_preset = -1
+anchor_left = -0.049000002
+anchor_top = 0.046000004
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -146.17981
+offset_top = -135.86407
+offset_right = -95.26898
+offset_bottom = -218.03854
+
+[node name="Baldroy" type="Sprite2D" parent="SettlerTVs"]
+show_behind_parent = true
+position = Vector2(202.56729, -220.21552)
+scale = Vector2(1.1140949, 1.1732371)
+texture = ExtResource("10_ixvqh")
+script = ExtResource("8_4uj4s")
+stats = ExtResource("13_5mqgq")
+
+[node name="Sprite2D" type="Sprite2D" parent="SettlerTVs/Baldroy"]
+show_behind_parent = true
+position = Vector2(-2.8360622, -29.579561)
+rotation = 0.073303826
+scale = Vector2(308.0072, 175.97316)
+skew = -0.09599311
+texture = SubResource("CanvasTexture_hjngv")
+
+[node name="TextureButton" type="TextureButton" parent="SettlerTVs/Baldroy"]
+anchors_preset = -1
+anchor_left = -0.049000002
+anchor_top = 0.046000004
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -146.17981
+offset_top = -135.86407
+offset_right = -95.26898
+offset_bottom = -218.03854
+
+[node name="AI" type="Sprite2D" parent="SettlerTVs"]
+show_behind_parent = true
+position = Vector2(183.8328, 300.75146)
+scale = Vector2(1.1315517, 1.173237)
+texture = ExtResource("11_hjngv")
+script = ExtResource("8_4uj4s")
+stats = ExtResource("15_jko1l")
+
+[node name="Sprite2D" type="Sprite2D" parent="SettlerTVs/AI"]
+show_behind_parent = true
+position = Vector2(15.522072, -26.81416)
+scale = Vector2(233.86104, 178.04611)
+texture = SubResource("CanvasTexture_bnnba")
+
+[node name="TextureButton" type="TextureButton" parent="SettlerTVs/AI"]
+anchors_preset = -1
+anchor_left = -0.049000002
+anchor_top = 0.046000004
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -102.16406
+offset_top = -135.86407
+offset_right = -95.269
+offset_bottom = -218.03854
+
+[node name="Luffy" type="Sprite2D" parent="SettlerTVs"]
+show_behind_parent = true
+position = Vector2(-92.50204, 7.5502224)
+scale = Vector2(0.96051276, 0.9615773)
+texture = ExtResource("12_4uj4s")
+script = ExtResource("8_4uj4s")
+stats = ExtResource("17_7ytk0")
+
+[node name="Sprite2D" type="Sprite2D" parent="SettlerTVs/Luffy"]
+show_behind_parent = true
+position = Vector2(-3.6565094, -41.877007)
+scale = Vector2(248.68558, 177.97728)
+texture = SubResource("CanvasTexture_053dl")
+
+[node name="TextureButton" type="TextureButton" parent="SettlerTVs/Luffy"]
+anchors_preset = -1
+anchor_left = -0.049000002
+anchor_top = 0.046000004
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -106.83655
+offset_top = -135.86407
+offset_right = -95.26897
+offset_bottom = -218.03854
+
+[node name="Caelan" type="Sprite2D" parent="SettlerTVs"]
+show_behind_parent = true
+position = Vector2(-309.12036, 308.30182)
+scale = Vector2(0.9082082, 0.94631827)
+texture = ExtResource("13_bnnba")
+script = ExtResource("8_4uj4s")
+stats = ExtResource("19_kg8u5")
+
+[node name="Sprite2D" type="Sprite2D" parent="SettlerTVs/Caelan"]
+show_behind_parent = true
+position = Vector2(0.64495087, -39.22792)
+scale = Vector2(279.7677, 208.77191)
+texture = SubResource("CanvasTexture_nu7cg")
+
+[node name="TextureButton" type="TextureButton" parent="SettlerTVs/Caelan"]
+anchors_preset = -1
+anchor_left = -0.049000002
+anchor_top = 0.046000004
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -134.2196
+offset_top = -165.6601
+offset_right = -95.26898
+offset_bottom = -165.55507
+
+[node name="Caitlyn" type="Sprite2D" parent="SettlerTVs"]
+show_behind_parent = true
+position = Vector2(-345.4185, -154.78017)
+scale = Vector2(0.88845366, 0.91651607)
+texture = ExtResource("14_6sm6u")
+script = ExtResource("8_4uj4s")
+stats = ExtResource("21_1ci3g")
+
+[node name="Sprite2D" type="Sprite2D" parent="SettlerTVs/Caitlyn"]
+show_behind_parent = true
+position = Vector2(-0.69928867, -44.180893)
+scale = Vector2(224.78415, 236.67735)
+skew = 0.09250245
+texture = SubResource("CanvasTexture_q08at")
+
+[node name="TextureButton" type="TextureButton" parent="SettlerTVs/Caitlyn"]
+anchors_preset = -1
+anchor_left = -0.049000002
+anchor_top = 0.046000004
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -117.984314
+offset_top = -173.06769
+offset_right = -117.29492
+offset_bottom = -218.03854
+
+[node name="Jessie" type="Sprite2D" parent="SettlerTVs"]
+show_behind_parent = true
+position = Vector2(-469.5348, 55.368507)
+scale = Vector2(0.92659587, 0.8443058)
+texture = ExtResource("15_053dl")
+script = ExtResource("8_4uj4s")
+stats = ExtResource("23_6xl5y")
+
+[node name="Sprite2D" type="Sprite2D" parent="SettlerTVs/Jessie"]
+show_behind_parent = true
+position = Vector2(4.4230423, -21.611195)
+scale = Vector2(216.08778, 183.3223)
+texture = SubResource("CanvasTexture_5mqgq")
+
+[node name="TextureButton" type="TextureButton" parent="SettlerTVs/Jessie"]
+anchors_preset = -1
+anchor_left = -0.049000002
+anchor_top = 0.046000004
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -96.59344
+offset_top = -135.86407
+offset_right = -81.27008
+offset_bottom = -218.03854
+
+[node name="SettlerBook" parent="." instance=ExtResource("16_dta8y")]
+visible = false
+top_level = true
+position = Vector2(933, 635)
+
+[node name="BackgroundTVs" type="Sprite2D" parent="."]
+position = Vector2(960, 403.99997)
+scale = Vector2(0.7671647, 0.7671647)
+texture = ExtResource("16_bx6jv")
+
+[node name="TVBackground" type="Node2D" parent="BackgroundTVs"]
+
+[node name="Sprite2D" type="Sprite2D" parent="BackgroundTVs/TVBackground"]
+modulate = Color(0, 0, 0, 1)
+show_behind_parent = true
+position = Vector2(-705.1941, -364.98026)
+scale = Vector2(401.47833, 273.73523)
+texture = SubResource("CanvasTexture_dta8y")
+
+[node name="Sprite2D2" type="Sprite2D" parent="BackgroundTVs/TVBackground"]
+modulate = Color(0, 0, 0, 1)
+show_behind_parent = true
+position = Vector2(-232.0232, -364.9803)
+scale = Vector2(401.47833, 273.73523)
+texture = SubResource("CanvasTexture_dta8y")
+
+[node name="Sprite2D3" type="Sprite2D" parent="BackgroundTVs/TVBackground"]
+modulate = Color(0, 0, 0, 1)
+show_behind_parent = true
+position = Vector2(246.3617, -364.98026)
+scale = Vector2(401.47833, 273.73523)
+texture = SubResource("CanvasTexture_dta8y")
+
+[node name="Sprite2D4" type="Sprite2D" parent="BackgroundTVs/TVBackground"]
+modulate = Color(0, 0, 0, 1)
+show_behind_parent = true
+position = Vector2(719.5326, -364.9803)
+scale = Vector2(401.47833, 273.73523)
+texture = SubResource("CanvasTexture_dta8y")
+
+[node name="TownSuppliesTitleLabel" type="Label" parent="BackgroundTVs"]
+offset_left = -896.8087
+offset_top = -503.15137
+offset_right = -510.97235
+offset_bottom = -332.15137
+theme_override_font_sizes/font_size = 40
+text = "Town Supplies
+"
+horizontal_alignment = 1
+
+[node name="TownSuppliesLabel" type="Label" parent="BackgroundTVs/TownSuppliesTitleLabel"]
+layout_mode = 0
+offset_left = 1.303494
+offset_top = 49.533043
+offset_right = 387.13986
+offset_bottom = 220.53305
+theme_override_font_sizes/font_size = 40
+text = "Food: 22
+Water: 25
+Scrap: 15"
+
+[node name="TownPowerTitleLabel" type="Label" parent="BackgroundTVs"]
+offset_left = -424.9413
+offset_top = -503.15137
+offset_right = -39.10495
+offset_bottom = -332.15137
+theme_override_font_sizes/font_size = 40
+text = "Town Power
+"
+horizontal_alignment = 1
+
+[node name="MilitaryLabel" type="Label" parent="BackgroundTVs/TownPowerTitleLabel"]
+layout_mode = 0
+offset_left = 1.303494
+offset_top = 49.533043
+offset_right = 387.13986
+offset_bottom = 162.53305
+theme_override_font_sizes/font_size = 40
+text = "Military: 13
+"
+
+[node name="MilitaryDetailsLabel" type="Label" parent="BackgroundTVs/TownPowerTitleLabel/MilitaryLabel"]
+layout_mode = 0
+offset_top = 46.92604
+offset_right = 385.83636
+offset_bottom = 159.92606
+theme_override_font_sizes/font_size = 20
+text = "Base Military: 13
+Settler Military: 10
+"
+
+[node name="IngenuityLabel" type="Label" parent="BackgroundTVs/TownPowerTitleLabel"]
+layout_mode = 0
+offset_left = 1.303494
+offset_top = 149.90262
+offset_right = 387.13986
+offset_bottom = 262.90262
+theme_override_font_sizes/font_size = 40
+text = "Ingenuity: 13
+"
+
+[node name="IngenuityDetailsLabel" type="Label" parent="BackgroundTVs/TownPowerTitleLabel/IngenuityLabel"]
+layout_mode = 0
+offset_top = 43.016
+offset_right = 385.83636
+offset_bottom = 156.01602
+theme_override_font_sizes/font_size = 20
+text = "Base Ingenuity: 13
+Settler Ingenuity: 10
+"
+
+[node name="RoundLabel" type="Label" parent="BackgroundTVs"]
+offset_left = 526.6145
+offset_top = -503.15137
+offset_right = 912.45087
+offset_bottom = -248.96864
+theme_override_font_sizes/font_size = 40
+text = "Weeks till Town Inspection
+15 Weeks"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="RaidLabel" type="Label" parent="BackgroundTVs"]
+offset_left = 54.7471
+offset_top = -503.15137
+offset_right = 440.58347
+offset_bottom = -158.15137
+theme_override_font_sizes/font_size = 40
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="weeklyLogButton" type="Button" parent="."]
+offset_left = 48.0
+offset_top = 838.0
+offset_right = 248.0
+offset_bottom = 938.0
+theme_override_font_sizes/font_size = 30
+toggle_mode = true
+text = "Weekly Log"
+
+[node name="ProgressButton2" type="Button" parent="."]
+top_level = true
+offset_left = 791.0
+offset_top = 967.0
+offset_right = 1291.0
+offset_bottom = 1067.0
+theme_override_font_sizes/font_size = 30
+text = "Progress Week"
+
+[node name="TradeButton" type="Button" parent="."]
+top_level = true
+offset_left = 395.0
+offset_top = 972.0
+offset_right = 593.0
+offset_bottom = 1071.0
+theme_override_font_sizes/font_size = 30
+toggle_mode = true
+text = "Trade"
+
+[node name="weeklyLogPanel" type="Panel" parent="."]
+visible = false
+top_level = true
+custom_minimum_size = Vector2(300, 300)
+offset_left = 35.0
+offset_top = 86.0
+offset_right = 835.0
+offset_bottom = 786.0
+theme_override_styles/panel = ExtResource("17_hjngv")
+
+[node name="weeklyLogPaperPanel" type="Panel" parent="weeklyLogPanel"]
+custom_minimum_size = Vector2(300, 300)
+layout_mode = 0
+offset_left = 10.0
+offset_top = 12.0
+offset_right = 790.0
+offset_bottom = 692.0
+theme_override_styles/panel = ExtResource("18_4uj4s")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="weeklyLogPanel/weeklyLogPaperPanel"]
+custom_minimum_size = Vector2(300, 300)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="weeklyLogLabel" type="Label" parent="weeklyLogPanel/weeklyLogPaperPanel/ScrollContainer"]
+custom_minimum_size = Vector2(300, 300)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 25
+text = "Weekly Log
+the log is currently empty"
+label_settings = ExtResource("19_bnnba")
+autowrap_mode = 2
+
+[node name="tradePanel" type="Panel" parent="."]
+visible = false
+show_behind_parent = true
+top_level = true
+offset_left = 4.0
+offset_top = 194.0
+offset_right = 637.0
+offset_bottom = 769.0
+
+[node name="TradeCardContainer" type="VBoxContainer" parent="tradePanel"]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 8.0
+offset_right = 624.0
+offset_bottom = 577.0
+
+[connection signal="pressed" from="ProgressButton" to="." method="_on_progress_button_pressed"]
+[connection signal="pressed" from="SettlerTVs/Jacob/TextureButton" to="SettlerTVs/Jacob" method="_on_texture_button_pressed"]
+[connection signal="pressed" from="SettlerTVs/Johni/TextureButton" to="SettlerTVs/Johni" method="_on_texture_button_pressed"]
+[connection signal="pressed" from="SettlerTVs/Baldroy/TextureButton" to="SettlerTVs/Baldroy" method="_on_texture_button_pressed"]
+[connection signal="pressed" from="SettlerTVs/AI/TextureButton" to="SettlerTVs/AI" method="_on_texture_button_pressed"]
+[connection signal="pressed" from="SettlerTVs/Luffy/TextureButton" to="SettlerTVs/Luffy" method="_on_texture_button_pressed"]
+[connection signal="pressed" from="SettlerTVs/Caelan/TextureButton" to="SettlerTVs/Caelan" method="_on_texture_button_pressed"]
+[connection signal="pressed" from="SettlerTVs/Caitlyn/TextureButton" to="SettlerTVs/Caitlyn" method="_on_texture_button_pressed"]
+[connection signal="pressed" from="SettlerTVs/Jessie/TextureButton" to="SettlerTVs/Jessie" method="_on_texture_button_pressed"]
+[connection signal="toggled" from="weeklyLogButton" to="." method="_on_weekly_log_button_toggled"]
+[connection signal="pressed" from="ProgressButton2" to="." method="_on_progress_button_pressed"]
+[connection signal="toggled" from="TradeButton" to="." method="_on_trade_button_toggled"]

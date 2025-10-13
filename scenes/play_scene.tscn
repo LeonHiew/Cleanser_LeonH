@@ -1,24 +1,34 @@
-[gd_scene load_steps=40 format=3 uid="uid://brqq4ahdyu8nn"]
+[gd_scene load_steps=42 format=3 uid="uid://brqq4ahdyu8nn"]
 
 [ext_resource type="Script" uid="uid://dqtnf3fpuxi30" path="res://scripts/play_scene.gd" id="1_ief5h"]
 [ext_resource type="Texture2D" uid="uid://dnloh5hajy7lv" path="res://assets/img/backside_of_card1-removebg-preview.png" id="2_kdvgv"]
 [ext_resource type="Texture2D" uid="uid://qbv8xayc0fvs" path="res://assets/img/Sam-Picsart-BackgroundRemover.png" id="3_ief5h"]
 [ext_resource type="PackedScene" uid="uid://schvq4rxilf1" path="res://scenes/event_card.tscn" id="4_kdvgv"]
 [ext_resource type="PackedScene" uid="uid://d4jaa0dlvk3v4" path="res://scenes/pause_menu.tscn" id="6_da3qe"]
+[ext_resource type="Texture2D" uid="uid://cked5c4eoxyuf" path="res://assets/icon.svg" id="6_h65fk"]
 [ext_resource type="Texture2D" uid="uid://cmtxvcrhxxirr" path="res://assets/img/Screen/Normal, shadow.png" id="7_qhxom"]
+[ext_resource type="Script" uid="uid://0v488kqb6i6i" path="res://scripts/settlerTV.gd" id="8_4uj4s"]
 [ext_resource type="Texture2D" uid="uid://os6tikr3jc1e" path="res://assets/img/list_char no bg/Jacob.png" id="8_dta8y"]
 [ext_resource type="Texture2D" uid="uid://bs1rkqiq82spr" path="res://assets/img/list_char no bg/Johni.png" id="9_bx6jv"]
+[ext_resource type="Resource" uid="uid://cmpobxdem0c5" path="res://Resources/character_resources/Jacob_settler.tres" id="9_q08at"]
 [ext_resource type="Texture2D" uid="uid://dkv7pxmmjmc1a" path="res://assets/img/list_char no bg/Baldroy.png" id="10_ixvqh"]
+[ext_resource type="Resource" uid="uid://opvrbpybems4" path="res://Resources/character_resources/Johni_settler.tres" id="11_h65fk"]
 [ext_resource type="Texture2D" uid="uid://dvvsoiifx4fus" path="res://assets/img/list_char no bg/AI.png" id="11_hjngv"]
 [ext_resource type="Texture2D" uid="uid://dwcipj1yb6kby" path="res://assets/img/list_char no bg/Luffy.png" id="12_4uj4s"]
+[ext_resource type="Resource" uid="uid://bkuxabenpqnup" path="res://Resources/character_resources/Baldroy_settler.tres" id="13_5mqgq"]
 [ext_resource type="Texture2D" uid="uid://bfptl63321n8x" path="res://assets/img/list_char no bg/Caelan.png" id="13_bnnba"]
 [ext_resource type="Texture2D" uid="uid://bdman74vwd5h8" path="res://assets/img/list_char no bg/Caitlyn.png" id="14_6sm6u"]
 [ext_resource type="Texture2D" uid="uid://ct4jd0pyvauyh" path="res://assets/img/list_char no bg/Jessie.png" id="15_053dl"]
+[ext_resource type="Resource" uid="uid://feqw7wa846a" path="res://Resources/character_resources/AI_settler.tres" id="15_jko1l"]
 [ext_resource type="Texture2D" uid="uid://c86el6vu7emne" path="res://assets/img/backgroundTVs.png" id="16_bx6jv"]
 [ext_resource type="PackedScene" uid="uid://c0o1xj4btokud" path="res://scenes/settler_book.tscn" id="16_dta8y"]
+[ext_resource type="Resource" uid="uid://bgmb4vv42iwpb" path="res://Resources/character_resources/Luffy_settler.tres" id="17_7ytk0"]
 [ext_resource type="StyleBox" uid="uid://f45iv48p5vt" path="res://assets/book.tres" id="17_hjngv"]
 [ext_resource type="StyleBox" uid="uid://crnf801ntce87" path="res://assets/paper.tres" id="18_4uj4s"]
 [ext_resource type="LabelSettings" uid="uid://bu6v4hiigngu1" path="res://Resources/new_label_settings.tres" id="19_bnnba"]
+[ext_resource type="Resource" uid="uid://c8aly84c5fy20" path="res://Resources/character_resources/Caelan_settler.tres" id="19_kg8u5"]
+[ext_resource type="Resource" uid="uid://dji70q6oo433u" path="res://Resources/character_resources/Caitlyn_settler.tres" id="21_1ci3g"]
+[ext_resource type="Resource" uid="uid://dtnek63rvdth4" path="res://Resources/character_resources/Jessie_settler.tres" id="23_6xl5y"]
 
 [sub_resource type="Animation" id="Animation_btd5q"]
 length = 0.001
@@ -128,43 +138,19 @@ _data = {
 &"card flip animation test1": SubResource("Animation_da3qe")
 }
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_5kjkg"]
-size = Vector2(204, 177)
-
 [sub_resource type="CanvasTexture" id="CanvasTexture_qhxom"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_dta8y"]
-size = Vector2(275.74634, 190.03178)
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_bx6jv"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ixvqh"]
-size = Vector2(297.065, 179.03296)
-
 [sub_resource type="CanvasTexture" id="CanvasTexture_hjngv"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_4uj4s"]
-size = Vector2(250.41736, 182.33633)
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_bnnba"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_6sm6u"]
-size = Vector2(258.4381, 188.44656)
-
 [sub_resource type="CanvasTexture" id="CanvasTexture_053dl"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ki1q6"]
-size = Vector2(281.05707, 215.42072)
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_nu7cg"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_wbuyy"]
-size = Vector2(233.78125, 225.17159)
-
 [sub_resource type="CanvasTexture" id="CanvasTexture_q08at"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_h65fk"]
-size = Vector2(223.66956, 189.28397)
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_5mqgq"]
 
@@ -204,27 +190,7 @@ text = "Progress Week"
 
 [node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("6_da3qe")]
 visible = false
-
-[node name="EventCard" parent="." instance=ExtResource("4_kdvgv")]
-visible = false
-offset_left = 312.0
-offset_top = 264.0
-offset_right = 632.0
-offset_bottom = 694.0
-
-[node name="EventCard2" parent="." instance=ExtResource("4_kdvgv")]
-visible = false
-offset_left = 769.0
-offset_top = 241.0
-offset_right = 1089.0
-offset_bottom = 671.0
-
-[node name="EventCard3" parent="." instance=ExtResource("4_kdvgv")]
-visible = false
-offset_left = 1281.0
-offset_top = 262.0
-offset_right = 1601.0
-offset_bottom = 692.0
+top_level = true
 
 [node name="SettlerTVs" type="Sprite2D" parent="."]
 top_level = true
@@ -232,64 +198,66 @@ position = Vector2(1105.0001, 650)
 scale = Vector2(0.85403657, 0.794676)
 texture = ExtResource("7_qhxom")
 
-[node name="KhôngCóTiêuĐề33620251006162926" type="Sprite2D" parent="SettlerTVs"]
+[node name="Jacob" type="Sprite2D" parent="SettlerTVs"]
 show_behind_parent = true
 position = Vector2(510.51678, -221.4739)
 scale = Vector2(1.189639, 1.3403934)
 texture = ExtResource("8_dta8y")
+script = ExtResource("8_4uj4s")
+stats = ExtResource("9_q08at")
 
-[node name="Area2D" type="Area2D" parent="SettlerTVs/KhôngCóTiêuĐề33620251006162926"]
-position = Vector2(-12.795593, -61.961365)
-scale = Vector2(0.98425674, 0.9388098)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="SettlerTVs/KhôngCóTiêuĐề33620251006162926/Area2D"]
-position = Vector2(13, 41.49997)
-shape = SubResource("RectangleShape2D_5kjkg")
-metadata/_edit_lock_ = true
-
-[node name="Sprite2D" type="Sprite2D" parent="SettlerTVs/KhôngCóTiêuĐề33620251006162926"]
+[node name="Sprite2D" type="Sprite2D" parent="SettlerTVs/Jacob"]
 show_behind_parent = true
 position = Vector2(3.0190012, -20.184414)
 scale = Vector2(195.66884, 177.43504)
 skew = -0.13962634
 texture = SubResource("CanvasTexture_qhxom")
 
-[node name="KhôngCóTiêuĐề33620251006162942" type="Sprite2D" parent="SettlerTVs"]
+[node name="TextureButton" type="TextureButton" parent="SettlerTVs/Jacob"]
+anchors_preset = -1
+anchor_left = -0.049000002
+anchor_top = 0.046000004
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -88.08681
+offset_top = -135.86407
+offset_right = -106.668976
+offset_bottom = -218.03854
+
+[node name="Johni" type="Sprite2D" parent="SettlerTVs"]
 show_behind_parent = true
 position = Vector2(529.2514, 67.95221)
 scale = Vector2(0.98939335, 1.0859944)
 texture = ExtResource("9_bx6jv")
+script = ExtResource("8_4uj4s")
+stats = ExtResource("11_h65fk")
 
-[node name="Area2D" type="Area2D" parent="SettlerTVs/KhôngCóTiêuĐề33620251006162942"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="SettlerTVs/KhôngCóTiêuĐề33620251006162942/Area2D"]
-position = Vector2(-6.5078125, -32.444458)
-shape = SubResource("RectangleShape2D_dta8y")
-metadata/_edit_lock_ = true
-
-[node name="Sprite2D" type="Sprite2D" parent="SettlerTVs/KhôngCóTiêuĐề33620251006162942"]
+[node name="Sprite2D" type="Sprite2D" parent="SettlerTVs/Johni"]
 show_behind_parent = true
 position = Vector2(-7.6920547, -35.341267)
 scale = Vector2(282.848, 191.19048)
 texture = SubResource("CanvasTexture_bx6jv")
 
-[node name="KhôngCóTiêuĐề33620251006162954" type="Sprite2D" parent="SettlerTVs"]
+[node name="TextureButton" type="TextureButton" parent="SettlerTVs/Johni"]
+anchors_preset = -1
+anchor_left = -0.049000002
+anchor_top = 0.046000004
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -146.17981
+offset_top = -135.86407
+offset_right = -95.26898
+offset_bottom = -218.03854
+
+[node name="Baldroy" type="Sprite2D" parent="SettlerTVs"]
 show_behind_parent = true
 position = Vector2(202.56729, -220.21552)
 scale = Vector2(1.1140949, 1.1732371)
 texture = ExtResource("10_ixvqh")
+script = ExtResource("8_4uj4s")
+stats = ExtResource("13_5mqgq")
 
-[node name="Area2D" type="Area2D" parent="SettlerTVs/KhôngCóTiêuĐề33620251006162954"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="SettlerTVs/KhôngCóTiêuĐề33620251006162954/Area2D"]
-position = Vector2(-2.7746582, -27.281189)
-rotation = 0.073303826
-scale = Vector2(0.9999996, 0.99999964)
-skew = -0.036651913
-shape = SubResource("RectangleShape2D_ixvqh")
-metadata/_edit_lock_ = true
-
-[node name="Sprite2D" type="Sprite2D" parent="SettlerTVs/KhôngCóTiêuĐề33620251006162954"]
+[node name="Sprite2D" type="Sprite2D" parent="SettlerTVs/Baldroy"]
 show_behind_parent = true
 position = Vector2(-2.8360622, -29.579561)
 rotation = 0.073303826
@@ -297,110 +265,147 @@ scale = Vector2(308.0072, 175.97316)
 skew = -0.09599311
 texture = SubResource("CanvasTexture_hjngv")
 
-[node name="KhôngCóTiêuĐề33620251006163006" type="Sprite2D" parent="SettlerTVs"]
+[node name="TextureButton" type="TextureButton" parent="SettlerTVs/Baldroy"]
+anchors_preset = -1
+anchor_left = -0.049000002
+anchor_top = 0.046000004
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -146.17981
+offset_top = -135.86407
+offset_right = -95.26898
+offset_bottom = -218.03854
+
+[node name="AI" type="Sprite2D" parent="SettlerTVs"]
 show_behind_parent = true
 position = Vector2(183.8328, 300.75146)
 scale = Vector2(1.1315517, 1.173237)
 texture = ExtResource("11_hjngv")
+script = ExtResource("8_4uj4s")
+stats = ExtResource("15_jko1l")
 
-[node name="Area2D" type="Area2D" parent="SettlerTVs/KhôngCóTiêuĐề33620251006163006"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="SettlerTVs/KhôngCóTiêuĐề33620251006163006/Area2D"]
-position = Vector2(16.556396, -26.814331)
-shape = SubResource("RectangleShape2D_4uj4s")
-metadata/_edit_lock_ = true
-
-[node name="Sprite2D" type="Sprite2D" parent="SettlerTVs/KhôngCóTiêuĐề33620251006163006"]
+[node name="Sprite2D" type="Sprite2D" parent="SettlerTVs/AI"]
 show_behind_parent = true
 position = Vector2(15.522072, -26.81416)
 scale = Vector2(233.86104, 178.04611)
 texture = SubResource("CanvasTexture_bnnba")
 
-[node name="KhôngCóTiêuĐề33620251006163020" type="Sprite2D" parent="SettlerTVs"]
+[node name="TextureButton" type="TextureButton" parent="SettlerTVs/AI"]
+anchors_preset = -1
+anchor_left = -0.049000002
+anchor_top = 0.046000004
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -102.16406
+offset_top = -135.86407
+offset_right = -95.269
+offset_bottom = -218.03854
+
+[node name="Luffy" type="Sprite2D" parent="SettlerTVs"]
 show_behind_parent = true
 position = Vector2(-92.50204, 7.5502224)
 scale = Vector2(0.96051276, 0.9615773)
 texture = ExtResource("12_4uj4s")
+script = ExtResource("8_4uj4s")
+stats = ExtResource("17_7ytk0")
 
-[node name="Area2D" type="Area2D" parent="SettlerTVs/KhôngCóTiêuĐề33620251006163020"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="SettlerTVs/KhôngCóTiêuĐề33620251006163020/Area2D"]
-position = Vector2(0.00048828125, -34.025085)
-scale = Vector2(1.0000002, 1)
-shape = SubResource("RectangleShape2D_6sm6u")
-metadata/_edit_lock_ = true
-
-[node name="Sprite2D" type="Sprite2D" parent="SettlerTVs/KhôngCóTiêuĐề33620251006163020"]
+[node name="Sprite2D" type="Sprite2D" parent="SettlerTVs/Luffy"]
 show_behind_parent = true
 position = Vector2(-3.6565094, -41.877007)
 scale = Vector2(248.68558, 177.97728)
 texture = SubResource("CanvasTexture_053dl")
 
-[node name="KhôngCóTiêuĐề33620251006163033" type="Sprite2D" parent="SettlerTVs"]
+[node name="TextureButton" type="TextureButton" parent="SettlerTVs/Luffy"]
+anchors_preset = -1
+anchor_left = -0.049000002
+anchor_top = 0.046000004
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -106.83655
+offset_top = -135.86407
+offset_right = -95.26897
+offset_bottom = -218.03854
+
+[node name="Caelan" type="Sprite2D" parent="SettlerTVs"]
 show_behind_parent = true
 position = Vector2(-309.12036, 308.30182)
 scale = Vector2(0.9082082, 0.94631827)
 texture = ExtResource("13_bnnba")
+script = ExtResource("8_4uj4s")
+stats = ExtResource("19_kg8u5")
 
-[node name="Area2D" type="Area2D" parent="SettlerTVs/KhôngCóTiêuĐề33620251006163033"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="SettlerTVs/KhôngCóTiêuĐề33620251006163033/Area2D"]
-position = Vector2(3.868164, -35.903442)
-scale = Vector2(0.9999998, 1)
-shape = SubResource("RectangleShape2D_ki1q6")
-metadata/_edit_lock_ = true
-
-[node name="Sprite2D" type="Sprite2D" parent="SettlerTVs/KhôngCóTiêuĐề33620251006163033"]
+[node name="Sprite2D" type="Sprite2D" parent="SettlerTVs/Caelan"]
 show_behind_parent = true
 position = Vector2(0.64495087, -39.22792)
 scale = Vector2(279.7677, 208.77191)
 texture = SubResource("CanvasTexture_nu7cg")
 
-[node name="KhôngCóTiêuĐề33620251006163048" type="Sprite2D" parent="SettlerTVs"]
+[node name="TextureButton" type="TextureButton" parent="SettlerTVs/Caelan"]
+anchors_preset = -1
+anchor_left = -0.049000002
+anchor_top = 0.046000004
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -134.2196
+offset_top = -165.6601
+offset_right = -95.26898
+offset_bottom = -165.55507
+
+[node name="Caitlyn" type="Sprite2D" parent="SettlerTVs"]
 show_behind_parent = true
 position = Vector2(-345.4185, -154.78017)
 scale = Vector2(0.88845366, 0.91651607)
 texture = ExtResource("14_6sm6u")
+script = ExtResource("8_4uj4s")
+stats = ExtResource("21_1ci3g")
 
-[node name="Area2D" type="Area2D" parent="SettlerTVs/KhôngCóTiêuĐề33620251006163048"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="SettlerTVs/KhôngCóTiêuĐề33620251006163048/Area2D"]
-position = Vector2(0.6594238, -43.93567)
-scale = Vector2(1, 0.9999999)
-skew = 0.092502475
-shape = SubResource("RectangleShape2D_wbuyy")
-metadata/_edit_lock_ = true
-
-[node name="Sprite2D" type="Sprite2D" parent="SettlerTVs/KhôngCóTiêuĐề33620251006163048"]
+[node name="Sprite2D" type="Sprite2D" parent="SettlerTVs/Caitlyn"]
 show_behind_parent = true
 position = Vector2(-0.69928867, -44.180893)
 scale = Vector2(224.78415, 236.67735)
 skew = 0.09250245
 texture = SubResource("CanvasTexture_q08at")
 
-[node name="KhôngCóTiêuĐề33620251006163100" type="Sprite2D" parent="SettlerTVs"]
+[node name="TextureButton" type="TextureButton" parent="SettlerTVs/Caitlyn"]
+anchors_preset = -1
+anchor_left = -0.049000002
+anchor_top = 0.046000004
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -117.984314
+offset_top = -173.06769
+offset_right = -117.29492
+offset_bottom = -218.03854
+
+[node name="Jessie" type="Sprite2D" parent="SettlerTVs"]
 show_behind_parent = true
 position = Vector2(-469.5348, 55.368507)
 scale = Vector2(0.92659587, 0.8443058)
 texture = ExtResource("15_053dl")
+script = ExtResource("8_4uj4s")
+stats = ExtResource("23_6xl5y")
 
-[node name="Area2D" type="Area2D" parent="SettlerTVs/KhôngCóTiêuĐề33620251006163100"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="SettlerTVs/KhôngCóTiêuĐề33620251006163100/Area2D"]
-position = Vector2(5.6865234, -20.120728)
-scale = Vector2(0.9999999, 1)
-shape = SubResource("RectangleShape2D_h65fk")
-metadata/_edit_lock_ = true
-
-[node name="Sprite2D" type="Sprite2D" parent="SettlerTVs/KhôngCóTiêuĐề33620251006163100"]
+[node name="Sprite2D" type="Sprite2D" parent="SettlerTVs/Jessie"]
 show_behind_parent = true
 position = Vector2(4.4230423, -21.611195)
 scale = Vector2(216.08778, 183.3223)
 texture = SubResource("CanvasTexture_5mqgq")
 
+[node name="TextureButton" type="TextureButton" parent="SettlerTVs/Jessie"]
+anchors_preset = -1
+anchor_left = -0.049000002
+anchor_top = 0.046000004
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -96.59344
+offset_top = -135.86407
+offset_right = -81.27008
+offset_bottom = -218.03854
+
 [node name="SettlerBook" parent="." instance=ExtResource("16_dta8y")]
 visible = false
-position = Vector2(907, 626)
+top_level = true
+position = Vector2(933, 635)
 
 [node name="BackgroundTVs" type="Sprite2D" parent="."]
 position = Vector2(960, 403.99997)
@@ -437,52 +442,82 @@ position = Vector2(719.5326, -364.9803)
 scale = Vector2(401.47833, 273.73523)
 texture = SubResource("CanvasTexture_dta8y")
 
-[node name="Label" type="Label" parent="BackgroundTVs"]
+[node name="TownSuppliesTitleLabel" type="Label" parent="BackgroundTVs"]
 offset_left = -896.8087
-offset_top = -491.41986
+offset_top = -503.15137
 offset_right = -510.97235
-offset_bottom = -404.41986
+offset_bottom = -332.15137
 theme_override_font_sizes/font_size = 40
 text = "Town Supplies
 "
 horizontal_alignment = 1
 
-[node name="Label" type="Label" parent="BackgroundTVs/Label"]
+[node name="TownSuppliesLabel" type="Label" parent="BackgroundTVs/TownSuppliesTitleLabel"]
 layout_mode = 0
 offset_left = 1.303494
-offset_top = 65.17506
+offset_top = 49.533043
 offset_right = 387.13986
-offset_bottom = 236.17505
+offset_bottom = 220.53305
 theme_override_font_sizes/font_size = 40
 text = "Food: 22
 Water: 25
 Scrap: 15"
 
-[node name="Label2" type="Label" parent="BackgroundTVs"]
+[node name="TownPowerTitleLabel" type="Label" parent="BackgroundTVs"]
 offset_left = -424.9413
-offset_top = -491.41986
+offset_top = -503.15137
 offset_right = -39.10495
-offset_bottom = -378.41986
+offset_bottom = -332.15137
 theme_override_font_sizes/font_size = 40
 text = "Town Power
 "
 horizontal_alignment = 1
 
-[node name="Label" type="Label" parent="BackgroundTVs/Label2"]
+[node name="MilitaryLabel" type="Label" parent="BackgroundTVs/TownPowerTitleLabel"]
 layout_mode = 0
 offset_left = 1.303494
-offset_top = 65.17506
+offset_top = 49.533043
 offset_right = 387.13986
-offset_bottom = 236.17505
+offset_bottom = 162.53305
 theme_override_font_sizes/font_size = 40
 text = "Military: 13
-Ingeunity: 24"
+"
 
-[node name="Label3" type="Label" parent="BackgroundTVs"]
+[node name="MilitaryDetailsLabel" type="Label" parent="BackgroundTVs/TownPowerTitleLabel/MilitaryLabel"]
+layout_mode = 0
+offset_top = 46.92604
+offset_right = 385.83636
+offset_bottom = 159.92606
+theme_override_font_sizes/font_size = 20
+text = "Base Military: 13
+Settler Military: 10
+"
+
+[node name="IngenuityLabel" type="Label" parent="BackgroundTVs/TownPowerTitleLabel"]
+layout_mode = 0
+offset_left = 1.303494
+offset_top = 149.90262
+offset_right = 387.13986
+offset_bottom = 262.90262
+theme_override_font_sizes/font_size = 40
+text = "Ingenuity: 13
+"
+
+[node name="IngenuityDetailsLabel" type="Label" parent="BackgroundTVs/TownPowerTitleLabel/IngenuityLabel"]
+layout_mode = 0
+offset_top = 43.016
+offset_right = 385.83636
+offset_bottom = 156.01602
+theme_override_font_sizes/font_size = 20
+text = "Base Ingenuity: 13
+Settler Ingenuity: 10
+"
+
+[node name="RoundLabel" type="Label" parent="BackgroundTVs"]
 offset_left = 526.6145
-offset_top = -491.41986
+offset_top = -503.15137
 offset_right = 912.45087
-offset_bottom = -237.23714
+offset_bottom = -248.96864
 theme_override_font_sizes/font_size = 40
 text = "Weeks till Town Inspection
 15 Weeks"
@@ -490,36 +525,31 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
 
-[node name="Label4" type="Label" parent="BackgroundTVs"]
+[node name="RaidLabel" type="Label" parent="BackgroundTVs"]
 offset_left = 54.7471
-offset_top = -491.41986
+offset_top = -503.15137
 offset_right = 440.58347
-offset_bottom = -237.23714
+offset_bottom = -158.15137
 theme_override_font_sizes/font_size = 40
-text = "Bandit Raid Detected!!!
-Time till Raid 
-3 weeks"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
 
-[node name="weeklyLogButton" type="Button" parent="."]
-offset_left = 48.0
-offset_top = 838.0
-offset_right = 248.0
-offset_bottom = 938.0
-theme_override_font_sizes/font_size = 30
-toggle_mode = true
-text = "Weekly Log"
+[node name="tradePanel" type="Panel" parent="."]
+visible = false
+show_behind_parent = true
+top_level = true
+offset_left = 4.0
+offset_top = 277.0
+offset_right = 637.0
+offset_bottom = 852.0
 
-[node name="settlerLogButton" type="Button" parent="."]
-offset_left = 51.0
-offset_top = 964.0
-offset_right = 251.0
-offset_bottom = 1064.0
-theme_override_font_sizes/font_size = 30
-toggle_mode = true
-text = "Settler Log"
+[node name="TradeCardContainer" type="VBoxContainer" parent="tradePanel"]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 8.0
+offset_right = 624.0
+offset_bottom = 577.0
 
 [node name="ProgressButton2" type="Button" parent="."]
 top_level = true
@@ -540,36 +570,53 @@ theme_override_font_sizes/font_size = 30
 toggle_mode = true
 text = "Trade"
 
-[node name="settlerPanel" type="Panel" parent="."]
+[node name="Cards" type="Control" parent="."]
 visible = false
 top_level = true
-custom_minimum_size = Vector2(300, 300)
-offset_left = 883.0
-offset_top = 91.0
-offset_right = 1883.0
-offset_bottom = 791.0
-theme_override_styles/panel = ExtResource("17_hjngv")
+layout_mode = 3
+anchors_preset = 0
 
-[node name="HFlowContainer" type="HFlowContainer" parent="settlerPanel"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 10.0
-offset_top = 10.0
-offset_right = -10.0
-offset_bottom = -10.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="VBoxContainer" type="VBoxContainer" parent="Cards"]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1078.0
+alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Cards/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="EventCard" parent="Cards/VBoxContainer/HBoxContainer" instance=ExtResource("4_kdvgv")]
+layout_mode = 2
+
+[node name="VSeparator" type="VSeparator" parent="Cards/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="EventCard2" parent="Cards/VBoxContainer/HBoxContainer" instance=ExtResource("4_kdvgv")]
+layout_mode = 2
+
+[node name="VSeparator2" type="VSeparator" parent="Cards/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="EventCard3" parent="Cards/VBoxContainer/HBoxContainer" instance=ExtResource("4_kdvgv")]
+layout_mode = 2
+
+[node name="closeCardsButton" type="Button" parent="Cards"]
+layout_mode = 0
+offset_left = 1469.0
+offset_top = 322.0
+offset_right = 1605.0
+offset_bottom = 458.0
+icon = ExtResource("6_h65fk")
 
 [node name="weeklyLogPanel" type="Panel" parent="."]
 visible = false
 top_level = true
 custom_minimum_size = Vector2(300, 300)
-offset_left = 35.0
-offset_top = 86.0
-offset_right = 835.0
-offset_bottom = 786.0
+offset_left = 463.0
+offset_top = 157.0
+offset_right = 1607.0
+offset_bottom = 955.0
 theme_override_styles/panel = ExtResource("17_hjngv")
 
 [node name="weeklyLogPaperPanel" type="Panel" parent="weeklyLogPanel"]
@@ -577,8 +624,8 @@ custom_minimum_size = Vector2(300, 300)
 layout_mode = 0
 offset_left = 10.0
 offset_top = 12.0
-offset_right = 790.0
-offset_bottom = 692.0
+offset_right = 1129.0
+offset_bottom = 785.0
 theme_override_styles/panel = ExtResource("18_4uj4s")
 
 [node name="ScrollContainer" type="ScrollContainer" parent="weeklyLogPanel/weeklyLogPaperPanel"]
@@ -601,24 +648,33 @@ the log is currently empty"
 label_settings = ExtResource("19_bnnba")
 autowrap_mode = 2
 
-[node name="tradePanel" type="Panel" parent="."]
-visible = false
-show_behind_parent = true
-top_level = true
-offset_left = 4.0
-offset_top = 194.0
-offset_right = 637.0
-offset_bottom = 769.0
-
-[node name="TradeCardContainer" type="VBoxContainer" parent="tradePanel"]
+[node name="RaidLabelButton" type="Button" parent="weeklyLogPanel"]
 layout_mode = 0
-offset_left = 6.0
-offset_top = 8.0
-offset_right = 624.0
-offset_bottom = 577.0
+offset_left = 1055.0
+offset_top = -32.0
+offset_right = 1191.0
+offset_bottom = 104.0
+icon = ExtResource("6_h65fk")
+
+[node name="showEventCards" type="Button" parent="."]
+offset_left = 41.0
+offset_top = 973.0
+offset_right = 323.0
+offset_bottom = 1066.0
+theme_override_font_sizes/font_size = 30
+text = "ShowEventCards"
 
 [connection signal="pressed" from="ProgressButton" to="." method="_on_progress_button_pressed"]
-[connection signal="toggled" from="weeklyLogButton" to="." method="_on_weekly_log_button_toggled"]
-[connection signal="toggled" from="settlerLogButton" to="." method="_on_settler_log_button_toggled"]
+[connection signal="pressed" from="SettlerTVs/Jacob/TextureButton" to="SettlerTVs/Jacob" method="_on_texture_button_pressed"]
+[connection signal="pressed" from="SettlerTVs/Johni/TextureButton" to="SettlerTVs/Johni" method="_on_texture_button_pressed"]
+[connection signal="pressed" from="SettlerTVs/Baldroy/TextureButton" to="SettlerTVs/Baldroy" method="_on_texture_button_pressed"]
+[connection signal="pressed" from="SettlerTVs/AI/TextureButton" to="SettlerTVs/AI" method="_on_texture_button_pressed"]
+[connection signal="pressed" from="SettlerTVs/Luffy/TextureButton" to="SettlerTVs/Luffy" method="_on_texture_button_pressed"]
+[connection signal="pressed" from="SettlerTVs/Caelan/TextureButton" to="SettlerTVs/Caelan" method="_on_texture_button_pressed"]
+[connection signal="pressed" from="SettlerTVs/Caitlyn/TextureButton" to="SettlerTVs/Caitlyn" method="_on_texture_button_pressed"]
+[connection signal="pressed" from="SettlerTVs/Jessie/TextureButton" to="SettlerTVs/Jessie" method="_on_texture_button_pressed"]
 [connection signal="pressed" from="ProgressButton2" to="." method="_on_progress_button_pressed"]
 [connection signal="toggled" from="TradeButton" to="." method="_on_trade_button_toggled"]
+[connection signal="pressed" from="Cards/closeCardsButton" to="." method="_on_close_cards_button_pressed"]
+[connection signal="pressed" from="weeklyLogPanel/RaidLabelButton" to="." method="_on_raid_label_button_pressed"]
+[connection signal="pressed" from="showEventCards" to="." method="_on_show_event_cards_pressed"]

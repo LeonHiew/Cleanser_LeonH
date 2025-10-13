@@ -14,13 +14,13 @@ var sicknessArray = {
 		["Not Sick", 100, 0 , 0, null]
 	,
 	sickness.radStage1:
-		["radiation sickness(stage 1)", 69 , 1, 30, sickness.radStage2]
+		["radiation sickness(Moderate)", 69 , 1, 30, sickness.radStage2]
 	,
 	sickness.radStage2:
-		["radiation sickness(stage 2)", 30 , 30, 40, sickness.radStage3]
+		["radiation sickness(Severe)", 30 , 30, 40, sickness.radStage3]
 	,
 	sickness.radStage3:
-		["radiation sickness(stage 3)", 1 , 99, 0, null]
+		["radiation sickness(Lethal)", 1 , 99, 0, null]
 }
 func GetNameString(target: sickness):
 	return sicknessArray[target][0]

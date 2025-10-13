@@ -6,14 +6,23 @@
 [ext_resource type="Texture2D" uid="uid://cked5c4eoxyuf" path="res://assets/icon.svg" id="4_2xj3i"]
 [ext_resource type="Texture2D" uid="uid://bmdu47pma30g3" path="res://assets/img/char use for book/Caelan_book.png" id="4_21h2r"]
 
-
 [node name="SettlerBook" type="Node2D"]
 script = ExtResource("1_21h2r")
 metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
 
 [node name="BookSprite" type="Sprite2D" parent="."]
 scale = Vector2(0.8435185, 0.8435185)
 texture = ExtResource("1_qfqgo")
+
+[node name="Control" type="Control" parent="BookSprite"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -1980.9879
+offset_top = -1215.1482
+offset_right = -1837.7295
+offset_bottom = -1076.3337
+scale = Vector2(25.943142, 13.092207)
 
 [node name="SmallSprite" type="Sprite2D" parent="BookSprite"]
 show_behind_parent = true
@@ -70,7 +79,7 @@ offset_right = 615.0
 offset_bottom = 416.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 25
-text = "Current Mood: Great
+text = "Current Mood: Good 
 Current Sickness: Not Sick"
 autowrap_mode = 2
 
@@ -104,4 +113,13 @@ theme_override_colors/font_color = Color(0.92629945, 2.5027991e-06, 1.540184e-06
 theme_override_font_sizes/font_size = 200
 text = "DEAD"
 
+[node name="Button" type="Button" parent="."]
+offset_left = 253.0
+offset_top = 272.0
+offset_right = 522.0
+offset_bottom = 340.0
+theme_override_font_sizes/font_size = 20
+text = "Heal"
+
 [connection signal="pressed" from="BookSprite/CloseButton" to="." method="_on_close_button_pressed"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

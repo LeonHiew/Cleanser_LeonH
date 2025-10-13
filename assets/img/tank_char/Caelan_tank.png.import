@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://df1wt5gbx8dxh"
-path="res://.godot/imported/_.png-e9446d25cd873c733c8ece0d5663f03c.ctex"
+uid="uid://che52tbqjj08a"
+path="res://.godot/imported/Caelan_tank.png-3f4eb4e2fbca73ff31a871870ea864be.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/img/tank_char/_.png"
-dest_files=["res://.godot/imported/_.png-e9446d25cd873c733c8ece0d5663f03c.ctex"]
+source_file="res://assets/img/tank_char/Caelan_tank.png"
+dest_files=["res://.godot/imported/Caelan_tank.png-3f4eb4e2fbca73ff31a871870ea864be.ctex"]
 
 [params]
 

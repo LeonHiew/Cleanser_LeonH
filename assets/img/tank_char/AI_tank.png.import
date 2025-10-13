@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dmlxqftcq1bh1"
-path="res://.godot/imported/Caitlyn.png-72b8adc66e22cfe2129abb57b9be510b.ctex"
+uid="uid://bqb8m03ws0a3t"
+path="res://.godot/imported/AI_tank.png-659c01695a517c730f1a87dfea48c722.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/img/tank_char/Caitlyn.png"
-dest_files=["res://.godot/imported/Caitlyn.png-72b8adc66e22cfe2129abb57b9be510b.ctex"]
+source_file="res://assets/img/tank_char/AI_tank.png"
+dest_files=["res://.godot/imported/AI_tank.png-659c01695a517c730f1a87dfea48c722.ctex"]
 
 [params]
 

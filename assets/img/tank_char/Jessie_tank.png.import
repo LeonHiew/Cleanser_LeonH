@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://t31m8dew1vuq"
-path="res://.godot/imported/__.png-87b395514d58860e33b675bb424bd957.ctex"
+uid="uid://dgqqaouetsuiq"
+path="res://.godot/imported/Jessie_tank.png-f4628719837715a0411caae0d2f0a7a2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/img/tank_char/__.png"
-dest_files=["res://.godot/imported/__.png-87b395514d58860e33b675bb424bd957.ctex"]
+source_file="res://assets/img/tank_char/Jessie_tank.png"
+dest_files=["res://.godot/imported/Jessie_tank.png-f4628719837715a0411caae0d2f0a7a2.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dlj7bhewkd1sf"
-path="res://.godot/imported/Không Có Tiêu Đề336_20251006162737.png-9f058aeb95b9498b0c59b91232162a4f.ctex"
+uid="uid://dyq3gsjcp1aj1"
+path="res://.godot/imported/Luffy_tank.png-580104e1bd3cb8c75f3f925f8a927e41.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/img/list_char bg/Không Có Tiêu Đề336_20251006162737.png"
-dest_files=["res://.godot/imported/Không Có Tiêu Đề336_20251006162737.png-9f058aeb95b9498b0c59b91232162a4f.ctex"]
+source_file="res://assets/img/tank_char/Luffy_tank.png"
+dest_files=["res://.godot/imported/Luffy_tank.png-580104e1bd3cb8c75f3f925f8a927e41.ctex"]
 
 [params]
 

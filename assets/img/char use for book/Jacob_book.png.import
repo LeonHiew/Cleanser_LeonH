@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ube2cs4yxlkm"
-path="res://.godot/imported/Không Có Tiêu Đề335_20251007121124.png-4842381d9789ced77866945ab2da63e4.ctex"
+uid="uid://bi7r63b5m6w8d"
+path="res://.godot/imported/Jacob_book.png-41424e32a89089fc8e80ffa5abaf35fa.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/img/char use for book/Không Có Tiêu Đề335_20251007121124.png"
-dest_files=["res://.godot/imported/Không Có Tiêu Đề335_20251007121124.png-4842381d9789ced77866945ab2da63e4.ctex"]
+source_file="res://assets/img/char use for book/Jacob_book.png"
+dest_files=["res://.godot/imported/Jacob_book.png-41424e32a89089fc8e80ffa5abaf35fa.ctex"]
 
 [params]
 

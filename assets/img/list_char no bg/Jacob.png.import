@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b2bk336qxhdep"
-path="res://.godot/imported/Không Có Tiêu Đề336_20251006162726.png-58ac3904a3211cc5542c852d42ead8e8.ctex"
+uid="uid://os6tikr3jc1e"
+path="res://.godot/imported/Jacob.png-7a9c9d20ae5af0020e1543a59d0cfdf8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/img/list_char bg/Không Có Tiêu Đề336_20251006162726.png"
-dest_files=["res://.godot/imported/Không Có Tiêu Đề336_20251006162726.png-58ac3904a3211cc5542c852d42ead8e8.ctex"]
+source_file="res://assets/img/list_char no bg/Jacob.png"
+dest_files=["res://.godot/imported/Jacob.png-7a9c9d20ae5af0020e1543a59d0cfdf8.ctex"]
 
 [params]
 

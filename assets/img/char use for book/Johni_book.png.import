@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bs1rkqiq82spr"
-path="res://.godot/imported/Không Có Tiêu Đề336_20251006162942.png-32e10baf9478771df207311cf7814051.ctex"
+uid="uid://ube2cs4yxlkm"
+path="res://.godot/imported/Johni_book.png-3fda9f24ed1bd8be90602577082b34bc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/img/list_char no bg/Không Có Tiêu Đề336_20251006162942.png"
-dest_files=["res://.godot/imported/Không Có Tiêu Đề336_20251006162942.png-32e10baf9478771df207311cf7814051.ctex"]
+source_file="res://assets/img/char use for book/Johni_book.png"
+dest_files=["res://.godot/imported/Johni_book.png-3fda9f24ed1bd8be90602577082b34bc.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dyq3gsjcp1aj1"
-path="res://.godot/imported/Luffy.png-7e1444bc5d8b2e14164f138d3d1e957d.ctex"
+uid="uid://dmlxqftcq1bh1"
+path="res://.godot/imported/Caitlyn_tank.png-10ad0d8055233924483acea8d7bc1e0b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/img/tank_char/Luffy.png"
-dest_files=["res://.godot/imported/Luffy.png-7e1444bc5d8b2e14164f138d3d1e957d.ctex"]
+source_file="res://assets/img/tank_char/Caitlyn_tank.png"
+dest_files=["res://.godot/imported/Caitlyn_tank.png-10ad0d8055233924483acea8d7bc1e0b.ctex"]
 
 [params]
 

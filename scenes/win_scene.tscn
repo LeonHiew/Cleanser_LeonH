@@ -70,7 +70,7 @@ offset_top = 258.0
 offset_right = 1410.0
 offset_bottom = 471.0
 theme_override_font_sizes/font_size = 50
-text = "Thw Town Survived and the second wave of colonists arrived to a functioning town"
+text = "The Town Survived and the second wave of colonists arrived to a functioning town"
 autowrap_mode = 2
 
 [connection signal="pressed" from="AspectRatioContainer/HBoxContainer/VBoxContainer/ReturnButton" to="." method="_on_returnMenu_button_pressed"]

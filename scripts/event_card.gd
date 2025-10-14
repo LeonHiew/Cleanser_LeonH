@@ -70,7 +70,7 @@ func loadStats(event: Array, settlerTarget: String):
 			"Mood":
 				if event[2][key] < 0:
 					fillText = "all settlers have a worse mood"
-				if event[2][key] < 0:
+				if event[2][key] > 0:
 					fillText = "all settlers have a better mood"
 			#default, shouldn't be called
 			#if it does something misspelled in event information

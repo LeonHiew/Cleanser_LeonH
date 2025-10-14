@@ -126,7 +126,7 @@ func _UpdateResourcesDisplay():
 	miltaryDetailsLabel.text = "Base Military: %s 
 	Settler Military: %s" % [baseTownMiltary, townMilitary - baseTownMiltary]
 	
-	ingenuityLabel.text = "Miltary Power: %s "% [townIngenuity]
+	ingenuityLabel.text = "Ingenuity Power: %s "% [townIngenuity]
 	ingenuityDetailsLabel.text = "Base Ingenuity: %s
 	Settler Ingenuity: %s" % [baseTownIngenuity, townIngenuity - baseTownIngenuity]
 	

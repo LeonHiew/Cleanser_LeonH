@@ -187,7 +187,7 @@ func _ProgressWeek():
 func _rollEvents():
 	roll.randomize()
 	var amountOfEvents = 3
-	var positiveEventChance = pow(townIngenuity * 0.15, 2) + 10
+	var positiveEventChance = pow(townIngenuity * 0.03 - 4.5, 3) + 100
 	var bannedEvents = []
 	for event in amountOfEvents:
 		var settler_target = ""

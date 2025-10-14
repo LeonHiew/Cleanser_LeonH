@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://cslqk31f8yfs7"]
+[gd_scene load_steps=3 format=3 uid="uid://cslqk31f8yfs7"]
 
 [ext_resource type="Script" uid="uid://d3vgpo8t3toay" path="res://scripts/main_menu.gd" id="1_l6cm7"]
+[ext_resource type="Texture2D" uid="uid://d2cebv1cup3ci" path="res://assets/FIT2145 CleanserGame Questionair2 QR.png" id="2_ekxnf"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -36,12 +37,24 @@ text = "Play test scene"
 [node name="PlayButton" type="Button" parent="AspectRatioContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
-text = "Play(NOT PLAYABLE VERSION)"
+text = "Play"
 
 [node name="QuitButton" type="Button" parent="AspectRatioContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "Quit"
+
+[node name="Fit2145CleanserGameQuestionair2Qr" type="Sprite2D" parent="AspectRatioContainer"]
+position = Vector2(423, 518)
+texture = ExtResource("2_ekxnf")
+
+[node name="Label2" type="Label" parent="AspectRatioContainer/Fit2145CleanserGameQuestionair2Qr"]
+offset_left = -318.0
+offset_top = -312.0
+offset_right = 300.0
+offset_bottom = -243.0
+theme_override_font_sizes/font_size = 50
+text = "FEEDBACK APPRICITATED "
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 0

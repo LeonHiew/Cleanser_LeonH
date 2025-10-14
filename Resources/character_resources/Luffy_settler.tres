@@ -1,13 +1,15 @@
-[gd_resource type="Resource" script_class="SettlerStats" load_steps=3 format=3 uid="uid://bgmb4vv42iwpb"]
+[gd_resource type="Resource" script_class="SettlerStats" load_steps=4 format=3 uid="uid://bgmb4vv42iwpb"]
 
 [ext_resource type="Script" uid="uid://brgukr3brt6qv" path="res://scripts/settler_Stats.gd" id="1_4xrdy"]
-[ext_resource type="Texture2D" uid="uid://cked5c4eoxyuf" path="res://assets/icon.svg" id="2_peak0"]
+[ext_resource type="Texture2D" uid="uid://bcq2paviv6y45" path="res://assets/img/list_char bg/Luffy_bg.png" id="2_peak0"]
+[ext_resource type="Texture2D" uid="uid://cwf10mygiqj6j" path="res://assets/img/char use for book/luffy_book.png" id="3_d4fod"]
 
 [resource]
 script = ExtResource("1_4xrdy")
 settlerName = "Luffy"
 settlerDesc = "Farmer"
-settlerPortrait = ExtResource("2_peak0")
+settlerPortrait = ExtResource("3_d4fod")
+settlerChibiPortrait = ExtResource("2_peak0")
 foodProduction = 4
 waterProduction = 4
 settlerMood = 1

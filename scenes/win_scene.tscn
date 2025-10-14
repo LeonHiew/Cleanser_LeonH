@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://6w00k1dyjhms"]
+[gd_scene load_steps=3 format=3 uid="uid://6w00k1dyjhms"]
 
 [ext_resource type="Script" uid="uid://b8yn2rgo67gdx" path="res://scripts/win_scene.gd" id="1_p78a6"]
+[ext_resource type="Texture2D" uid="uid://d2cebv1cup3ci" path="res://assets/FIT2145 CleanserGame Questionair2 QR.png" id="2_aw8vk"]
 
 [node name="WinScene" type="Control"]
 layout_mode = 3
@@ -49,6 +50,28 @@ grow_horizontal = 2
 theme_override_font_sizes/font_size = 101
 text = "You Win!"
 horizontal_alignment = 1
+
+[node name="Fit2145CleanserGameQuestionair2Qr" type="Sprite2D" parent="."]
+position = Vector2(397, 626)
+texture = ExtResource("2_aw8vk")
+
+[node name="Label2" type="Label" parent="Fit2145CleanserGameQuestionair2Qr"]
+offset_left = -318.0
+offset_top = -312.0
+offset_right = 300.0
+offset_bottom = -243.0
+theme_override_font_sizes/font_size = 50
+text = "FEEDBACK APPRICITATED "
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 0
+offset_left = 703.0
+offset_top = 258.0
+offset_right = 1410.0
+offset_bottom = 471.0
+theme_override_font_sizes/font_size = 50
+text = "Thw Town Survived and the second wave of colonists arrived to a functioning town"
+autowrap_mode = 2
 
 [connection signal="pressed" from="AspectRatioContainer/HBoxContainer/VBoxContainer/ReturnButton" to="." method="_on_returnMenu_button_pressed"]
 [connection signal="pressed" from="AspectRatioContainer/HBoxContainer/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]

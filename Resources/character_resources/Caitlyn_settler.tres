@@ -1,13 +1,15 @@
-[gd_resource type="Resource" script_class="SettlerStats" load_steps=3 format=3 uid="uid://dji70q6oo433u"]
+[gd_resource type="Resource" script_class="SettlerStats" load_steps=4 format=3 uid="uid://dji70q6oo433u"]
 
 [ext_resource type="Script" uid="uid://brgukr3brt6qv" path="res://scripts/settler_Stats.gd" id="1_3280q"]
-[ext_resource type="Texture2D" uid="uid://cked5c4eoxyuf" path="res://assets/icon.svg" id="2_yi3wc"]
+[ext_resource type="Texture2D" uid="uid://dls38hfoe77nt" path="res://assets/img/list_char bg/Caitlyn_bg.png" id="2_yi3wc"]
+[ext_resource type="Texture2D" uid="uid://diqxliutykhbm" path="res://assets/img/char use for book/Caitlyn_book.png" id="3_gy07d"]
 
 [resource]
 script = ExtResource("1_3280q")
 settlerName = "Caitlyn"
 settlerDesc = "Thinks shes a witch"
-settlerPortrait = ExtResource("2_yi3wc")
+settlerPortrait = ExtResource("3_gy07d")
+settlerChibiPortrait = ExtResource("2_yi3wc")
 foodProduction = 3
 waterProduction = 3
 militaryProduction = 1

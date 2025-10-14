@@ -11,7 +11,8 @@ var healNumber = 1
 @onready var settlerStats = $BookSprite/SettlerStats
 @onready var settlerMoodAndSickness = $"BookSprite/SettlerMood&Sickness"
 @onready var deadLabel = $BookSprite/DeadLabel
-
+@onready var smallSprite = $BookSprite/SmallSprite
+@onready var bigSprite = $BookSprite/BigSprite
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -56,6 +57,9 @@ func _FillCard():
 		deadLabel.hide()
 	else:
 		deadLabel.show()
+	
+	smallSprite.texture = stats.settlerChibiPortrait
+	bigSprite.texture = stats.settlerPortrait
 	
 
 func _on_close_button_pressed() -> void:

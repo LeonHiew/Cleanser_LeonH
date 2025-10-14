@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://c5jbidohi88cw"]
+[gd_scene load_steps=3 format=3 uid="uid://c5jbidohi88cw"]
 
 [ext_resource type="Script" uid="uid://41yavo4j0ih" path="res://scripts/lost_screen.gd" id="1_ef3wy"]
+[ext_resource type="Texture2D" uid="uid://d2cebv1cup3ci" path="res://assets/FIT2145 CleanserGame Questionair2 QR.png" id="2_1eaaq"]
 
 [node name="LostScreen" type="Control"]
 layout_mode = 3
@@ -49,6 +50,18 @@ grow_horizontal = 2
 theme_override_font_sizes/font_size = 101
 text = "You Lose :("
 horizontal_alignment = 1
+
+[node name="Fit2145CleanserGameQuestionair2Qr" type="Sprite2D" parent="."]
+position = Vector2(379, 636)
+texture = ExtResource("2_1eaaq")
+
+[node name="Label2" type="Label" parent="Fit2145CleanserGameQuestionair2Qr"]
+offset_left = -318.0
+offset_top = -312.0
+offset_right = 300.0
+offset_bottom = -243.0
+theme_override_font_sizes/font_size = 50
+text = "FEEDBACK APPRICITATED "
 
 [connection signal="pressed" from="AspectRatioContainer/HBoxContainer/VBoxContainer/ReturnButton" to="." method="_on_return_button_pressed"]
 [connection signal="pressed" from="AspectRatioContainer/HBoxContainer/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]

@@ -16,7 +16,7 @@ func _ready() -> void:
 	eventInfo = load("res://Resources/eventInfo.tres") as EventInformation
 
 #loads an event into the card
-func loadStats(event: Array, settlerTarget: String):
+func loadStats(event: Array):
 	print(event)
 	eventTitle.text = event[0]
 	eventDesc.text = event[1]
@@ -55,7 +55,7 @@ func loadStats(event: Array, settlerTarget: String):
 				else:
 					fillText += "%s" %[event[2][key]]
 			"settler":
-				eventDesc.text = eventDesc.text.replace("settler.name", settlerTarget)
+				#eventDesc.text = eventDesc.text.replace("settler.name", settlerTarget)
 				continue
 				#should change the desciption to use a random settler name
 				#set in actual scene for later use, pass here

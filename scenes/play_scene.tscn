@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://dqtnf3fpuxi30" path="res://scripts/play_scene.gd" id="1_ief5h"]
 [ext_resource type="Texture2D" uid="uid://dnloh5hajy7lv" path="res://assets/img/backside_of_card1-removebg-preview.png" id="2_kdvgv"]
 [ext_resource type="Texture2D" uid="uid://qbv8xayc0fvs" path="res://assets/img/Sam-Picsart-BackgroundRemover.png" id="3_ief5h"]
-[ext_resource type="PackedScene" uid="uid://schvq4rxilf1" path="res://scenes/event_card.tscn" id="4_kdvgv"]
+[ext_resource type="PackedScene" uid="uid://o62c6ee1vkgs" path="res://scenes/event_screen.tscn" id="4_h65fk"]
 [ext_resource type="PackedScene" uid="uid://d4jaa0dlvk3v4" path="res://scenes/pause_menu.tscn" id="6_da3qe"]
 [ext_resource type="Texture2D" uid="uid://cked5c4eoxyuf" path="res://assets/icon.svg" id="6_h65fk"]
 [ext_resource type="Texture2D" uid="uid://cmtxvcrhxxirr" path="res://assets/img/Screen/Normal, shadow.png" id="7_qhxom"]
@@ -187,6 +187,8 @@ theme_override_font_sizes/font_size = 30
 text = "Progress Week"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="EventScreen" parent="CanvasLayer" instance=ExtResource("4_h65fk")]
 
 [node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("6_da3qe")]
 visible = false
@@ -570,45 +572,6 @@ theme_override_font_sizes/font_size = 30
 toggle_mode = true
 text = "Trade"
 
-[node name="Cards" type="Control" parent="."]
-visible = false
-top_level = true
-layout_mode = 3
-anchors_preset = 0
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Cards"]
-layout_mode = 0
-offset_right = 1920.0
-offset_bottom = 1078.0
-alignment = 1
-
-[node name="HBoxContainer" type="HBoxContainer" parent="Cards/VBoxContainer"]
-layout_mode = 2
-alignment = 1
-
-[node name="EventCard" parent="Cards/VBoxContainer/HBoxContainer" instance=ExtResource("4_kdvgv")]
-layout_mode = 2
-
-[node name="VSeparator" type="VSeparator" parent="Cards/VBoxContainer/HBoxContainer"]
-layout_mode = 2
-
-[node name="EventCard2" parent="Cards/VBoxContainer/HBoxContainer" instance=ExtResource("4_kdvgv")]
-layout_mode = 2
-
-[node name="VSeparator2" type="VSeparator" parent="Cards/VBoxContainer/HBoxContainer"]
-layout_mode = 2
-
-[node name="EventCard3" parent="Cards/VBoxContainer/HBoxContainer" instance=ExtResource("4_kdvgv")]
-layout_mode = 2
-
-[node name="closeCardsButton" type="Button" parent="Cards"]
-layout_mode = 0
-offset_left = 1469.0
-offset_top = 322.0
-offset_right = 1605.0
-offset_bottom = 458.0
-icon = ExtResource("6_h65fk")
-
 [node name="weeklyLogPanel" type="Panel" parent="."]
 visible = false
 top_level = true
@@ -675,6 +638,5 @@ text = "ShowEventCards"
 [connection signal="pressed" from="SettlerTVs/Jessie/TextureButton" to="SettlerTVs/Jessie" method="_on_texture_button_pressed"]
 [connection signal="pressed" from="ProgressButton2" to="." method="_on_progress_button_pressed"]
 [connection signal="toggled" from="TradeButton" to="." method="_on_trade_button_toggled"]
-[connection signal="pressed" from="Cards/closeCardsButton" to="." method="_on_close_cards_button_pressed"]
 [connection signal="pressed" from="weeklyLogPanel/RaidLabelButton" to="." method="_on_raid_label_button_pressed"]
 [connection signal="pressed" from="showEventCards" to="." method="_on_show_event_cards_pressed"]

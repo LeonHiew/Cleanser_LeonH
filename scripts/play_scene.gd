@@ -4,12 +4,7 @@ extends Node2D
 
 @onready var roll = RandomNumberGenerator.new()
 
-@onready var eventCards = [
-$Cards/VBoxContainer/HBoxContainer/EventCard,
-$Cards/VBoxContainer/HBoxContainer/EventCard2,
-$Cards/VBoxContainer/HBoxContainer/EventCard3
-]
-@onready var cards = $Cards
+@onready var eventScreen = $CanvasLayer/EventScreen
 
 @onready var weeklyLogPanel = $weeklyLogPanel
 #@onready var resourceLabel = $CanvasLayer/Control/Panel/resources
@@ -99,7 +94,8 @@ func _ready() -> void:
 			push_error("Failed to load TradeCard scene!")
 	weeklyLogPanel.hide()
 	tradePanel.hide()
-	cards.hide()
+	eventScreen.hide()
+	
 	
 	for settler in settlerArray:
 		#loads character sheet based on resource in array
@@ -186,6 +182,7 @@ func _ProgressWeek():
 #and deals with applying the changes the event creates
 func _rollEvents():
 	roll.randomize()
+	var eventArray = []
 	var amountOfEvents = 3
 	var positiveEventChance = pow(townIngenuity * 0.03 - 4.5, 3) + 100
 	var bannedEvents = []
@@ -274,8 +271,8 @@ func _rollEvents():
 				_:
 					push_error("a key is wrong in event array, the key is : " + key)
 					
-		eventCards[event].loadStats(currentEvent, settler_target)
-		cards.show()
+		eventArray.append(currentEvent)
+	eventScreen.playEvents(eventArray)
 
 #called in _rollEvents
 #useds to roll which settlers get infected and how many
@@ -623,8 +620,7 @@ func _HandleRaidEvent():
 		screen.update()
 
 
-func _on_close_cards_button_pressed() -> void:
-	cards.hide()
+
 
 
 func _on_raid_label_button_pressed() -> void:
@@ -632,4 +628,4 @@ func _on_raid_label_button_pressed() -> void:
 
 
 func _on_show_event_cards_pressed() -> void:
-	cards.show()
+	eventScreen.show()

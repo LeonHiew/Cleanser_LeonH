@@ -69,7 +69,7 @@ var roundNumber = 0
 #rarity of events Common, Uncommon, Rare
 var eventRarityChances = [60,30,10]
 
-#trade event chances 
+#trade event var 
 var tradeEventChance = 30
 var baseTradeEventChance = 30
 var currentWeekHasTrade = false
@@ -401,14 +401,6 @@ func _on_weekly_log_button_toggled(toggled_on: bool) -> void:
 		weeklyLogPanel.hide()
 		print("hide")
 
-func _on_trade_button_toggled(toggled_on: bool) -> void:
-	if toggled_on == true:
-		if currentWeekHasTrade:
-			tradePanel.show()
-		else:
-			print("no merchant this week")
-	else:
-		tradePanel.hide()
 
 func _on_heal_request(stats: SettlerStats) -> void:
 	if healNumber <= 0:
@@ -430,6 +422,17 @@ func _on_heal_request(stats: SettlerStats) -> void:
 	for screen in screenArray:
 		screen.update()
 	
+	
+
+func _on_trade_button_toggled(toggled_on: bool) -> void:
+	if toggled_on == true:
+		if currentWeekHasTrade:
+			tradePanel.show()
+		else:
+			print("no merchant this week")
+	else:
+		tradePanel.hide()
+
 func _CheckForTradeEvent():
 	roll.randomize()
 	var tradeRoll = roll.randi_range(1, 100)
@@ -445,8 +448,6 @@ func _CheckForTradeEvent():
 		tradeEventChance = min(tradeEventChance + tradeChanceIncrease, 90)
 		print("No trade event this week!")
 		tradePanel.hide()
-
-
 
 
 func _ShowTradeEvent():
@@ -553,6 +554,10 @@ func _on_sell_trade_accepted(resource_type:String, resource_cost:int, scraps_amo
 	print("Sell trade completed: %d %s for %d scraps." % [resource_cost, resource_type, scraps_amount])
 		
 
+func _on_show_event_cards_pressed() -> void:
+	eventScreen.show()
+
+
 func _CheckForRaidEvent():
 	if roundNumber in raidWeeks:
 		_HandleRaidEvent()
@@ -625,7 +630,3 @@ func _HandleRaidEvent():
 
 func _on_raid_label_button_pressed() -> void:
 	raidMessagePanel.hide()
-
-
-func _on_show_event_cards_pressed() -> void:
-	eventScreen.show()

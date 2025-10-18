@@ -1,8 +1,9 @@
 [gd_scene load_steps=6 format=3 uid="uid://o62c6ee1vkgs"]
 
 [ext_resource type="PackedScene" uid="uid://schvq4rxilf1" path="res://scenes/event_card.tscn" id="1_getdi"]
-[ext_resource type="Script" uid="uid://bel4nhiq4ok0o" path="res://scenes/event_screen.gd" id="1_qayh2"]
+[ext_resource type="Script" uid="uid://bel4nhiq4ok0o" path="res://scripts/event_screen.gd" id="1_qayh2"]
 [ext_resource type="Texture2D" uid="uid://cked5c4eoxyuf" path="res://assets/icon.svg" id="3_km457"]
+
 
 [sub_resource type="Animation" id="Animation_getdi"]
 resource_name = "new_animation"

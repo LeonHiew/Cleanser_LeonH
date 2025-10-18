@@ -1,7 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://c23a1n6qbn56r"]
+[gd_scene load_steps=6 format=3 uid="uid://c23a1n6qbn56r"]
 
 [ext_resource type="Script" uid="uid://cikprjtsu6si5" path="res://scripts/test_scene.gd" id="1_g7g4h"]
-[ext_resource type="PackedScene" uid="uid://oxejdqiaq0wo" path="res://scenes/settler_card.tscn" id="2_j8ivh"]
 [ext_resource type="StyleBox" uid="uid://f45iv48p5vt" path="res://assets/book.tres" id="3_nd71p"]
 [ext_resource type="LabelSettings" uid="uid://bu6v4hiigngu1" path="res://Resources/new_label_settings.tres" id="3_qjeyg"]
 [ext_resource type="StyleBox" uid="uid://crnf801ntce87" path="res://assets/paper.tres" id="4_7ddre"]
@@ -9,7 +8,6 @@
 
 [node name="TestScene" type="Node2D"]
 script = ExtResource("1_g7g4h")
-settlerCard = ExtResource("2_j8ivh")
 metadata/_edit_use_anchors_ = true
 
 [node name="Polygon2D" type="Polygon2D" parent="."]

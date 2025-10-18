@@ -1,3 +1,68 @@
-[gd_scene format=3 uid="uid://cvruuotvduspm"]
+[gd_scene load_steps=4 format=3 uid="uid://cvruuotvduspm"]
 
-[node name="TradeScreen" type="Node2D"]
+[ext_resource type="Script" uid="uid://dfpuje2itiuxf" path="res://scripts/trade_screen.gd" id="1_lkv6u"]
+[ext_resource type="LabelSettings" uid="uid://bu6v4hiigngu1" path="res://Resources/new_label_settings.tres" id="2_qp2p6"]
+[ext_resource type="Texture2D" uid="uid://dkv7pxmmjmc1a" path="res://assets/img/list_char no bg/Baldroy.png" id="3_xnrpn"]
+
+[node name="TradeScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_lkv6u")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+scale = Vector2(1.66895, 1.66895)
+color = Color(0.82520294, 0.8995502, 0.94662386, 1)
+polygon = PackedVector2Array(0, 0, 1152, 0, 1152, 648, 0, 648)
+metadata/_edit_lock_ = true
+
+[node name="Panel" type="Panel" parent="."]
+light_mask = 2
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_right = 1923.0
+offset_bottom = 200.0
+grow_horizontal = 2
+
+[node name="ResourceLabel" type="Label" parent="Panel"]
+layout_mode = 0
+offset_right = 1627.0
+offset_bottom = 205.0
+text = "Resources"
+label_settings = ExtResource("2_qp2p6")
+
+[node name="tradePanel" type="Panel" parent="."]
+show_behind_parent = true
+top_level = true
+layout_mode = 0
+offset_left = 341.0
+offset_top = 252.0
+offset_right = 1845.0
+offset_bottom = 981.0
+
+[node name="TradeContainer" type="VBoxContainer" parent="tradePanel"]
+layout_mode = 0
+offset_left = 6.0
+offset_right = 1501.0
+offset_bottom = 727.0
+
+[node name="BackButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 45.0
+offset_top = 750.0
+offset_right = 290.0
+offset_bottom = 1061.0
+icon = ExtResource("3_xnrpn")
+flat = true
+
+[node name="Label" type="Label" parent="BackButton"]
+layout_mode = 0
+offset_right = 245.0
+offset_bottom = 82.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 21
+text = "Return to main screen"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]

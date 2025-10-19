@@ -82,6 +82,8 @@ var tradeEventChance = 30
 var baseTradeEventChance = 30
 var currentWeekHasTrade = false
 var tradeChanceIncrease = 15
+var currentTradeOffers = []
+var completedBuyTrades = {}
 
 #raid event variables 
 var raidWeeks = [2, 5, 10, 15]
@@ -455,6 +457,7 @@ func _CheckForTradeEvent():
 	if tradeRoll <= tradeEventChance:
 		currentWeekHasTrade = true
 		#_ShowTradeEvent()
+		_generateWeeklyTradeOffers()
 		tradeEventChance = baseTradeEventChance
 		print("Trade event occurred this week!")
 	else:
@@ -463,6 +466,40 @@ func _CheckForTradeEvent():
 		#tradePanel.hide()
 		
 	_updateTradeButton()
+
+func _generateWeeklyTradeOffers():
+	currentTradeOffers.clear()
+	completedBuyTrades.clear()
+	
+	var tradeResources = ["food", "water", "military", "ingenuity"]
+	
+	var num_trades = roll.randi_range(2,4)
+	for i in num_trades:
+		var scraps_cost = roll.randi_range(2,4)
+		var resource_amount = roll.randi_range(1,5)
+		var res_type = tradeResources.pick_random()
+		
+		var trade_id = "buy_%s_%d_%d" % [res_type, scraps_cost, resource_amount]
+		
+		currentTradeOffers.append({
+			"type": "buy",
+			"scraps_cost": scraps_cost,
+			"resource_type": res_type,
+			"resource_amount": resource_amount,
+			"trade_id": trade_id
+		})
+		
+	for res_type in tradeResources:
+		var resource_cost = roll.randi_range(1,3)
+		var scraps_amount = 1
+		currentTradeOffers.append({
+			"type": "sell",
+			"resource_type": res_type,
+			"resource_cost": resource_cost,
+			"scraps_amount": scraps_amount,
+		})
+
+
 
 func _openTradeScreen():
 	if tradeScreenScene == null:
@@ -487,10 +524,19 @@ func _openTradeScreen():
 		townScraps,
 		baseTownMiltary,
 		baseTownIngenuity,
+		roundNumber,
+		currentTradeOffers, 
+		completedBuyTrades
 	)
 	
 	tradeScreenInstance.resources_updated.connect(_on_trade_resources_updated)
 	tradeScreenInstance.closed.connect(_on_trade_screen_closed)
+	tradeScreenInstance.trades_updated.connect(_on_trades_updated)
+
+func _on_trades_updated(updated_completed_trades):
+	completedBuyTrades = updated_completed_trades
+
+
 
 func _on_trade_screen_closed():
 	if tradeScreenInstance:
@@ -534,12 +580,6 @@ func _showPlaySceneUI():
 	
 	_updateTradeButton()
 	
-	if weeklyLogPanel:
-		weeklyLogPanel.visible = true
-	if eventScreen:
-		eventScreen.visible = true
-	if settlerBook:
-		settlerBook.visible = true
 
 #func _on_trade_button_toggled(toggled_on: bool) -> void:
 	#if toggled_on == true:

@@ -10,6 +10,7 @@ settlerName = "Johni"
 settlerDesc = "Smart individual"
 settlerPortrait = ExtResource("3_bsq41")
 settlerChibiPortrait = ExtResource("2_37wdk")
+militaryProduction = 2
 ingenuityProduction = 6
 settlerMood = 1
 metadata/_custom_type_script = "uid://brgukr3brt6qv"

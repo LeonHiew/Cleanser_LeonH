@@ -6,7 +6,7 @@
 
 [resource]
 script = ExtResource("1_jnugw")
-settlerName = "Caelan"
+settlerName = "Jane"
 settlerDesc = "Programmer"
 settlerPortrait = ExtResource("3_0gygj")
 settlerChibiPortrait = ExtResource("2_ebycl")

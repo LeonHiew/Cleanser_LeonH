@@ -14,7 +14,7 @@ var sicknessArray = {
 		["Not Sick", 100, 0 , 0, null]
 	,
 	sickness.radStage1:
-		["radiation sickness(Moderate)", 69 , 1, 30, sickness.radStage2]
+		["radiation sickness(Moderate)", 60 , 10, 30, sickness.radStage2]
 	,
 	sickness.radStage2:
 		["radiation sickness(Severe)", 30 , 30, 40, sickness.radStage3]

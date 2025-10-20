@@ -20,56 +20,30 @@ class_name EventInformation extends Resource
 var positiveEventArray = {
 	"Common":
 		[
-			[
-				"Great Hunt", 
-				"the town's hunters had a great haul",
-				{"food": 8},
-				["Bad Hunt"]
-			],
-			[
-				"farming Surplus", 
-				"the town’s farmers farmed a great surplus of food",
-				{"food": 15},
-				["Drought"]
-			],
+
 			[
 				"Ancient Weapons",
 				 "the town’s scouts managed to find a stockpile of Ancient weapons left behind from the great war",
-				{"military": 5},
+				{"military": 2},
 				[]
 			],
 
 
 			[
 				"Rainfall Harvest",
-				"After weeks of dry air, a strong rainfall filled the reservoirs",
-				{"water": 15},
-				[]
+				"After a week of dry air, a strong rainfall fell on us filling the reservoirs",
+				{"water": 2},
+				[""]
 			],
-			[
-				"Mutant Beast Hunt",
-				"Hunters slew a dangerous mutant beast. Its meat was edible and hide could be used for armour",
-				{"food": 10, "military": 5},
-				[]
-			],
-			[
-				"Restored Generator",
-				"Settlers repaired an old generator and connected its wiring",
-				{"ingenuity": 5, "military": 2},
-				[]
-			],
+
+
 			[
 				"Forgotten Bunker",
 				"A sealed bunker was found intact. Supplies inside were preserved",
-				{"food": 5, "water": 8},
+				{"food": 2, "water": 2},
 				[]
 			],
-			[
-				"Inspiring Leader",
-				"settler.name inspired hope with a rousing speech, boosting morale",
-				{"military": 5, "ingenuity": 5, "settler": ""},
-				[]
-			]
+
 			
 		],
 	"Uncommon":
@@ -77,7 +51,19 @@ var positiveEventArray = {
 			[
 				"Ancient Stockpile", 
 				"the town’s scouts found a great war stockpile filled with food and water",
-				{"food": 10, "water": 15},
+				{"food": 3, "water": 4},
+				[]
+			],
+			[
+				"Great Hunt", 
+				"our hunters found an untouched valley filled with prey",
+				{"food": 5},
+				["Bad Hunt"]
+			],
+			[
+				"Restored Generator",
+				"Settlers repaired an old generator and connected its wiring",
+				{"ingenuity": 2, "military": 2},
 				[]
 			],
 
@@ -86,7 +72,7 @@ var positiveEventArray = {
 		[
 			[
 				"Machine AI",
-				 "the town found a Great war Machine that houses an AI, it’s not that smart but its database of information will prove usefull",
+				 "We found a Great war Machine that houses an AI, it’s not that smart but its database of information will prove useful",
 				{"ingenuity": 5},
 				[]
 			],
@@ -96,6 +82,24 @@ var positiveEventArray = {
 				{"Mood": 1},
 				["Psychic drone"]
 			],
+			[
+				"old fertilizer", 
+				"our farmers found a old war era bag of fertilizer, using it boosted our crop yields ",
+				{"food": 6},
+				["Drought"]
+			],
+			[
+				"Mutant Beast Hunt",
+				"Hunters slew a dangerous mutant beast. Its meat was edible and hide could be used for armour",
+				{"food": 5, "military": 3},
+				[]
+			],
+			[
+				"Inspiring Leader",
+				"settler.name inspired hope with a rousing speech, boosting morale",
+				{"military": 3, "ingenuity":3, "settler": ""},
+				[]
+			]
 		]
 }
 
@@ -106,16 +110,11 @@ var negativeEventArray = {
 		[
 			[
 				"Bad Hunt",
-				 "the town’s hunters couldn’t find any food and got really hungry from their search",
-				{"food": -3},
+				 "our hunters couldn’t find any food and got really hungry from their search",
+				{"food": -5},
 				["Great Hunt"]
 			],
-			[
-				"Drought",
-				 "the town suffered a bad drought this week and the farmers couldn’t grow any plants",
-				{"food": -10, "water": -10},
-				["Drought"]
-			], 
+
 			[
 				"Glowing Rock",
 				"settler.name found a glowing rock and decided to take it home, unfortunately for everyone else it was radioative",
@@ -125,18 +124,13 @@ var negativeEventArray = {
 			[
 				"Tainted Water",
 				"the Town’s water source was contaminated with radioactive debris and had to be cleaned water",
-				{"water": -10, "radStage1": [1,3]},
+				{"water": -6, "radStage1": [1,2]},
 				[]
 			],
-			[
-				"Radiation Storm",
-				"A sudden storm swept through, exposing the settlers to radiation",
-				{"radStage1": [1,4]},
-				["Radioactive rain"]
-			],
+
 			[
 				"Faulty seal",
-				"A small leak in the tank exposes the operator to ambient radiation",
+				"while making repairs to the healing tank, the waste water seal broke spilling radioactive waste",
 				{"radStage1": [1,1]},
 				[]
 			],
@@ -147,19 +141,36 @@ var negativeEventArray = {
 		[
 			[
 				"Radioactive rain",
-				"Radioactive rain contaminated the drinking water",
-				{"radStage1": [1,3], "water": -5},
+				"the rain this week was filled with radiation,contaminating our water and making some people sick",
+				{"radStage1": [1,3], "water": -7},
 				["Radiation Storm"]
 			],
-
+			[
+				"Drought",
+				 "we suffered a bad drought this week and the farmers couldn’t grow any plants",
+				{"food": -8, "water": -8},
+				["Rainfall Harvest"]
+			], 
+			[
+				"Drought",
+				 "we suffered a bad drought this week and the farmers couldn’t grow any plants",
+				{"food": -8, "water": -8},
+				["Drought"]
+			], 
 		],
 	"Rare":
 		[
 			[
 				"Abandoned Hospital",
-				"A scouting team explored an old hospital. The walls still leaked radiation",
+				"We sent a team to explore an old hospital. we managed to find some useful data, but the old corpses of the patients still leaked severe radiation",
 				{"ingenuity": 2, "radstage2": [1,3]},
 				[]
+			],
+			[
+				"Radiation Storm",
+				"A sudden storm swept through, exposing the settlers to severe radiation and contaminating our water",
+				{"radStage2": [1,4], "water": -10},
+				["Radioactive rain"]
 			],
 			[
 				"Psychic drone",

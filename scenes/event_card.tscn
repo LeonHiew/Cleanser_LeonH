@@ -45,7 +45,6 @@ layout_mode = 2
 [node name="TitleLabel" type="Label" parent="VBoxContainer/eventForground/HBoxContainer/VBoxContainer"]
 custom_minimum_size = Vector2(250, 0)
 layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 25
 text = "Title of Event"
 horizontal_alignment = 1
@@ -180,3 +179,12 @@ theme_override_font_sizes/font_size = 14
 text = "the Event Description, it should be kinda long be i don't know, just filling text"
 horizontal_alignment = 1
 autowrap_mode = 2
+
+[node name="RarityLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 234.0
+offset_top = 406.0
+offset_right = 322.0
+offset_bottom = 429.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Rarity"

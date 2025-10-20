@@ -53,8 +53,8 @@ var tradeScreenInstance: Node = null
 
 
 #town resources
-var townFood = 15
-var townWater = 15
+var townFood = 0
+var townWater = 0
 var townMilitary = 0
 var townIngenuity = 0
 var townScraps = 5
@@ -69,7 +69,7 @@ var healNumber = 1
 var roundNumber = 0
 
 #rarity of events Common, Uncommon, Rare
-var eventRarityChances = [60,30,10]
+var eventRarityChances = [70,25,5]
 
 #trade event var 
 var tradeEventChance = 30
@@ -185,19 +185,21 @@ func _rollEvents():
 	roll.randomize()
 	var eventArray = []
 	var amountOfEvents = 3
-	var positiveEventChance = pow(townIngenuity * 0.03 - 4.5, 3) + 100
+	# pow(townIngenuity * 0.03 - 4.5, 3) + 100
+	var positiveEventChance = 20 + 80*(1 - exp(-0.02352 * townIngenuity))
 	var bannedEvents = []
 	for event in amountOfEvents:
+		var rarityKey 
 		var settler_target = ""
 		roll.randomize()
 		var eventRoll = roll.randf_range(0,100)
 		var currentEvent : Array
-		var isPickingEVent = true
+		var isPickingEvent = true
+		var eventType = ""
 		if eventRoll <= positiveEventChance:
-			while isPickingEVent:
+			while isPickingEvent:
 				roll.randomize()
 				var eventRarity =  roll.randf_range(0,100)
-				var rarityKey 
 				if eventRarity <= eventRarityChances[0]:
 					rarityKey = "Common"
 				elif eventRarity <= eventRarityChances[1] + eventRarityChances[0]:
@@ -212,12 +214,12 @@ func _rollEvents():
 					bannedEvents.append(currentEvent[0])
 					for ban in currentEvent[3]:
 						bannedEvents.append(ban)
-					isPickingEVent = false
+					eventType = "positive"
+					isPickingEvent = false
 		else:
-			while isPickingEVent:
+			while isPickingEvent:
 				roll.randomize()
-				var eventRarity =  roll.randf_range(0,100)
-				var rarityKey 
+				var eventRarity =  roll.randf_range(0,100) 
 				if eventRarity <= eventRarityChances[0]:
 					rarityKey = "Common"
 				elif eventRarity <= eventRarityChances[1] + eventRarityChances[0]:
@@ -232,7 +234,8 @@ func _rollEvents():
 					bannedEvents.append(currentEvent[0])
 					for ban in currentEvent[3]:
 						bannedEvents.append(ban)
-					isPickingEVent = false
+					eventType = "negative"
+					isPickingEvent = false
 		
 		for key in currentEvent[2]:
 			match key:
@@ -272,7 +275,7 @@ func _rollEvents():
 				_:
 					push_error("a key is wrong in event array, the key is : " + key)
 					
-		eventArray.append(currentEvent)
+		eventArray.append([eventType,rarityKey,currentEvent])
 	eventScreen.playEvents(eventArray)
 
 #called in _rollEvents
@@ -347,7 +350,7 @@ func _RoleSicknesses():
 			
 			#error check
 			if (survivalChance + deathChance + worsenChance != 100):
-				push_error(currentSettler.sickness + " hads odds that don't add up to 100")
+				push_error(" hads odds that don't add up to 100")
 			
 			roll.randomize()	
 			var sicknessRoll = roll.randf_range(0, 100)
@@ -636,3 +639,7 @@ func _HandleRaidEvent():
 
 func _on_raid_label_button_pressed() -> void:
 	raidMessagePanel.hide()
+
+
+func _on_show_event_cards_pressed() -> void:
+	eventScreen.show()

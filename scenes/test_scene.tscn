@@ -135,7 +135,6 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="weeklyLogPanel" type="Panel" parent="CanvasLayer/Control"]
-visible = false
 custom_minimum_size = Vector2(300, 300)
 layout_mode = 0
 offset_left = 35.0

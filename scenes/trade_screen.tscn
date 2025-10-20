@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://cvruuotvduspm"]
+[gd_scene load_steps=7 format=3 uid="uid://cvruuotvduspm"]
 
 [ext_resource type="Script" uid="uid://dfpuje2itiuxf" path="res://scripts/trade_screen.gd" id="1_lkv6u"]
 [ext_resource type="LabelSettings" uid="uid://bu6v4hiigngu1" path="res://Resources/new_label_settings.tres" id="2_qp2p6"]
@@ -6,6 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://c86el6vu7emne" path="res://assets/img/backgroundTVs.png" id="4_qp2p6"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_xnrpn"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qp2p6"]
 
 [node name="TradeScreen" type="Control"]
 layout_mode = 3
@@ -35,20 +37,57 @@ offset_bottom = 205.0
 text = "Resources"
 label_settings = ExtResource("2_qp2p6")
 
-[node name="tradePanel" type="Panel" parent="."]
+[node name="BuyTradePanel" type="Panel" parent="."]
 show_behind_parent = true
 top_level = true
 layout_mode = 0
 offset_left = 341.0
-offset_top = 349.0
-offset_right = 1850.0
+offset_top = 345.0
+offset_right = 1008.0
 offset_bottom = 1063.0
 
-[node name="TradeContainer" type="VBoxContainer" parent="tradePanel"]
+[node name="TradeContainer" type="VBoxContainer" parent="BuyTradePanel"]
 layout_mode = 0
 offset_left = 6.0
-offset_right = 1501.0
+offset_top = 94.0
+offset_right = 665.0
 offset_bottom = 727.0
+
+[node name="Label" type="Label" parent="BuyTradePanel"]
+layout_mode = 0
+offset_right = 667.0
+offset_bottom = 99.0
+theme_override_font_sizes/font_size = 36
+text = "Buy Trades"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SellTradePanel" type="Panel" parent="."]
+show_behind_parent = true
+top_level = true
+layout_mode = 0
+offset_left = 1078.0
+offset_top = 343.0
+offset_right = 1745.0
+offset_bottom = 1061.0
+
+[node name="TradeContainer" type="VBoxContainer" parent="SellTradePanel"]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 94.0
+offset_right = 665.0
+offset_bottom = 727.0
+metadata/_edit_lock_ = true
+
+[node name="Label" type="Label" parent="SellTradePanel"]
+layout_mode = 0
+offset_right = 667.0
+offset_bottom = 99.0
+theme_override_font_sizes/font_size = 36
+text = "Sell Trades"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true
 
 [node name="BackButton" type="Button" parent="."]
 layout_mode = 0
@@ -197,4 +236,53 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
 
+[node name="RulesButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 50.0
+offset_top = 515.0
+offset_right = 274.0
+offset_bottom = 632.0
+theme_override_font_sizes/font_size = 31
+toggle_mode = true
+text = "Rules of trade!"
+
+[node name="RulesPanel" type="Panel" parent="."]
+visible = false
+modulate = Color(0.69330883, 0.86657256, 0.99999994, 1)
+top_level = true
+layout_mode = 0
+offset_left = 380.0
+offset_top = 144.0
+offset_right = 1534.0
+offset_bottom = 899.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_qp2p6")
+
+[node name="Label" type="Label" parent="RulesPanel"]
+layout_mode = 0
+offset_top = 21.0
+offset_right = 1154.0
+offset_bottom = 138.0
+theme_override_colors/font_color = Color(1.366, 1.366, 1.366, 1)
+theme_override_font_sizes/font_size = 41
+text = "Rules of trades!
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="RulesPanel"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 109.0
+offset_right = 1154.0
+offset_bottom = 726.0
+theme_override_colors/font_color = Color(1.224127, 1.224127, 1.224127, 1)
+theme_override_font_sizes/font_size = 25
+text = "1) Scraps are used as currency for trades!
+2) \"Buy\" trades are a one time purchase and the same \"buy\" trade cannot be done again!
+3) \"Sell\" trades can be done as many times as the player wants, as long as they have the 
+resources to trade!
+4) The chances of trades occuring in the week are random!
+5) Trades are reset and randomised after player progresses  the week!"
+
 [connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="toggled" from="RulesButton" to="." method="_on_rules_button_toggled"]

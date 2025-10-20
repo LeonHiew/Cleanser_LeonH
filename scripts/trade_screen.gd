@@ -5,7 +5,8 @@ signal closed
 signal trades_updated(completed_trades)
 
 @onready var resource_label = $Panel/ResourceLabel
-@onready var trade_container = $tradePanel/TradeContainer
+@onready var BuyTrade_container = $BuyTradePanel/TradeContainer
+@onready var SellTrade_container = $SellTradePanel/TradeContainer
 @onready var back_button = $BackButton
 
 @onready var townSuppliesLabel = $BackgroundTVs/TownSuppliesTitleLabel/TownSuppliesLabel
@@ -18,6 +19,8 @@ signal trades_updated(completed_trades)
 @onready var raidLabel = $BackgroundTVs/RaidLabel
 @onready var raidMessageLabel = $weeklyLogPanel/weeklyLogPaperPanel/ScrollContainer/weeklyLogLabel
 @onready var raidMessagePanel = $weeklyLogPanel
+
+@onready var RulesPanel = $RulesPanel
 
 @export var trade_card_scene: PackedScene = preload("res://scenes/TradeCard.tscn")
 
@@ -50,6 +53,8 @@ func _ready():
 	back_button.pressed.connect(_on_back_button_pressed)
 	
 	self.visible = true
+	
+	RulesPanel.hide()
 	
 	
 func setup_resources(food: int, water: int, military: int, ingenuity: int, scraps: int, base_military: int, base_ingenuity: int, round_number: int, offers: Array, completed_trades: Dictionary):
@@ -98,21 +103,24 @@ func setup_resources(food: int, water: int, military: int, ingenuity: int, scrap
 
 func _generate_trade_cards():
 	#clear previous/ existing cards
-	for child in trade_container.get_children():
+	for child in BuyTrade_container.get_children():
+		child.queue_free()
+	for child in SellTrade_container.get_children():
 		child.queue_free()
 		
 	#make new cards 
 	for offer in trade_offers:
 		var card = trade_card_scene.instantiate()
-		trade_container.add_child(card)
 		
 		if offer["type"] == "buy":
+			BuyTrade_container.add_child(card)
 			card.setup(offer["scraps_cost"], offer["resource_type"], offer["resource_amount"])
 			if completed_buy_trades.has(offer["trade_id"]):
 				card.mark_trade_completed()
 			else:
 				card.trade_accepted.connect(_on_buy_trade_accepted.bind(offer["trade_id"]))
 		else:
+			SellTrade_container.add_child(card)
 			card.setup_sell_trade(offer["resource_type"], offer["resource_cost"], offer["scraps_amount"])
 			card.sell_trade_accepted.connect(_on_sell_trade_accepted)
 			
@@ -168,7 +176,7 @@ func _on_buy_trade_accepted(scraps: int, resource_type: String, resource_amount:
 			
 	completed_buy_trades[trade_id] = true
 	
-	for card in trade_container.get_children():
+	for card in BuyTrade_container.get_children():
 		if card is PanelContainer and not card.is_sell_trade:
 			if not card.trade_completed:
 				if card.scraps_cost == scraps and card.resource_type == resource_type and card.resource_amount == resource_amount:
@@ -229,3 +237,10 @@ func _on_back_button_pressed():
 	trades_updated.emit(completed_buy_trades)
 	
 	closed.emit()
+
+
+func _on_rules_button_toggled(toggled_on: bool) -> void:
+	if toggled_on == true:
+		RulesPanel.show()
+	else:
+		RulesPanel.hide()

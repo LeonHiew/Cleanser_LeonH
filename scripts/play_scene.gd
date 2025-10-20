@@ -22,7 +22,6 @@ extends Node2D
 @onready var raidMessagePanel = $weeklyLogPanel
 
 
-
 #trade system variables 
 #@onready var tradePanel = $tradePanel
 #@onready var tradeCardContainer = $tradePanel/TradeCardContainer

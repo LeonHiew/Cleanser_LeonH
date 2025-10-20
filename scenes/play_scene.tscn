@@ -547,6 +547,7 @@ offset_right = 637.0
 offset_bottom = 852.0
 
 [node name="TradeCardContainer" type="VBoxContainer" parent="tradePanel"]
+visible = false
 layout_mode = 0
 offset_left = 6.0
 offset_top = 8.0

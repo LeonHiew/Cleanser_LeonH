@@ -537,23 +537,6 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
 
-[node name="tradePanel" type="Panel" parent="."]
-visible = false
-show_behind_parent = true
-top_level = true
-offset_left = 4.0
-offset_top = 277.0
-offset_right = 637.0
-offset_bottom = 852.0
-
-[node name="TradeCardContainer" type="VBoxContainer" parent="tradePanel"]
-visible = false
-layout_mode = 0
-offset_left = 6.0
-offset_top = 8.0
-offset_right = 624.0
-offset_bottom = 577.0
-
 [node name="ProgressButton2" type="Button" parent="."]
 top_level = true
 offset_left = 791.0

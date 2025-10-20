@@ -43,8 +43,6 @@ var raidMilitaryRequirements = {
 	15: 60
 }
 
-#var trade_offers: Array = []
-#var roll = RandomNumberGenerator.new()
 
 var trade_offers: Array = []
 var completed_buy_trades: Dictionary = {}
@@ -70,36 +68,9 @@ func setup_resources(food: int, water: int, military: int, ingenuity: int, scrap
 	trade_offers = offers
 	completed_buy_trades = completed_trades
 	
-	#_generate_trade_offers()
 	_update_resource_display()
 	_generate_trade_cards()
 	
-
-#func _generate_trade_offers():
-	#trade_offers.clear()
-	#var tradeResources = ["food", "water", "military", "ingenuity"]
-	#
-	#var num_trades = roll.randi_range(2,4)
-	#for i in num_trades:
-		#var scraps_cost = roll.randi_range(2,4)
-		#var resource_amount = roll.randi_range(1,5)
-		#var res_type = tradeResources.pick_random()
-		#trade_offers.append({
-			#"type": "buy",
-			#"scraps_cost": scraps_cost,
-			#"resource_type": res_type,
-			#"resource_amount": resource_amount
-		#})
-		#
-	#for res_type in tradeResources:
-		#var resource_cost = roll.randi_range(1,3)
-		#var scraps_amount = 1
-		#trade_offers.append({
-			#"type": "sell",
-			#"resource_type": res_type,
-			#"resource_cost": resource_cost,
-			#"scraps_amount": scraps_amount
-		#})
 
 func _generate_trade_cards():
 	#clear previous/ existing cards
@@ -126,8 +97,6 @@ func _generate_trade_cards():
 			
 
 func _update_resource_display():
-	#resource_label.text = "Current Resources:\nFood: %s\nWater: %s\nMilitary: %s\nIngenuity: %s\nScraps: %s" % [current_food, current_water, current_military, current_ingenuity, current_scraps]
-	
 	var resourceFillText = ""
 	resourceFillText += "Food: %s \nWater: %s \nScraps: %s" %[
 		current_food, current_water, current_scraps]

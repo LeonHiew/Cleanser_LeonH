@@ -7,7 +7,6 @@ extends Node2D
 @onready var eventScreen = $CanvasLayer/EventScreen
 
 @onready var weeklyLogPanel = $weeklyLogPanel
-#@onready var resourceLabel = $CanvasLayer/Control/Panel/resources
 @onready var townSuppliesLabel = $BackgroundTVs/TownSuppliesTitleLabel/TownSuppliesLabel
 
 @onready var miltaryLabel = $BackgroundTVs/TownPowerTitleLabel/MilitaryLabel
@@ -23,10 +22,6 @@ extends Node2D
 
 
 #trade system variables 
-#@onready var tradePanel = $tradePanel
-#@onready var tradeCardContainer = $tradePanel/TradeCardContainer
-#@export var tradeCardScene:PackedScene = preload("res://scenes/TradeCard.tscn")
-
 @onready var tradeButton = $TradeButton
 @export var tradeScreenScene: PackedScene = preload("res://scenes/trade_screen.tscn")
 var tradeScreenInstance: Node = null
@@ -96,14 +91,6 @@ var raidMilitaryRequirements = {
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	
-	# If tradeCardScene is still null, try loading it directly
-	#if tradeCardScene == null:
-		#tradeCardScene = preload("res://scenes/TradeCard.tscn")
-		#if tradeCardScene == null:
-			#push_error("Failed to load TradeCard scene!")
-	
-	
 	weeklyLogPanel.hide()
 	eventScreen.hide()
 	tradeButton.hide()
@@ -455,14 +442,12 @@ func _CheckForTradeEvent():
 	
 	if tradeRoll <= tradeEventChance:
 		currentWeekHasTrade = true
-		#_ShowTradeEvent()
 		_generateWeeklyTradeOffers()
 		tradeEventChance = baseTradeEventChance
 		print("Trade event occurred this week!")
 	else:
 		tradeEventChance = min(tradeEventChance + tradeChanceIncrease, 90)
 		print("No trade event this week!")
-		#tradePanel.hide()
 		
 	_updateTradeButton()
 
@@ -489,7 +474,7 @@ func _generateWeeklyTradeOffers():
 		})
 		
 	for res_type in tradeResources:
-		var resource_cost = roll.randi_range(1,3)
+		var resource_cost = roll.randi_range(2,4)
 		var scraps_amount = 1
 		currentTradeOffers.append({
 			"type": "sell",
@@ -580,123 +565,6 @@ func _showPlaySceneUI():
 	_updateTradeButton()
 	
 
-#func _on_trade_button_toggled(toggled_on: bool) -> void:
-	#if toggled_on == true:
-		#if currentWeekHasTrade:
-			#tradePanel.show()
-		#else:
-			#print("no merchant this week")
-	#else:
-		#tradePanel.hide()
-#
-#
-#
-#func _ShowTradeEvent():
-	#if currentWeekHasTrade:
-		#tradePanel.show()
-		##weeklyLogLabel.text += "\nA travelling merchant arrives this week offering trades!"
-		#if raidLabel:
-			#raidLabel.text = "A travelling merchant arrives this week offering trades!"
-		#else:
-			#push_error("raidLabel is null")
-		#
-		##clear old trades from previous week
-		#for child in tradeCardContainer.get_children():
-			#child.queue_free()
-			#
-		#var tradeResources = ["food", "water", "military", "ingenuity"]
-		#
-		##generate 2-4 trade cards 
-		#var num_trades = roll.randi_range(2,4)
-		#
-		#for i in num_trades:
-			#var scraps_cost = roll.randi_range(2,4)
-			#var resource_amount = roll.randi_range(1,5)
-			#var res_type = tradeResources.pick_random()
-			#
-			#var card = tradeCardScene.instantiate()
-			#card.setup(scraps_cost, res_type, resource_amount)
-			#card.trade_accepted.connect(_on_trade_accepted)
-			#tradeCardContainer.add_child(card)
-			#
-		##generate sell trade cards
-		#for res_type in tradeResources:
-			#var resource_cost = roll.randi_range(1,3)
-			#var scraps_amount = 1 
-			#var card = tradeCardScene.instantiate()
-			#card.setup_sell_trade(res_type, resource_cost, scraps_amount)
-			#card.sell_trade_accepted.connect(_on_sell_trade_accepted)
-			#tradeCardContainer.add_child(card)
-		#
-		#
-#func _on_trade_accepted(scraps:int, resource_type:String, resource_amount:int):
-	#if townScraps < scraps:
-		#print("Not enough scraps for trade!")
-		#return
-		#
-	#townScraps -= scraps
-	#match resource_type:
-		#"food":
-			#townFood += resource_amount
-		#"water":
-			#townWater += resource_amount
-		#"military":
-			##give to both, since townMilitary is baseTown + settlers
-			#baseTownMiltary += resource_amount
-			#townMilitary += resource_amount
-		#"ingenuity":
-			#baseTownIngenuity += resource_amount
-			#townIngenuity += resource_amount
-			#
-	##find card that was traded successfully and mark it as complete 
-	#for card in tradeCardContainer.get_children():
-		#if card.scraps_cost == scraps and card.resource_type == resource_type and card.resource_amount == resource_amount:
-			#card.mark_trade_completed()
-			#break
-			#
-	#_UpdateResourcesDisplay()
-	#print("Trade completed: %d scraps for %d %s." % [scraps, resource_amount, resource_type])
-	#
-#func _on_sell_trade_accepted(resource_type:String, resource_cost:int, scraps_amount:int):
-	##check if player has enough resource to trade 
-	#var has_enough = false 
-	#match resource_type:
-		#"food":
-			#has_enough = townFood >= resource_cost
-		#"water":
-			#has_enough = townWater >= resource_cost
-		#"military":
-			#has_enough = baseTownMiltary >= resource_cost
-		#"ingenuity":
-			#has_enough = baseTownIngenuity >= resource_cost
-			#
-	#if not has_enough:
-		#print("Not enough %s to sell!" % resource_type)
-		#return
-		#
-	#
-	##execute sell trade 
-	#match resource_type:
-		#"food":
-			#townFood -= resource_cost
-		#"water":
-			#townWater -= resource_cost
-		#"military":
-			##take from both, since townMilitary is baseTown + settlers
-			#baseTownMiltary -= resource_cost
-			#townMilitary -= resource_cost
-		#"ingenuity":
-			#baseTownIngenuity -= resource_cost
-			#townIngenuity -= resource_cost
-			#
-	#townScraps += scraps_amount
-		#
-	#_UpdateResourcesDisplay()
-	#print("Sell trade completed: %d %s for %d scraps." % [resource_cost, resource_type, scraps_amount])
-		#
-#
-#func _on_show_event_cards_pressed() -> void:
-	#eventScreen.show()
 
 
 func _CheckForRaidEvent():

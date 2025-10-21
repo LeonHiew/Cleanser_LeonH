@@ -467,11 +467,13 @@ func _generateWeeklyTradeOffers():
 	
 	var tradeResources = ["food", "water", "military", "ingenuity"]
 	
-	var num_trades = roll.randi_range(2,4)
-	for i in num_trades:
+	#option to make it generate 2-4 trades on random 
+	#var num_trades = roll.randi_range(2,4)
+	#for i in num_trades 
+	for res_type in tradeResources:
 		var scraps_cost = roll.randi_range(2,4)
 		var resource_amount = roll.randi_range(1,5)
-		var res_type = tradeResources.pick_random()
+		#var res_type = tradeResources.pick_random()
 		
 		var trade_id = "buy_%s_%d_%d" % [res_type, scraps_cost, resource_amount]
 		

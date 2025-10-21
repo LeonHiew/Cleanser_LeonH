@@ -17,8 +17,6 @@ signal trades_updated(completed_trades)
 
 @onready var roundLabel = $BackgroundTVs/RoundLabel
 @onready var raidLabel = $BackgroundTVs/RaidLabel
-@onready var raidMessageLabel = $weeklyLogPanel/weeklyLogPaperPanel/ScrollContainer/weeklyLogLabel
-@onready var raidMessagePanel = $weeklyLogPanel
 
 @onready var RulesPanel = $RulesPanel
 
@@ -48,13 +46,11 @@ var trade_offers: Array = []
 var completed_buy_trades: Dictionary = {}
 
 func _ready():
-	back_button.pressed.connect(_on_back_button_pressed)
-	
 	self.visible = true
 	
 	RulesPanel.hide()
 	
-	
+
 func setup_resources(food: int, water: int, military: int, ingenuity: int, scraps: int, base_military: int, base_ingenuity: int, round_number: int, offers: Array, completed_trades: Dictionary):
 	current_food = food
 	current_water = water

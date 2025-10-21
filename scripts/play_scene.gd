@@ -430,7 +430,8 @@ func _on_heal_request(stats: SettlerStats) -> void:
 		
 	#refresh cards 
 	for screen in screenArray:
-		screen.update()
+		screen.switchHealScreen(stats)
+	
 	
 	
 

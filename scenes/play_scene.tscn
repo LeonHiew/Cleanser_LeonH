@@ -294,7 +294,7 @@ offset_top = 75.0
 offset_right = 1268.0
 offset_bottom = 117.0
 theme_override_font_sizes/font_size = 30
-text = "num ber of heals"
+text = "number of heals"
 
 [node name="SettlerTVs" type="Sprite2D" parent="."]
 top_level = true
@@ -505,6 +505,48 @@ offset_left = -96.59344
 offset_top = -135.86407
 offset_right = -81.27008
 offset_bottom = -218.03854
+
+[node name="Sprite2D" type="Sprite2D" parent="SettlerTVs"]
+modulate = Color(0, 0, 0, 1)
+show_behind_parent = true
+position = Vector2(183.83273, -3.1459732)
+scale = Vector2(222.47292, 179.94753)
+texture = SubResource("CanvasTexture_dta8y")
+
+[node name="Sprite2D2" type="Sprite2D" parent="SettlerTVs"]
+modulate = Color(0, 0, 0, 1)
+show_behind_parent = true
+position = Vector2(-106.55307, -275.89865)
+scale = Vector2(241.20738, 225.87822)
+texture = SubResource("CanvasTexture_dta8y")
+
+[node name="Sprite2D3" type="Sprite2D" parent="SettlerTVs"]
+modulate = Color(0, 0, 0, 1)
+show_behind_parent = true
+position = Vector2(-574.917, -164.21788)
+scale = Vector2(182.66193, 142.19633)
+texture = SubResource("CanvasTexture_dta8y")
+
+[node name="Sprite2D4" type="Sprite2D" parent="SettlerTVs"]
+modulate = Color(0, 0, 0, 1)
+show_behind_parent = true
+position = Vector2(-661.56433, 308.30176)
+scale = Vector2(140.50925, 158.5551)
+texture = SubResource("CanvasTexture_dta8y")
+
+[node name="Sprite2D5" type="Sprite2D" parent="SettlerTVs"]
+modulate = Color(0, 0, 0, 1)
+show_behind_parent = true
+position = Vector2(-58.545704, 235.47334)
+scale = Vector2(175.63654, 263.94412)
+texture = SubResource("CanvasTexture_dta8y")
+
+[node name="Sprite2D6" type="Sprite2D" parent="SettlerTVs"]
+modulate = Color(0, 0, 0, 1)
+show_behind_parent = true
+position = Vector2(499.97845, 278.10074)
+scale = Vector2(222.47292, 179.94753)
+texture = SubResource("CanvasTexture_dta8y")
 
 [node name="SettlerBook" parent="." instance=ExtResource("16_dta8y")]
 visible = false

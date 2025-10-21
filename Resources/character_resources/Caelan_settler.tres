@@ -1,6 +1,7 @@
-[gd_resource type="Resource" script_class="SettlerStats" load_steps=4 format=3 uid="uid://c8aly84c5fy20"]
+[gd_resource type="Resource" script_class="SettlerStats" load_steps=5 format=3 uid="uid://c8aly84c5fy20"]
 
 [ext_resource type="Script" uid="uid://brgukr3brt6qv" path="res://scripts/settler_Stats.gd" id="1_jnugw"]
+[ext_resource type="Texture2D" uid="uid://bfptl63321n8x" path="res://assets/img/list_char no bg/Caelan.png" id="2_0gygj"]
 [ext_resource type="Texture2D" uid="uid://dmgntjg35gx1v" path="res://assets/img/list_char bg/Caelan_bg.png" id="2_ebycl"]
 [ext_resource type="Texture2D" uid="uid://bmdu47pma30g3" path="res://assets/img/char use for book/Caelan_book.png" id="3_0gygj"]
 
@@ -10,6 +11,7 @@ settlerName = "Jane"
 settlerDesc = "Programmer"
 settlerPortrait = ExtResource("3_0gygj")
 settlerChibiPortrait = ExtResource("2_ebycl")
+settlerChibi = ExtResource("2_0gygj")
 militaryProduction = 2
 ingenuityProduction = 5
 settlerMood = 1

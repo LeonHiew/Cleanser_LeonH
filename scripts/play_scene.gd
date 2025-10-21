@@ -3,8 +3,10 @@ extends Node2D
 @onready var eventInfo = load("res://Resources/eventInfo.tres") as EventInformation
 
 @onready var roll = RandomNumberGenerator.new()
-
+@onready var healLabel = $CanvasLayer/healLabel
 @onready var eventScreen = $CanvasLayer/EventScreen
+
+@onready var tutorialScreen = $CanvasLayer/TutorialPanel
 
 @onready var weeklyLogPanel = $weeklyLogPanel
 @onready var townSuppliesLabel = $BackgroundTVs/TownSuppliesTitleLabel/TownSuppliesLabel
@@ -53,8 +55,8 @@ var tradeScreenInstance: Node = null
 
 
 #town resources
-var townFood = 0
-var townWater = 0
+var townFood = 8
+var townWater = 8
 var townMilitary = 0
 var townIngenuity = 0
 var townScraps = 5
@@ -69,7 +71,7 @@ var healNumber = 1
 var roundNumber = 0
 
 #rarity of events Common, Uncommon, Rare
-var eventRarityChances = [70,25,5]
+var eventRarityChances = [80,18,2]
 
 #trade event var 
 var tradeEventChance = 30
@@ -94,7 +96,7 @@ func _ready() -> void:
 	weeklyLogPanel.hide()
 	eventScreen.hide()
 	tradeButton.hide()
-	
+	healLabel.text = "heals left: %s" % healNumber
 	
 	for settler in settlerArray:
 		#loads character sheet based on resource in array
@@ -177,6 +179,8 @@ func _ProgressWeek():
 	#refresh cards after all calculations are done
 	for CurrentSettlerScreen in screenArray:
 			CurrentSettlerScreen.update()
+			
+	healLabel.text = "heals left: %s" % healNumber
 
 #logic behind the events system
 #calculates amount of events that occur, whether they are positive or negative
@@ -356,9 +360,10 @@ func _RoleSicknesses():
 			var sicknessRoll = roll.randf_range(0, 100)
 			#survive
 			if sicknessRoll <= survivalChance:
-				currentSettler.sickness = SicknessInformation.sickness.notSick
-				if currentSettler.settlerMood != 0:
-					currentSettler.settlerMood -= 1
+				pass
+				#currentSettler.sickness = SicknessInformation.sickness.notSick
+				#if currentSettler.settlerMood != 0:
+				#	currentSettler.settlerMood -= 1
 			#die
 			elif sicknessRoll <= survivalChance + deathChance:
 				currentSettler.bIsDead = true
@@ -421,6 +426,7 @@ func _on_heal_request(stats: SettlerStats) -> void:
 			stats.settlerMood = stats.settlerMoods.Great
 		healNumber -= 1 
 		print(stats.settlerName + " has been healed! Remaining heals: " + str(healNumber))
+		healLabel.text = "heals left: %s" % healNumber
 		
 	#refresh cards 
 	for screen in screenArray:
@@ -643,3 +649,11 @@ func _on_raid_label_button_pressed() -> void:
 
 func _on_show_event_cards_pressed() -> void:
 	eventScreen.show()
+
+
+func _on_close_tutorial_pressed() -> void:
+	tutorialScreen.hide()
+
+
+func _on_open_tutorial_pressed() -> void:
+	tutorialScreen.show()

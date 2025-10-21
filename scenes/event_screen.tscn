@@ -4,7 +4,6 @@
 [ext_resource type="Script" uid="uid://bel4nhiq4ok0o" path="res://scripts/event_screen.gd" id="1_qayh2"]
 [ext_resource type="Texture2D" uid="uid://cked5c4eoxyuf" path="res://assets/icon.svg" id="3_km457"]
 
-
 [sub_resource type="Animation" id="Animation_getdi"]
 resource_name = "new_animation"
 
@@ -78,7 +77,8 @@ offset_bottom = -248.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 50
-text = "During the Week these events Occured"
+text = "During the Week these events Occured
+"
 horizontal_alignment = 1
 
 [connection signal="pressed" from="closeCardsButton" to="." method="_on_close_cards_button_pressed"]

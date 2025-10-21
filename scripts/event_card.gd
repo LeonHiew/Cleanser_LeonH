@@ -75,7 +75,7 @@ func loadStats(eventArray: Array):
 				fillText = "%s to %s settlers have caught stage moderate radiation sickness" % [
 					event[2][key][0],event[2][key][1]
 				]
-			"radstage2":
+			"radStage2":
 				fillText = "%s to %s settlers have caught stage severe radiation sickness" % [
 					event[2][key][0],event[2][key][1]
 				]

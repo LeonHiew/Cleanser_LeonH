@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://c0o1xj4btokud"]
+[gd_scene load_steps=7 format=3 uid="uid://c0o1xj4btokud"]
 
 [ext_resource type="Script" uid="uid://b4f177l37b4pe" path="res://scripts/settler_book.gd" id="1_21h2r"]
 [ext_resource type="Texture2D" uid="uid://bv1crnym0kqh3" path="res://assets/img/Screen/No char no shadow.png" id="1_qfqgo"]
 [ext_resource type="Texture2D" uid="uid://dmgntjg35gx1v" path="res://assets/img/list_char bg/Caelan_bg.png" id="3_21h2r"]
 [ext_resource type="Texture2D" uid="uid://cked5c4eoxyuf" path="res://assets/icon.svg" id="4_2xj3i"]
 [ext_resource type="Texture2D" uid="uid://bmdu47pma30g3" path="res://assets/img/char use for book/Caelan_book.png" id="4_21h2r"]
+[ext_resource type="StyleBox" uid="uid://cxu13i7rm8yko" path="res://assets/button.tres" id="6_5cijy"]
 
 [node name="SettlerBook" type="Node2D"]
 script = ExtResource("1_21h2r")
@@ -119,6 +120,7 @@ offset_top = 272.0
 offset_right = 522.0
 offset_bottom = 340.0
 theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = ExtResource("6_5cijy")
 text = "Heal"
 
 [connection signal="pressed" from="BookSprite/CloseButton" to="." method="_on_close_button_pressed"]

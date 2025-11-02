@@ -107,6 +107,9 @@ func _ready() -> void:
 		
 	#heal signal
 	settlerBook.heal_request.connect(_on_heal_request)
+	#rest signal
+	settlerBook.rest_request.connect(_onRestRequest)
+	
 	townMilitary += baseTownMiltary
 	townIngenuity += baseTownIngenuity
 	_UpdateResourcesDisplay()
@@ -326,6 +329,9 @@ func _calculateResources():
 	for settler in settlerArray:
 		if settler.bIsDead == true:
 			continue
+		if settler.bIsResting == true:
+			settler.bIsResting = false
+			continue
 		var moodBonus = 0.0
 		match SettlerStats.settlerMoods.find_key(settler.settlerMood):
 			"Great": moodBonus = 1.5 
@@ -361,14 +367,21 @@ func _RoleSicknesses():
 			#survive
 			if sicknessRoll <= survivalChance:
 				pass
+				#changed now to do nothing
 				#currentSettler.sickness = SicknessInformation.sickness.notSick
 				#if currentSettler.settlerMood != 0:
 				#	currentSettler.settlerMood -= 1
 			#die
 			elif sicknessRoll <= survivalChance + deathChance:
-				currentSettler.bIsDead = true
-				#you wouldn't feel great if you died
-				currentSettler.settlerMood = SettlerStats.settlerMoods.Terrible
+				#if resting, don't die instead get worse
+				if (currentSettler.bIsResting == true):
+					currentSettler.sickness = sicknessInfo.GetWorsenTarget(currentSettler.sickness)
+					if currentSettler.settlerMood != 4:
+						currentSettler.settlerMood += 1
+				else:
+					currentSettler.bIsDead = true
+					#you wouldn't feel great if you died
+					currentSettler.settlerMood = SettlerStats.settlerMoods.Terrible
 			#get worse
 			elif  sicknessRoll <= survivalChance + deathChance + worsenChance:
 				currentSettler.sickness = sicknessInfo.GetWorsenTarget(currentSettler.sickness)
@@ -644,6 +657,18 @@ func _HandleRaidEvent():
 	_UpdateResourcesDisplay()
 	for screen in screenArray:
 		screen.update()
+		
+
+func _onRestRequest(stats : SettlerStats) -> void:
+	if (stats.bIsDead == false and stats.bIsResting == false):
+		townFood -= 3
+		townWater -= 3
+		stats.bIsResting = true
+		
+	#refresh cards 
+	for screen in screenArray:
+		screen.switchRestScreen(stats)
+
 
 
 func _on_raid_label_button_pressed() -> void:

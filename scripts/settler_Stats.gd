@@ -8,15 +8,17 @@ class_name SettlerStats extends Resource
 #-Consumption (eg, food -2, water -1) , what they consume in a week
 
 #settler information
-#todo include assets used for settler like art here
+
 @export var settlerName = ""
 @export var settlerDesc = ""
 
+#settler assets
 @export var settlerPortrait = Texture2D
 @export var settlerChibiPortrait = Texture2D
 @export var settlerChibi = Texture2D
 
 @export var bIsDead = false
+@export var bIsResting = false
 
 #settler production stats
 @export var foodProduction = 0

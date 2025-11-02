@@ -13,11 +13,14 @@ func _ready() -> void:
 #call when an a settler has its info updsated
 func update():
 	texture = stats.settlerChibi
+	print(stats.bIsResting)
 	if stats.bIsDead == true:
 		$Sprite2D.modulate = Color(0.144, 0.141, 0.124, 1.0)
 		$".".modulate = Color(0.355, 0.355, 0.355, 1.0)
 	elif stats.sickness != sicknessInfo.sickness.notSick:
 		$Sprite2D.modulate = Color(0.849, 0.825, 0.0, 1.0)
+	elif stats.bIsResting == true:
+		$Sprite2D.modulate = Color(0.0, 0.824, 0.26, 1.0)
 	else:
 		$Sprite2D.modulate = Color(1.0, 1.0, 1.0, 1.0)
 
@@ -30,3 +33,8 @@ func switchHealScreen(settler: SettlerStats):
 	if settler == stats:
 		#texture = healingTankImage
 		$Sprite2D.modulate = Color(1.0, 1.0, 1.0, 1.0)
+
+func switchRestScreen(settler: SettlerStats):
+	if settler == stats:
+		#texture = healingTankImage
+		$Sprite2D.modulate = Color(0.0, 0.824, 0.26, 1.0)

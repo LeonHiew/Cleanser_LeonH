@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cn73h525rnp4s" path="res://scripts/SicknessInformation.gd" id="1_0mgye"]
 
+
 [resource]
 script = ExtResource("1_0mgye")
 metadata/_custom_type_script = "uid://cn73h525rnp4s"

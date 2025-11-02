@@ -80,7 +80,7 @@ offset_right = 615.0
 offset_bottom = 416.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 25
-text = "Current Mood: Good 
+text = "Current Mood: Good
 Current Sickness: Not Sick"
 autowrap_mode = 2
 
@@ -114,14 +114,25 @@ theme_override_colors/font_color = Color(0.92629945, 2.5027991e-06, 1.540184e-06
 theme_override_font_sizes/font_size = 200
 text = "DEAD"
 
-[node name="Button" type="Button" parent="."]
+[node name="HealButton" type="Button" parent="."]
 offset_left = 253.0
-offset_top = 272.0
+offset_top = 297.0
 offset_right = 522.0
 offset_bottom = 340.0
+scale = Vector2(0.9981143, 1)
 theme_override_font_sizes/font_size = 20
 theme_override_styles/normal = ExtResource("6_5cijy")
 text = "Heal"
 
+[node name="RestButton" type="Button" parent="."]
+offset_left = 253.0
+offset_top = 247.0
+offset_right = 522.0
+offset_bottom = 294.0
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = ExtResource("6_5cijy")
+text = "Rest"
+
 [connection signal="pressed" from="BookSprite/CloseButton" to="." method="_on_close_button_pressed"]
-[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="HealButton" to="." method="_on_heal_button_pressed"]
+[connection signal="pressed" from="RestButton" to="." method="_on_rest_button_pressed"]

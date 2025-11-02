@@ -1,10 +1,13 @@
 extends Node2D
 
 signal heal_request(stats : SettlerStats)
+signal rest_request(stats : SettlerStats)
 
 var sicknessInfo: SicknessInformation = null
 var stats: SettlerStats = null
 var healNumber = 1
+
+@onready var play_scene = $"../."
 
 @onready var nameLabel = $BookSprite/NameLabel
 @onready var descLabel = $BookSprite/DescLabel
@@ -61,11 +64,25 @@ func _FillCard():
 	smallSprite.texture = stats.settlerChibiPortrait
 	bigSprite.texture = stats.settlerPortrait
 	
+	if stats.bIsResting == true:
+		$RestButton.disabled = true
+	else:
+		$RestButton.disabled = false
+	
+	
+	if (play_scene.healNumber == 0):
+		$HealButton.disabled  = true
+	else:
+		$HealButton.disabled  = false
+	
 
 func _on_close_button_pressed() -> void:
 	$".".hide()
 
-
-func _on_button_pressed() -> void:
+func _on_heal_button_pressed() -> void:
 	emit_signal("heal_request", stats)
+	$".".hide()
+
+func _on_rest_button_pressed() -> void:
+	emit_signal("rest_request", stats)
 	$".".hide()

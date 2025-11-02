@@ -22,11 +22,18 @@ extends Node2D
 @onready var raidMessageLabel = $weeklyLogPanel/weeklyLogPaperPanel/ScrollContainer/weeklyLogLabel
 @onready var raidMessagePanel = $weeklyLogPanel
 
-
 #trade system variables 
 @onready var tradeButton = $TradeButton
 @export var tradeScreenScene: PackedScene = preload("res://scenes/trade_screen.tscn")
 var tradeScreenInstance: Node = null
+
+#fade animation
+@onready var transition_screen = $TransitionScreen
+@onready var color_rect = $TransitionScreen/ColorRect
+@onready var fade_weekly_label = $TransitionScreen/weekly_anim_label
+@onready var animation_player = $TransitionScreen/AnimationPlayer
+@onready var tutorial_button = $"CanvasLayer/Open Tutorial"
+
 
 @onready var settlerArray = [
 	load("res://Resources/character_resources/AI_settler.tres"),
@@ -115,6 +122,12 @@ func _ready() -> void:
 	_UpdateResourcesDisplay()
 	
 	tradeButton.pressed.connect(_openTradeScreen)
+	
+	color_rect.visible = false
+	fade_weekly_label.visible = false
+	animation_player.animation_finished.connect(_on_animation_finished)
+	
+	
 	
 #updates resourcelabel display to current values
 func _UpdateResourcesDisplay():
@@ -408,12 +421,27 @@ func _calculateMood():
 
 
 
-
+func _on_animation_finished(anim_name):
+	if anim_name == "fade_to_black":
+		animation_player.play("fade_to_normal")
+	elif anim_name == "fade_to_normal":
+		color_rect.visible = false
+		fade_weekly_label.visible = false
+		healLabel.visible = true
+		tutorial_button.visible = true
+		_ProgressWeek()
+		
+func _start_transition():
+	color_rect.visible = true
+	fade_weekly_label.visible = true 
+	healLabel.visible = false
+	tutorial_button.visible = false
+	animation_player.play("fade_to_black")
 
 
 
 func _on_progress_button_pressed() -> void:
-	_ProgressWeek()
+	_start_transition()
 
 
 
@@ -662,10 +690,15 @@ func _HandleRaidEvent():
 		
 
 func _onRestRequest(stats : SettlerStats) -> void:
+	if townFood <= 7 or townWater <= 7:
+		return 
+	
 	if (stats.bIsDead == false and stats.bIsResting == false):
 		townFood -= 3
 		townWater -= 3
 		stats.bIsResting = true
+		
+		_UpdateResourcesDisplay()
 		
 	#refresh cards 
 	for screen in screenArray:

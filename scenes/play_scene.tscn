@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://brqq4ahdyu8nn"]
+[gd_scene load_steps=49 format=3 uid="uid://brqq4ahdyu8nn"]
 
 [ext_resource type="Script" uid="uid://dqtnf3fpuxi30" path="res://scripts/play_scene.gd" id="1_ief5h"]
 [ext_resource type="Texture2D" uid="uid://dnloh5hajy7lv" path="res://assets/img/backside_of_card1-removebg-preview.png" id="2_kdvgv"]
@@ -30,6 +30,97 @@
 [ext_resource type="Resource" uid="uid://dji70q6oo433u" path="res://Resources/character_resources/Caitlyn_settler.tres" id="21_1ci3g"]
 [ext_resource type="Resource" uid="uid://dtnek63rvdth4" path="res://Resources/character_resources/Jessie_settler.tres" id="23_6xl5y"]
 [ext_resource type="StyleBox" uid="uid://cxu13i7rm8yko" path="res://assets/button.tres" id="26_5mqgq"]
+[ext_resource type="Texture2D" uid="uid://cqd5nu03muylh" path="res://assets/img/trade_shop/maid_open.png" id="28_jko1l"]
+
+[sub_resource type="Animation" id="Animation_5mqgq"]
+resource_name = "fade_to_black"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("weekly_anim_label:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.8333333, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_jko1l"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("weekly_anim_label:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_7ytk0"]
+resource_name = "fade_to_normal"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(1.1333333, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("weekly_anim_label:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.0333333, 1.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kg8u5"]
+_data = {
+&"RESET": SubResource("Animation_jko1l"),
+&"fade_to_black": SubResource("Animation_5mqgq"),
+&"fade_to_normal": SubResource("Animation_7ytk0")
+}
 
 [sub_resource type="Animation" id="Animation_btd5q"]
 length = 0.001
@@ -163,6 +254,43 @@ bg_color = Color(0, 0, 0, 0.85490197)
 [node name="PlayScene" type="Node2D"]
 script = ExtResource("1_ief5h")
 
+[node name="TransitionScreen" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="TransitionScreen"]
+visible = false
+modulate = Color(1, 1, 1, 0)
+top_level = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="weekly_anim_label" type="Label" parent="TransitionScreen"]
+visible = false
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -415.0
+offset_top = -90.25
+offset_right = 415.0
+offset_bottom = 90.25
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 50
+text = "One Week Later...."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="TransitionScreen"]
+libraries = {
+&"": SubResource("AnimationLibrary_kg8u5")
+}
+
 [node name="card1" type="Node" parent="."]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="card1"]
@@ -201,6 +329,7 @@ top_level = true
 
 [node name="TutorialPanel" type="Panel" parent="CanvasLayer"]
 visible = false
+top_level = true
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -212,10 +341,10 @@ metadata/_edit_lock_ = true
 [node name="Label3" type="Label" parent="CanvasLayer/TutorialPanel"]
 layout_mode = 1
 anchors_preset = -1
-offset_left = 1212.0
-offset_top = 602.0
-offset_right = 1910.0
-offset_bottom = 1080.0
+offset_left = 1062.0
+offset_top = 346.0
+offset_right = 1760.0
+offset_bottom = 972.0
 theme_override_font_sizes/font_size = 24
 text = "each tv screen represents a settler.
 click on it to open the settlers log page
@@ -224,16 +353,16 @@ if a screen is yellow the settler is sick and
 you should check their log
 if a screen is black the settler is dead
 
-to cure a settler os illness, open their log book and press
+to cure a settler of illness, open their log book and press
 heal"
 
 [node name="Label" type="Label" parent="CanvasLayer/TutorialPanel"]
 layout_mode = 1
 anchors_preset = -1
-offset_left = 1346.0
-offset_top = 983.0
-offset_right = 1808.0
-offset_bottom = 1065.0
+offset_left = 1309.0
+offset_top = 954.0
+offset_right = 1779.0
+offset_bottom = 1076.0
 theme_override_font_sizes/font_size = 24
 text = "press this button to progress the round.
 make sure your ready before hitting it"
@@ -241,10 +370,10 @@ make sure your ready before hitting it"
 [node name="Label2" type="Label" parent="CanvasLayer/TutorialPanel"]
 layout_mode = 1
 anchors_preset = -1
-offset_left = 37.0
-offset_top = 318.0
-offset_right = 499.0
-offset_bottom = 400.0
+offset_left = 29.0
+offset_top = 73.0
+offset_right = 727.0
+offset_bottom = 995.0
 theme_override_font_sizes/font_size = 24
 text = "each week settlers produce food and water
 and contribute to the town militray and ingenuity
@@ -257,16 +386,22 @@ less than bandit power, you lose the raid and risk death
 Ingenuity determines the chance for  an
 event to be positive. at ingenuity 20 it is a 
 50% chance
-as ingenuity increases its luck gains exponentionally decress
-"
+as ingenuity increases its luck gains exponentionally decreas
+
+\"Resting\" a character will make it so that the character will
+not die of sickness in the next round(unless they are at 
+lethal stage) but the character will not produce any resources
+and resting will cost 3 food and water per character 
+
+Player must have 7 or more food AND water to use \"Rest\""
 
 [node name="Label4" type="Label" parent="CanvasLayer/TutorialPanel"]
 layout_mode = 1
 anchors_preset = -1
-offset_left = 1201.0
-offset_top = 214.0
-offset_right = 1899.0
-offset_bottom = 692.0
+offset_left = 1062.0
+offset_top = 139.0
+offset_right = 1760.0
+offset_bottom = 617.0
 theme_override_font_sizes/font_size = 24
 text = "the game runs for 15 rounds, periodically bandit raids 
 occur to challenge you
@@ -289,6 +424,7 @@ text = "Open Tutorial
 "
 
 [node name="healLabel" type="Label" parent="CanvasLayer"]
+show_behind_parent = true
 offset_left = 1022.0
 offset_top = 75.0
 offset_right = 1268.0
@@ -693,14 +829,26 @@ text = "Progress Week"
 
 [node name="TradeButton" type="Button" parent="."]
 top_level = true
-offset_left = 395.0
-offset_top = 972.0
-offset_right = 593.0
-offset_bottom = 1071.0
+offset_left = 327.0
+offset_top = 766.0
+offset_right = 584.0
+offset_bottom = 1081.0
 theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = ExtResource("26_5mqgq")
 toggle_mode = true
-text = "Trade"
+icon = ExtResource("28_jko1l")
+flat = true
+
+[node name="Label" type="Label" parent="TradeButton"]
+layout_mode = 0
+offset_left = 54.0
+offset_top = 15.0
+offset_right = 215.0
+offset_bottom = 59.0
+theme_override_font_sizes/font_size = 25
+text = "Open Trades"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="weeklyLogPanel" type="Panel" parent="."]
 visible = false

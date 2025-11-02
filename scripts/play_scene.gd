@@ -179,6 +179,9 @@ func _ProgressWeek():
 	if bIsAllDead:
 		get_tree().change_scene_to_file("res://scenes/lost_screen.tscn")
 	
+	for settler in settlerArray:
+		settler.bIsResting = false
+	
 	#refresh cards after all calculations are done
 	for CurrentSettlerScreen in screenArray:
 			CurrentSettlerScreen.update()
@@ -330,7 +333,6 @@ func _calculateResources():
 		if settler.bIsDead == true:
 			continue
 		if settler.bIsResting == true:
-			settler.bIsResting = false
 			continue
 		var moodBonus = 0.0
 		match SettlerStats.settlerMoods.find_key(settler.settlerMood):

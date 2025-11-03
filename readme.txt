@@ -77,7 +77,7 @@ Trade System (not implemented)
 - Equipment such as bomb (check something such as resources or positive/negative event for increase death chance or not) (in discuss)
 - Bonus (Get more event) (in discuss)
 
-### in develop progress:
+### in development progress:
 - Mood
 - Upgrade level design
 - Events
@@ -121,10 +121,51 @@ used by the player to make trades. We are also looking into more ways in which w
 we currently also have a basic pause screen to allow the player to quit the game with plans to implement a settings menu there as well as on the main menu as well as save logic.
 
 Controls:
-- This game has been made with player using keyboard and mouse in mind.
+- This game has been made with players using keyboard and mouse in mind.
 - "Left Mouse Button"- To click on any buttons available on screen 
 - "Esc" button- To open up the pause menu 
 
+
+###Balancing
+the biggest challenge with this games development
+having heard a second playtest day was planned we decided to push to get all game elements completed in time for this so that we may take notes for balancing
+the key note was food and water is produced by way to much
+
+The games economy has 3 major resource generation components
+	1. Settlers 
+	each week they produce food and water and apply Ingenuity and Military to the town while each also drain 1 food and water each.
+	being the biggest source of stress for the player they are the only guaranteed source of resources
+	in total with all 8 settlers alive they produce 12 food and water each week, meaning assuming they are all alive they will produce enough food for the next weeks survival and half the week after
+	this changes with the mood system, with them produce 1.5 times more at all high or 0.5 times less at all low Moods.
+	resulting in either barely producing resources or producing an abundance.
+	the resource generation has also been purposely spread out to force players to decide which settlers are more important based on their resource generation
+
+	2. Events
+	Each week 3 events are randomly rolled, this was particularly hard to balance due to its inherent randomness.
+	The first important aspect of an event is whether its positive or negative. Having tried many linear and exponential equations on the website Desmos (to get a visual graph) we ended up with this equation
+	 20 + 80*(1 - exp(-0.02352 * townIngenuity))   (exp represents e or Euler's number)
+	this equation was chosen because we wanted to exponentially decrease the positive luck gain as ingenuity increases, resulting in 60 ingenuity being 100% (an almost impossible value for a player to get too). This equation also 	results in 20 ingenuity being around 50% chance for a positive event, as well as 20% positive event chance at 0 ingenuity, ensuring the player isn’t 100% locked out of positive events ever, and may strike a hand of really good 	luck potentially saving a game
+
+	The second aspect is event rarity, due to 3 events being rolled at a  time, we ended up with Common at an 80% chance, Uncommon at a 18% chance and rare at a 2% chance to ensure rare events feel actually rare.
+	In terms of balancing rewards from these events we balanced it around the idea of how much supplies it produces a week
+	Positive Common events give ¼ of an weeks worth of supplies, Uncommon events give about half while rare gives around a weeks worth of supplies, on the flip size negative common events take half, Uncommon events take a weeks 	worth and rare uncommon’s take more then a weeks worth. This was done to drain resources from the passive settler generation, increasing the importance of keeping settlers alive
+
+
+	3 Trade
+	############### leaving this up to you Leon
+
+	Incase he doesn’t get to it, the system is supposed to be random and allow for players to trade excess resources for resources they don’t have, mostly exists to drain players of resources and for times when a player really needs 	a resource and are on the brink, as a sort of last second high dopamine save moment  	
+
+ 
+having tried our best to balance this we realized that there is just too much resource generation and not enough focus on keeping settlers alive (this was especially prevalent during the final minor prototype submission)
+so we added a 4 mechanic
+	Resting
+	each week the player has the choice to make a settler rest instead of healing them via the tank, doing so costs a weeks worth of resources and has the benefit of keeping a settler from dying from an illness, however they don't 	produce any resources, both solving the potential problem of events causing way to many people to get ill resulting in game overs and draining the players resources.
+	this also came with the removal of settlers getting better by themselves, forcing players to make more risky decisions 
+
+
+
+	
 
 
 

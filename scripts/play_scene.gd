@@ -388,20 +388,24 @@ func _RoleSicknesses():
 				#	currentSettler.settlerMood -= 1
 			#die
 			elif sicknessRoll <= survivalChance + deathChance:
-				#if resting, don't die instead get worse
+				#if resting, get worse instead
 				if (currentSettler.bIsResting == true):
-					currentSettler.sickness = sicknessInfo.GetWorsenTarget(currentSettler.sickness)
-					if currentSettler.settlerMood != 4:
-						currentSettler.settlerMood += 1
+					_makeSettlerSicknessWorse(currentSettler)
 				else:
 					currentSettler.bIsDead = true
 					#you wouldn't feel great if you died
 					currentSettler.settlerMood = SettlerStats.settlerMoods.Terrible
 			#get worse
 			elif  sicknessRoll <= survivalChance + deathChance + worsenChance:
-				currentSettler.sickness = sicknessInfo.GetWorsenTarget(currentSettler.sickness)
-				if currentSettler.settlerMood != 4:
-					currentSettler.settlerMood += 1
+				_makeSettlerSicknessWorse(currentSettler)
+
+#changes a settlers sickness to the worse target
+func _makeSettlerSicknessWorse(currentSettler: SettlerStats):
+	var worseTarget = sicknessInfo.GetWorsenTarget(currentSettler.sickness)
+	if worseTarget != null:
+		currentSettler.sickness = worseTarget
+		if currentSettler.settlerMood != 4:
+			currentSettler.settlerMood += 1
 
 #changes the mood of all settlers with the goal of bring them towards Fine
 func _calculateMood():
@@ -689,15 +693,17 @@ func _HandleRaidEvent():
 		screen.update()
 		
 
+
+
 func _onRestRequest(stats : SettlerStats) -> void:
 	if townFood <= 7 or townWater <= 7:
 		return 
-	
 	if (stats.bIsDead == false and stats.bIsResting == false):
 		townFood -= 3
 		townWater -= 3
 		stats.bIsResting = true
-		
+		if stats.settlerMood != 0:
+			stats.settlerMood -= 1
 		_UpdateResourcesDisplay()
 		
 	#refresh cards 

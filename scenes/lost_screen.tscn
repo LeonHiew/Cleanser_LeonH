@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://c5jbidohi88cw"]
+[gd_scene load_steps=4 format=3 uid="uid://c5jbidohi88cw"]
 
 [ext_resource type="Script" uid="uid://41yavo4j0ih" path="res://scripts/lost_screen.gd" id="1_ef3wy"]
 [ext_resource type="Texture2D" uid="uid://d2cebv1cup3ci" path="res://assets/FIT2145 CleanserGame Questionair2 QR.png" id="2_1eaaq"]
+[ext_resource type="Texture2D" uid="uid://cmtjkhoixv8tw" path="res://assets/img/final art/lose screen tag.png" id="3_12qoe"]
 
 [node name="LostScreen" type="Control"]
 layout_mode = 3
@@ -42,16 +43,34 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -261.0
-offset_top = 129.0
-offset_right = 261.0
-offset_bottom = 267.0
+offset_left = -265.0
+offset_top = 12.0
+offset_right = 257.0
+offset_bottom = 150.0
 grow_horizontal = 2
+theme_override_colors/font_color = Color(1.9608799, 1.9608799, 1.9608799, 1)
 theme_override_font_sizes/font_size = 101
 text = "You Lose :("
 horizontal_alignment = 1
 
+[node name="Label2" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -487.0
+offset_top = 237.0
+offset_right = 483.0
+offset_bottom = 378.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(1.9608799, 1.9608799, 1.9608799, 1)
+theme_override_font_sizes/font_size = 35
+text = "Your town did not have enough resources or everyone is dead :("
+horizontal_alignment = 1
+autowrap_mode = 3
+
 [node name="Fit2145CleanserGameQuestionair2Qr" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(379, 636)
 texture = ExtResource("2_1eaaq")
 
@@ -62,6 +81,12 @@ offset_right = 300.0
 offset_bottom = -243.0
 theme_override_font_sizes/font_size = 50
 text = "FEEDBACK APPRICITATED "
+
+[node name="LoseScreenTag" type="Sprite2D" parent="."]
+show_behind_parent = true
+position = Vector2(911, 598)
+scale = Vector2(1.8814988, 1.325)
+texture = ExtResource("3_12qoe")
 
 [connection signal="pressed" from="AspectRatioContainer/HBoxContainer/VBoxContainer/ReturnButton" to="." method="_on_return_button_pressed"]
 [connection signal="pressed" from="AspectRatioContainer/HBoxContainer/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]

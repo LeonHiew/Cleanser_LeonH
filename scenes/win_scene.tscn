@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://6w00k1dyjhms"]
+[gd_scene load_steps=5 format=3 uid="uid://6w00k1dyjhms"]
 
 [ext_resource type="Script" uid="uid://b8yn2rgo67gdx" path="res://scripts/win_scene.gd" id="1_p78a6"]
 [ext_resource type="Texture2D" uid="uid://d2cebv1cup3ci" path="res://assets/FIT2145 CleanserGame Questionair2 QR.png" id="2_aw8vk"]
+[ext_resource type="Texture2D" uid="uid://ds77jcp47p40u" path="res://assets/img/final art/win screen tags.png" id="3_7yt3q"]
+[ext_resource type="Texture2D" uid="uid://cn5q8f82hi2yp" path="res://assets/img/final art/tags.png" id="4_b6ng8"]
 
 [node name="WinScene" type="Control"]
 layout_mode = 3
@@ -42,16 +44,17 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -214.0
-offset_top = 114.0
-offset_right = 214.0
-offset_bottom = 252.0
+offset_left = -184.0
+offset_top = 15.0
+offset_right = 244.0
+offset_bottom = 153.0
 grow_horizontal = 2
 theme_override_font_sizes/font_size = 101
 text = "You Win!"
 horizontal_alignment = 1
 
 [node name="Fit2145CleanserGameQuestionair2Qr" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(397, 626)
 texture = ExtResource("2_aw8vk")
 
@@ -65,13 +68,26 @@ text = "FEEDBACK APPRICITATED "
 
 [node name="Label2" type="Label" parent="."]
 layout_mode = 0
-offset_left = 703.0
-offset_top = 258.0
-offset_right = 1410.0
-offset_bottom = 471.0
+offset_left = 498.0
+offset_top = 235.0
+offset_right = 1454.0
+offset_bottom = 448.0
 theme_override_font_sizes/font_size = 50
-text = "The Town Survived and the second wave of colonists arrived to a functioning town"
-autowrap_mode = 2
+text = "The Town Survived and the second wave of colonists arrived to a functioning town :)"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="WinScreenTags" type="Sprite2D" parent="."]
+show_behind_parent = true
+position = Vector2(905.99994, 553.50006)
+scale = Vector2(1.8427083, 1.4361111)
+texture = ExtResource("3_7yt3q")
+
+[node name="Tags" type="Sprite2D" parent="WinScreenTags"]
+position = Vector2(53.7253, -325.53195)
+scale = Vector2(0.9874347, 0.71146244)
+texture = ExtResource("4_b6ng8")
 
 [connection signal="pressed" from="AspectRatioContainer/HBoxContainer/VBoxContainer/ReturnButton" to="." method="_on_returnMenu_button_pressed"]
 [connection signal="pressed" from="AspectRatioContainer/HBoxContainer/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]

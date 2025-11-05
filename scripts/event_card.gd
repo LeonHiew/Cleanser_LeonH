@@ -21,10 +21,23 @@ var eventInfo: EventInformation = null
 	$VBoxContainer/eventForground/HBoxContainer/VBoxContainer/ResourceContainer3
 ]
 
+@onready var eventIcon = $VBoxContainer/eventForground/HBoxContainer/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/Control/eventIcon
+
+#resource icons
+@onready var foodImage = preload("res://assets/img/final art/food.png")
+@onready var waterImage = preload("res://assets/img/final art/water.png")
+@onready var goldImage = preload("res://assets/img/final art/gold.png")
+@onready var militaryImage = preload("res://assets/img/final art/military.png")
+@onready var ingenuityImage = preload("res://assets/icon.svg")
+
+#card images
+@onready var goodEventImage = preload("res://assets/img/final art/good event.png")
+@onready var badEventImage = preload("res://assets/img/final art/bad event.png")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	eventInfo = load("res://Resources/eventInfo.tres") as EventInformation
+
 
 #loads an event into the card
 func loadStats(eventArray: Array):
@@ -39,6 +52,7 @@ func loadStats(eventArray: Array):
 	for key in event[2]:
 		var resourceTarget = resourceDisplayArray[i]
 		var label = resourceTarget.get_node("Panel/Label")
+		var icon = resourceTarget.get_node("Control/Icon")
 		resourceTarget.show()
 		var fillText = "Empty fillText"
 		match key:
@@ -48,35 +62,39 @@ func loadStats(eventArray: Array):
 					fillText += "+%s" %[event[2][key]]
 				else:
 					fillText += "%s" %[event[2][key]]
+				icon.texture = foodImage
 			"water":
 				fillText = "water "
 				if event[2][key] > 0:
 					fillText += "+%s" %[event[2][key]]
 				else:
 					fillText += "%s" %[event[2][key]]
+				icon.texture = waterImage
 			"military":
 				fillText = "military "
 				if event[2][key] > 0:
 					fillText += "+%s" %[event[2][key]]
 				else:
 					fillText += "%s" %[event[2][key]]
+				icon.texture = militaryImage
 			"ingenuity":
 				fillText = "ingenuity "
 				if event[2][key] > 0:
 					fillText += "+%s" %[event[2][key]]
 				else:
 					fillText += "%s" %[event[2][key]]
+				icon.texture = ingenuityImage
 			"settler":
 				#eventDesc.text = eventDesc.text.replace("settler.name", settlerTarget)
 				continue
 				#should change the desciption to use a random settler name
 				#set in actual scene for later use, pass here
 			"radStage1":
-				fillText = "%s to %s settlers have caught stage moderate radiation sickness" % [
+				fillText = "%s to %s settlers have caught moderate radiation sickness" % [
 					event[2][key][0],event[2][key][1]
 				]
 			"radStage2":
-				fillText = "%s to %s settlers have caught stage severe radiation sickness" % [
+				fillText = "%s to %s settlers have caught severe radiation sickness" % [
 					event[2][key][0],event[2][key][1]
 				]
 			"Mood":
@@ -91,6 +109,8 @@ func loadStats(eventArray: Array):
 		label.text = fillText
 		i += 1
 
+
+# change cards look based on whether or not its positive or negative
 func _changeLooks(eventType: String, eventRarity: String):
 	if eventType == "positive":
 		edgePanel.self_modulate = Color(0.784, 0.89, 0.949, 1.0)
@@ -99,6 +119,8 @@ func _changeLooks(eventType: String, eventRarity: String):
 		eventTitle.self_modulate = Color(0.337, 0.69, 0.894, 1.0)
 		eventDesc.self_modulate = Color(0.129, 0.153, 0.459, 1.0)
 		seperator.self_modulate = Color(0.129, 0.153, 0.459, 1.0)
+		
+		eventIcon.texture = goodEventImage
 	if eventType == "negative":
 		edgePanel.self_modulate = Color(0.937, 0.694, 0.718, 1.0)
 		for resourcePanel in resourceDisplayPanelArray:
@@ -106,5 +128,7 @@ func _changeLooks(eventType: String, eventRarity: String):
 		eventTitle.self_modulate = Color(0.976, 0.051, 0.133, 1.0)
 		eventDesc.self_modulate = Color(0.502, 0.047, 0.098, 1.0)
 		seperator.self_modulate = Color(0.502, 0.047, 0.098, 1.0)
+		
+		eventIcon.texture = badEventImage
 	
 	RarityLabel.text = eventRarity

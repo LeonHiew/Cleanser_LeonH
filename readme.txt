@@ -151,14 +151,17 @@ The games economy has 3 major resource generation components
 	Positive Common events give ¼ of an weeks worth of supplies, Uncommon events give about half while rare gives around a weeks worth of supplies, on the flip size negative common events take half, Uncommon events take a weeks 	worth and rare uncommon’s take more then a weeks worth. This was done to drain resources from the passive settler generation, increasing the importance of keeping settlers alive
 
 
-	3 Trade
-	############### leaving this up to you Leon
-
-	Incase he doesn’t get to it, the system is supposed to be random and allow for players to trade excess resources for resources they don’t have, mostly exists to drain players of resources and for times when a player really needs 	a resource and are on the brink, as a sort of last second high dopamine save moment  	
+	3. Trade
+	The trade event is a random event that will have a chance of occurring each week, there is a base 30% chance that a trade event will happen each week however if the player does not get the trade event in the week, the percentage for a trade 	event to occur in the next week will increase by 15% each week until a trade event occurs(which will reset the percentage back to 30%). If the player does get the trade event, a maid like character will appear near the bottom left of the screen 	with the label "Open Trades". Once player has clicked on the character, they will be taken to a separate screen specifically for trades. In this screen, players can still see they're resource amounts and the weeks left until the next raid like 	in the main play scene, however there are now 2 tables for trades, one being the "Buy trades" and the other for the "Sell trades". 
+	In the "buy trades" box, the player will be able to buy a resource of a randomized number in exchange for a randomized number of scraps. The resources trade value are randomised each week there is a trade option for the player. Players can only 	buy trades once and cannot repeat the same purchase.
+	In the "sell trades" box, the player can sell a randomised number of their resource for scraps. The player can sell as much as they want, as long as their resource does not go below 0 or below the base number of the resource. The sell trade's 	amount of resource for scrap will also be randomised each new week there is a new trade event. 
+	There is also a box for the rules of trade that the player can open at any time to remind themselves of the rules for the trade event.
+	To return to the main play screen, the player just needs to press on the maid icon labeled "Return to main screen". 
+	The purpose of this trade system is to give the player more involvement in deciding which resources they need to prioritise in buying and which resource they can sell in order to gain scraps. This does also help a bit with balancing the game as	it acts as a drain to resources to gain other resources and provides the players with a means of saving themselves when their situation is dire or helping them stabilize their game.  	
 
  
 having tried our best to balance this we realized that there is just too much resource generation and not enough focus on keeping settlers alive (this was especially prevalent during the final minor prototype submission)
-so we added a 4 mechanic
+so we added a 4th mechanic:
 	Resting
 	each week the player has the choice to make a settler rest instead of healing them via the tank, doing so costs a weeks worth of resources and has the benefit of keeping a settler from dying from an illness, however they don't 	produce any resources, both solving the potential problem of events causing way to many people to get ill resulting in game overs and draining the players resources.
 	this also came with the removal of settlers getting better by themselves, forcing players to make more risky decisions 

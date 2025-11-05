@@ -50,17 +50,24 @@ text = "Title of Event"
 horizontal_alignment = 1
 autowrap_mode = 2
 
-[node name="Panel" type="Panel" parent="VBoxContainer/eventForground/HBoxContainer/VBoxContainer"]
-custom_minimum_size = Vector2(100, 150)
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer/eventForground/HBoxContainer/VBoxContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(150, 150)
 layout_mode = 2
 
-[node name="Label" type="Label" parent="VBoxContainer/eventForground/HBoxContainer/VBoxContainer/Panel"]
-layout_mode = 0
-offset_left = 65.0
-offset_top = 55.0
-offset_right = 155.0
-offset_bottom = 78.0
-text = "fill in image"
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/eventForground/HBoxContainer/VBoxContainer/PanelContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/eventForground/HBoxContainer/VBoxContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Control" type="Control" parent="VBoxContainer/eventForground/HBoxContainer/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="eventIcon" type="Sprite2D" parent="VBoxContainer/eventForground/HBoxContainer/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/Control"]
+texture = ExtResource("4_uk0qc")
 
 [node name="ResourceContainer" type="HBoxContainer" parent="VBoxContainer/eventForground/HBoxContainer/VBoxContainer"]
 clip_contents = true

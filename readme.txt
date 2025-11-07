@@ -12,6 +12,7 @@ Michael Wang
 	 on buttons on the screen
 ESC 
 	while playing opens up pause menu
+
 ## IMPORTANT NOTES FOR TUTORS
 Godot has inbuilt functions that are marked with the prefix "_" 
 for example _ready() is the engines on ready function
@@ -77,13 +78,6 @@ Trade System (not implemented)
 - Equipment such as bomb (check something such as resources or positive/negative event for increase death chance or not) (in discuss)
 - Bonus (Get more event) (in discuss)
 
-### in development progress:
-- Mood
-- Upgrade level design
-- Events
-- Rewards
-- Trades
-- Hunger/ Thirst 
 
 ### Feedback:
 - Way to introduce characters in a more smooth way?
@@ -131,6 +125,8 @@ the biggest challenge with this games development
 having heard a second playtest day was planned we decided to push to get all game elements completed in time for this so that we may take notes for balancing
 the key note was food and water is produced by way to much
 
+tldr at the bottom
+
 The games economy has 3 major resource generation components
 	1. Settlers 
 	each week they produce food and water and apply Ingenuity and Military to the town while each also drain 1 food and water each.
@@ -152,19 +148,53 @@ The games economy has 3 major resource generation components
 
 
 	3. Trade
-	The trade event is a random event that will have a chance of occurring each week, there is a base 30% chance that a trade event will happen each week however if the player does not get the trade event in the week, the percentage for a trade 	event to occur in the next week will increase by 15% each week until a trade event occurs(which will reset the percentage back to 30%). If the player does get the trade event, a maid like character will appear near the bottom left of the screen 	with the label "Open Trades". Once player has clicked on the character, they will be taken to a separate screen specifically for trades. In this screen, players can still see they're resource amounts and the weeks left until the next raid like 	in the main play scene, however there are now 2 tables for trades, one being the "Buy trades" and the other for the "Sell trades". 
-	In the "buy trades" box, the player will be able to buy a resource of a randomized number in exchange for a randomized number of scraps. The resources trade value are randomised each week there is a trade option for the player. Players can only 	buy trades once and cannot repeat the same purchase.
-	In the "sell trades" box, the player can sell a randomised number of their resource for scraps. The player can sell as much as they want, as long as their resource does not go below 0 or below the base number of the resource. The sell trade's 	amount of resource for scrap will also be randomised each new week there is a new trade event. 
+	The trade event is a random event that will have a chance of occurring each week, there is a base 30% chance that a trade event will happen each week however if the player does not get the trade event in the week, the percentage 	for a trade event to occur in the next week will increase by 15% each week until a trade event occurs(which will reset the percentage back to 30%). If the player does get the trade event, a maid like character will appear near 	the bottom left of the screen with the label "Open Trades". Once player has clicked on the character, they will be taken to a separate screen specifically for trades. In this screen, players can still see they're resource 	amounts and the weeks left until the next raid like in the main play scene, however there are now 2 tables for trades, one being the "Buy trades" and the other for the "Sell trades". 
+	In the "buy trades" box, the player will be able to buy a resource of a randomized number in exchange for a randomized number of scraps. The resources trade value are randomised each week there is a trade option for the player. 	Players can only buy trades once and cannot repeat the same purchase.
+	In the "sell trades" box, the player can sell a randomised number of their resource for scraps. The player can sell as much as they want, as long as their resource does not go below 0 or below the base number of the resource. 	The sell trade's amount of resource for scrap will also be randomised each new week there is a new trade event. 
 	There is also a box for the rules of trade that the player can open at any time to remind themselves of the rules for the trade event.
 	To return to the main play screen, the player just needs to press on the maid icon labeled "Return to main screen". 
-	The purpose of this trade system is to give the player more involvement in deciding which resources they need to prioritise in buying and which resource they can sell in order to gain scraps. This does also help a bit with balancing the game as	it acts as a drain to resources to gain other resources and provides the players with a means of saving themselves when their situation is dire or helping them stabilize their game.  	
+	The purpose of this trade system is to give the player more involvement in deciding which resources they need to prioritise in buying and which resource they can sell in order to gain scraps. This does also help a bit with 	balancing the game as it acts as a drain to resources to gain other resources and provides the players with a means of saving themselves when their situation is dire or helping them stabilize their game.  	
 
  
-having tried our best to balance this we realized that there is just too much resource generation and not enough focus on keeping settlers alive (this was especially prevalent during the final minor prototype submission)
-so we added a 4th mechanic:
+	having tried our best to balance this we realized that there is just too much resource generation and not enough focus on keeping settlers alive (this was especially prevalent during the final minor prototype submission)
+	so we added a 4th mechanic:
 	Resting
 	each week the player has the choice to make a settler rest instead of healing them via the tank, doing so costs a weeks worth of resources and has the benefit of keeping a settler from dying from an illness, however they don't 	produce any resources, both solving the potential problem of events causing way to many people to get ill resulting in game overs and draining the players resources.
 	this also came with the removal of settlers getting better by themselves, forcing players to make more risky decisions 
+
+outside of econmoy are sicknesses.
+we wanted to do more with this system but ended up just leaving it at 3 different sicknesses
+each sickness has a survival chance, death chance and worsen chance (chance to progress stage eg stage 1 -> stage 2)
+	1. radiation stage 1 (moderate)     Survival Chance 60, death chance 10, worsen chance 30
+	2. radiation stage 2 (severe)       Survival Chance 30, death chance 30, worsen chance 40
+	3. radiation stage 3 (lethal)       Survival Chance 1, death chance 99, worsen chance 0
+
+you may notice that Lethal has a 1% chance of survival, we thought it would be a fun mechanic if a settler could rarely survive it, possibly causing high moment for the player if they win the gamble
+
+balance of this changed alot over time, Moderate used to be an exact copy of lethal except suvival chance was 69 and death 1
+in the end we decided to increase the death chances for everything
+
+Death being the key adversery to the player and only caused via failed bandit raids and sicknesses we made all sicknesses cause death.
+
+after our week 11 playtest survival chance had one big chance, it used to be the chance the settler heals themselves from the illness.
+however due to the economy being was to forgiving, ruining the impact of picking who gets to go into the tank, we decided to remove this and instead make surviva chance just lead to nothing changing.
+combined with the rest system, it drains player resources and forces them to really think critically 
+
+
+Gameplay strategies
+throught both playtests and minor submissions we learned about alot of different strategies poeople had for the game.
+for example, early playtesters found a interesting stratergy where if they let everyone but one person die, it resulted in a garenteed win because they could constantly heal that person to full, and if they were a food and water producer they would never starve, this of course goes against the intended gameplay loop so we included a bandit raid mechanic. 
+this mechanic originally was gonna be a random event mechanic but seeing this playstyle, and after recieveing feedback that players don't have much choice, we decided to make it happen duriung set time frames with set skill checks.
+this ensures players have to think about their military stat, making this playstyle impossible while also forcing the player to make more chocies.
+
+overall the intended strategy is for players to consider each and every settler based on their current needs.
+are they at risk of running out of food and water, that farmer is probably more important.
+big raid coming in soon, get the soldier ready
+
+
+TLDR of game balance, Settlers are super important and the key to the game, Players must carefully manage them to ensure survival.
+resources are balanced so that Settlers all together produce an abundence and everything else supplements it
+sicknesses and bandit raids kill settlers and the are main adversarial force
 
 
 
@@ -172,7 +202,7 @@ so we added a 4th mechanic:
 
 
 
-Art and design: (just change some details lines)
+Art and design: 
 - We discussed and used 2D art from design on Canva and Drawing by Ibis for GODOT game (export to use): character, character list, the TV (Main screen).
 - Finish updating the main screen TV (background, light, black room, pick to heal char...)
 - Artstyle anime, sync all about artstyle (tank, character, character book, shop...)

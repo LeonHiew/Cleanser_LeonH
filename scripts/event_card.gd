@@ -24,15 +24,15 @@ var eventInfo: EventInformation = null
 @onready var eventIcon = $VBoxContainer/eventForground/HBoxContainer/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/Control/eventIcon
 
 #resource icons
-@onready var foodImage = preload("res://assets/img/final art/food.png")
-@onready var waterImage = preload("res://assets/img/final art/water.png")
-@onready var goldImage = preload("res://assets/img/final art/gold.png")
-@onready var militaryImage = preload("res://assets/img/final art/military.png")
-@onready var ingenuityImage = preload("res://assets/icon.svg")
+@onready var foodImage = preload("res://assets/img/final art/resize/Food.png")
+@onready var waterImage = preload("res://assets/img/final art/resize/Water.png")
+@onready var goldImage = preload("res://assets/img/final art/resize/Gold.png")
+@onready var militaryImage = preload("res://assets/img/final art/resize/Military.png")
+@onready var ingenuityImage = preload("res://assets/img/final art/resize/Ingenuity_.png")
 
 #card images
-@onready var goodEventImage = preload("res://assets/img/final art/good event.png")
-@onready var badEventImage = preload("res://assets/img/final art/bad event.png")
+@onready var goodEventImage = preload("res://assets/img/final art/resize/Good ev.png")
+@onready var badEventImage = preload("res://assets/img/final art/resize/Bad event.png")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

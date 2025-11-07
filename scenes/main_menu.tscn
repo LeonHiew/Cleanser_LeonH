@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://cslqk31f8yfs7"]
+[gd_scene load_steps=5 format=3 uid="uid://cslqk31f8yfs7"]
 
 [ext_resource type="Script" uid="uid://d3vgpo8t3toay" path="res://scripts/main_menu.gd" id="1_l6cm7"]
 [ext_resource type="Texture2D" uid="uid://d2cebv1cup3ci" path="res://assets/FIT2145 CleanserGame Questionair2 QR.png" id="2_ekxnf"]
 [ext_resource type="Texture2D" uid="uid://dycx4juwj8vp4" path="res://assets/img/final art/GameBackground-Cleanser.png" id="3_bqqt6"]
+[ext_resource type="Texture2D" uid="uid://cked5c4eoxyuf" path="res://assets/icon.svg" id="4_wu84c"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -77,6 +78,10 @@ text = "Cleanser"
 show_behind_parent = true
 position = Vector2(960, 541)
 texture = ExtResource("3_bqqt6")
+
+[node name="Icon" type="Sprite2D" parent="."]
+position = Vector2(93, 92)
+texture = ExtResource("4_wu84c")
 
 [connection signal="pressed" from="AspectRatioContainer/HBoxContainer/VBoxContainer/PlayTestButton" to="." method="_on_play_test_button_pressed"]
 [connection signal="pressed" from="AspectRatioContainer/HBoxContainer/VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]

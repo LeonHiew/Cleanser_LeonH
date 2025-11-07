@@ -1,6 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://d4jaa0dlvk3v4"]
+[gd_scene load_steps=3 format=3 uid="uid://d4jaa0dlvk3v4"]
 
 [ext_resource type="Script" uid="uid://be76ge8beckbx" path="res://scripts/pause_menu.gd" id="1_n87rw"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n87rw"]
+bg_color = Color(0.07016479, 0.07016479, 0.07016479, 0.961)
 
 [node name="PauseMenu" type="Control"]
 process_mode = 3
@@ -32,6 +35,7 @@ size_flags_horizontal = 3
 [node name="PanelContainer" type="PanelContainer" parent="AspectRatioContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_n87rw")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="AspectRatioContainer/HBoxContainer/VBoxContainer/PanelContainer"]
 layout_mode = 2

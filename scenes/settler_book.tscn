@@ -131,7 +131,7 @@ offset_right = 522.0
 offset_bottom = 294.0
 theme_override_font_sizes/font_size = 20
 theme_override_styles/normal = ExtResource("6_5cijy")
-text = "Rest"
+text = "Rest    (-3 food , -3 water)"
 
 [connection signal="pressed" from="BookSprite/CloseButton" to="." method="_on_close_button_pressed"]
 [connection signal="pressed" from="HealButton" to="." method="_on_heal_button_pressed"]

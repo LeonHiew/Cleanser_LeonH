@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=3 uid="uid://brqq4ahdyu8nn"]
+[gd_scene load_steps=50 format=3 uid="uid://brqq4ahdyu8nn"]
 
 [ext_resource type="Script" uid="uid://dqtnf3fpuxi30" path="res://scripts/play_scene.gd" id="1_ief5h"]
 [ext_resource type="Texture2D" uid="uid://dnloh5hajy7lv" path="res://assets/img/backside_of_card1-removebg-preview.png" id="2_kdvgv"]
@@ -31,6 +31,7 @@
 [ext_resource type="Resource" uid="uid://dtnek63rvdth4" path="res://Resources/character_resources/Jessie_settler.tres" id="23_6xl5y"]
 [ext_resource type="StyleBox" uid="uid://cxu13i7rm8yko" path="res://assets/button.tres" id="26_5mqgq"]
 [ext_resource type="Texture2D" uid="uid://cqd5nu03muylh" path="res://assets/img/trade_shop/maid_open.png" id="28_jko1l"]
+[ext_resource type="Texture2D" uid="uid://bh44hvxah8ji4" path="res://assets/img/final art/PlaySceneBG.png" id="32_7ytk0"]
 
 [sub_resource type="Animation" id="Animation_jko1l"]
 length = 0.001
@@ -905,6 +906,11 @@ offset_bottom = 1066.0
 theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = ExtResource("26_5mqgq")
 text = "ShowEventCards"
+
+[node name="PlaySceneBg" type="Sprite2D" parent="."]
+show_behind_parent = true
+position = Vector2(963, 541)
+texture = ExtResource("32_7ytk0")
 
 [connection signal="pressed" from="ProgressButton" to="." method="_on_progress_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/TutorialPanel/close_tutorial" to="." method="_on_close_tutorial_pressed"]

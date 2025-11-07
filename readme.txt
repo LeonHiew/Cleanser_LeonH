@@ -13,6 +13,7 @@ Michael Wang
 ESC 
 	while playing opens up pause menu
 
+
 ## IMPORTANT NOTES FOR TUTORS
 Godot has inbuilt functions that are marked with the prefix "_" 
 for example _ready() is the engines on ready function
@@ -24,6 +25,10 @@ the code produced by us can be found in the scripts folder with the suffix .gd
 
 Godot uses a custom language called gdscript with the same syntax as Python
  
+
+we are also also aware of an annoying bug with godot.
+for some reason every time its updated with git every single piece of text in the game has its spaces (\n) duplicated, resulting in hard coded text displays looking really bad. we tried to fix what we can, but due to time constraints we couldn't eliminate the bug in its entirely
+
 ### Story of the game:
 - The game is set in a post-apocalyptic world ravaged by the nuclear Armageddon caused by the great war. You the player are a "Cleanser" preservers of the powerful  bio-rejuvenation tanks able to cure any and all mental and physical ailments. having completed your initiation you have been charged with the management and construction of a brand new settlement, your task is to ensure the settlements survival by strategically managing its resources until the settlers arrive to live in the town. being a Cleanser you also bring along with you a single bio-rejuvenation tank, usable once a week you must manage its use wisely by strategically choosing each week who gets to use the tank, use it to safe the sickly child? or the farmer vital for food production, the choice is yours and the consequences may be fierce.
 
@@ -106,7 +111,44 @@ This Heal cures them of all sickness as well as increases their mood.
 	Players can choose to make a settler Rest instead of heal them, it doesn't cure them of their illness but ensures that they cannot die from it
 	it does however cost 3 food and water
 
+
+
 ### Level Design ###
+our game is a 2D single screen experience, the player doesn't really explore any environment so all the theory is in context of this.
+
+in this context, landmarks specifically represent a different section of the game that displays information
+
+With this context the game includes two main landmarks, the Settler Tv screens and the information displays.
+
+the Settler TV screens are front and center, visually representing the settlers in the game, most importantly displaying whether or not a settler is sick through colour
+white = not sick, yellow = sick, green = resting
+
+importantly each tv screen with a settler is also a button that opens its respective settlerbook.
+the Settlerbook is also specifically placed in a position under the information displays to ensure the player always has visibility of them
+
+the second landmark, the information displays, exist solely to display important information to the player.
+
+this information has also been categorised
+	left screen: Resources, food, water and scraps
+	left middle screen: power resources, military and ingenuity
+	right middle screen: current heals left (it was the trader screen but we ended up changing it)
+	right screen: time till next raid event, and current round
+
+
+A minor landmark also included is the trader landmark.
+whenever a trader is in town, a small person will appear next to the tv screens, acting as a button to that screen
+
+and finally all the buttons
+The most important button is the progress week button, hence its been placed at the middle bottom section of the screen, as its intended to be assessed last by the player.
+as well as the show events screen on the bottom left, tucked away because most players won't need to look at the events screen again
+
+
+There are also two screens that display over the game when certain conditions are met.
+The first is the event screen that displays when they press show event cards or progress week.
+being information that only affects a round once, it only needs to be displayed once to the player, with the ability to see it again by pressing a button
+
+another is the raid screen that displays the results of a bandit raid, again displayed separately because the player does not need to assess it more than once
+
 
 
 ### Balancing ###

@@ -685,11 +685,6 @@ position = Vector2(499.97845, 278.10074)
 scale = Vector2(222.47292, 179.94753)
 texture = SubResource("CanvasTexture_dta8y")
 
-[node name="SettlerBook" parent="." instance=ExtResource("16_dta8y")]
-visible = false
-top_level = true
-position = Vector2(933, 635)
-
 [node name="BackgroundTVs" type="Sprite2D" parent="."]
 position = Vector2(960, 403.99997)
 scale = Vector2(0.7671647, 0.7671647)
@@ -911,6 +906,10 @@ text = "ShowEventCards"
 show_behind_parent = true
 position = Vector2(963, 541)
 texture = ExtResource("32_7ytk0")
+
+[node name="SettlerBook" parent="." instance=ExtResource("16_dta8y")]
+top_level = true
+position = Vector2(933, 635)
 
 [connection signal="pressed" from="ProgressButton" to="." method="_on_progress_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/TutorialPanel/close_tutorial" to="." method="_on_close_tutorial_pressed"]
